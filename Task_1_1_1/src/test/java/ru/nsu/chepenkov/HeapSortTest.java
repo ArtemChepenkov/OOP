@@ -95,4 +95,12 @@ public class HeapSortTest {
         int[] actual_data = HeapSort.heapsort(test_data);
         assertArrayEquals(actual_data, test_data);
     }
+    @Test
+    @DisplayName("checkArrayOfOneValue")
+    void checkArrayOfOneValue(){
+        int[] test_data = {1,1,1,1,1,1,1};
+        int[] actual_data = HeapSort.heapsort(test_data);
+        assertArrayEquals(actual_data, test_data);
+    }
+
 }
