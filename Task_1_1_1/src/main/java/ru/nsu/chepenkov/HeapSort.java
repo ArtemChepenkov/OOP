@@ -22,24 +22,31 @@ public class HeapSort {
         }
     }
 
-    static int[] heapsort(int[] array, int size) {
-        for (int i = size; i >= 0; i--) {
-            heapify(array, size, i);
+    static int[] heapsort(int[] array) {
+        int size = array.length;
+        int[] new_array = array.clone();
+        for (int i = size / 2 - 1; i >= 0; i--) {
+            heapify(new_array, size, i);
         }
 
         for (int i = size - 1; i > 0; i--) {
-            int temporary = array[0];
-            array[0] = array[i];
-            array[i] = temporary;
-            heapify(array, i, 0);
+            int temporary = new_array[0];
+            new_array[0] = new_array[i];
+            new_array[i] = temporary;
+            heapify(new_array, i, 0);
         }
-        return array;
+        return new_array;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        String input_text = "0";
+        try {
+            input_text = scanner.nextLine();
+        } catch (java.util.NoSuchElementException e) {
+            
+        }
 
-        String input_text = scanner.nextLine();
         String[] str_numbers = input_text.split(" ");
         int length = str_numbers.length;
         int[] array = new int[length];
@@ -48,11 +55,12 @@ public class HeapSort {
             array[i] = Integer.parseInt(str_numbers[i]);
         }
 
-        int[] result = heapsort(array, length);
+        int[] result = heapsort(array);
 
         for (int i = 0; i < length; i++) {
             System.out.print(result[i] + " ");
         }
+        scanner.close();
     }
 }
 
