@@ -2,6 +2,11 @@ package ru.nsu.chepenkov;
 
 import java.util.Scanner;
 
+/**
+ * Класс, в котором реализован алгоритм пирамидальной сортировки.
+ *
+ * @author ArtemChepenkov
+ */
 public class HeapSort {
     static void heapify(int[] array, int size, int i) {
         int maximum = i, temporary;
@@ -24,30 +29,30 @@ public class HeapSort {
 
     static int[] heapsort(int[] array) {
         int size = array.length;
-        int[] new_array = array.clone();
+        int[] newArray = array.clone();
         for (int i = size / 2 - 1; i >= 0; i--) {
-            heapify(new_array, size, i);
+            heapify(newArray, size, i);
         }
 
         for (int i = size - 1; i > 0; i--) {
-            int temporary = new_array[0];
-            new_array[0] = new_array[i];
-            new_array[i] = temporary;
-            heapify(new_array, i, 0);
+            int temporary = newArray[0];
+            newArray[0] = newArray[i];
+            newArray[i] = temporary;
+            heapify(newArray, i, 0);
         }
-        return new_array;
+        return newArray;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String input_text = "0";
+        String inputText = "0";
         try {
-            input_text = scanner.nextLine();
+            inputText = scanner.nextLine();
         } catch (java.util.NoSuchElementException e) {
 
         }
 
-        String[] str_numbers = input_text.split(" ");
+        String[] str_numbers = inputText.split(" ");
         int length = str_numbers.length;
         int[] array = new int[length];
 

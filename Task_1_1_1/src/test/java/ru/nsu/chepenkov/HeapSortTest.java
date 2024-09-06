@@ -1,9 +1,9 @@
 package ru.nsu.chepenkov;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import java.util.Arrays;
+import org.junit.jupiter.api.DisplayName;
 import java.util.Random;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,106 +11,105 @@ public class HeapSortTest {
     @Test
     @DisplayName("checkMain")
     void checkMain() {
-        String[] test_data = new String[]{};
-        HeapSort.main(test_data);
+        String[] testData = new String[]{};
+        HeapSort.main(testData);
         assertTrue(true);
     }
 
     @Test
     @DisplayName("checkSmallArray")
     void checkSmallArray() {
-        int[] test_data = {5, 4, 3, 2, 1};
-        int[] actual_array = HeapSort.heapsort(test_data);
-        int[] expected_array = {1, 2, 3, 4, 5};
-        assertArrayEquals(actual_array, expected_array);
-        assertTrue(actual_array != expected_array);
+        int[] testData = {5, 4, 3, 2, 1};
+        int[] actualArray = HeapSort.heapsort(testData);
+        int[] expectedArray = {1, 2, 3, 4, 5};
+        assertArrayEquals(actualArray, expectedArray);
+        assertTrue(actualArray != expectedArray);
     }
 
     @Test
     @DisplayName("checkBigArray")
     void checkBigArray() {
         Random random = new Random();
-        int[] expected_array = new int[10000];
+        int[] expectedArray = new int[10000];
         for (int i = 0; i < 10000; i++) {
-            expected_array[i] = random.nextInt();
+            expectedArray[i] = random.nextInt();
         }
-        int[] actual_array = HeapSort.heapsort(expected_array);
+        int[] actualArray = HeapSort.heapsort(expectedArray);
 
-        Arrays.sort(expected_array);
+        Arrays.sort(expectedArray);
 
-        assertArrayEquals(actual_array, expected_array);
+        assertArrayEquals(actualArray, expectedArray);
 
-        assertTrue(actual_array != expected_array);
+        assertTrue(actualArray != expectedArray);
     }
 
     @Test
     @DisplayName("checkVeryBigArray")
     void checkVeryBigArray() {
         //25000000
-        int[] expected_array = new int[25000000];//~95Mb
+        int[] expectedArray = new int[25000000];//~95Mb
         Random random = new Random();
         for (int i = 0; i < 25000000; i++) {
-            expected_array[i] = random.nextInt();
+            expectedArray[i] = random.nextInt();
         }
-        int[] actual_array = HeapSort.heapsort(expected_array);
+        int[] actualArray = HeapSort.heapsort(expectedArray);
 
-        Arrays.sort(expected_array);
+        Arrays.sort(expectedArray);
 
-        assertArrayEquals(actual_array, expected_array);
+        assertArrayEquals(actualArray, expectedArray);
 
-        assertTrue(actual_array != expected_array);
+        assertTrue(actualArray != expectedArray);
     }
 
     @Test
     @DisplayName("checkEmptyArray")
     void checkEmptyArray() {
-        int[] test_data = {};
-        int[] actual_array = HeapSort.heapsort(test_data);
-        int[] expected_array = {};
-        assertArrayEquals(actual_array, expected_array);
+        int[] testData = {};
+        int[] actualArray = HeapSort.heapsort(testData);
+        int[] expectedArray = {};
+        assertArrayEquals(actualArray, expectedArray);
     }
 
     @Test
     @DisplayName("checkSingleElementArray")
     void checkSingleElementArray() {
-        int[] test_data = {5};
-        int[] actual_array = HeapSort.heapsort(test_data);
-        int[] expected_array = {5};
-        assertArrayEquals(actual_array, expected_array);
+        int[] testData = {5};
+        int[] actualArray = HeapSort.heapsort(testData);
+        int[] expectedArray = {5};
+        assertArrayEquals(actualArray, expectedArray);
     }
 
     @Test
     @DisplayName("checkCloseToLimitsArray")
     void checkCloseToLimitsArray() {
-        int[] test_data = {Integer.MAX_VALUE, Integer.MIN_VALUE};
-        int[] actual_array = HeapSort.heapsort(test_data);
-        int[] expected_array = {Integer.MIN_VALUE, Integer.MAX_VALUE};
-        assertArrayEquals(actual_array, expected_array);
+        int[] testData = {Integer.MAX_VALUE, Integer.MIN_VALUE};
+        int[] actualArray = HeapSort.heapsort(testData);
+        int[] expectedArray = {Integer.MIN_VALUE, Integer.MAX_VALUE};
+        assertArrayEquals(actualArray, expectedArray);
     }
 
     @Test
     @DisplayName("checkSortedArray")
     void checkSortedArray(){
-        int[] test_data = {1,2,3,4,5};
-        int[] actual_data = HeapSort.heapsort(test_data);
-        assertArrayEquals(actual_data, test_data);
+        int[] testData = {1,2,3,4,5};
+        int[] actualArray = HeapSort.heapsort(testData);
+        assertArrayEquals(actualArray, testData);
     }
 
     @Test
     @DisplayName("checkArrayOfOneValue")
     void checkArrayOfOneValue(){
-        int[] test_data = {1,1,1,1,1,1,1};
-        int[] actual_data = HeapSort.heapsort(test_data);
-        assertArrayEquals(actual_data, test_data);
+        int[] testData = {1,1,1,1,1,1,1};
+        int[] actualArray = HeapSort.heapsort(testData);
+        assertArrayEquals(actualArray, testData);
     }
 
     @Test
     @DisplayName("checkSortRevertArray")
     void checkSortRevertArray(){
-        int[] test_data = {5,4,3,2,1};
-        int[] actual_data = HeapSort.heapsort(test_data);
-        int[] expected_data = {1,2,3,4,5};
-        assertArrayEquals(actual_data, expected_data);
+        int[] testData = {5,4,3,2,1};
+        int[] actualArray = HeapSort.heapsort(testData);
+        int[] expectedArray = {1,2,3,4,5};
+        assertArrayEquals(actualArray, expectedArray);
     }
-
 }
