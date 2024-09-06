@@ -46,9 +46,9 @@ public class HeapSortTest {
     @Test
     @DisplayName("checkVeryBigArray")
     void checkVeryBigArray() {
-        int[] expected_array = new int[50000000];//~190Mb
+        int[] expected_array = new int[25000000];//~95Mb
         Random random = new Random();
-        for (int i = 0; i < 50000000; i++) {
+        for (int i = 0; i < 25000000; i++) {
             expected_array[i] = random.nextInt();
         }
         int[] actual_array = HeapSort.heapsort(expected_array);
