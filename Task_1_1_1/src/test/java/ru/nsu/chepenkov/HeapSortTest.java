@@ -1,11 +1,12 @@
 package ru.nsu.chepenkov;
 
-import java.util.Arrays;
-import org.junit.jupiter.api.DisplayName;
-import java.util.Random;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Arrays;
+import java.util.Random;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class HeapSortTest {
     @Test
@@ -46,7 +47,6 @@ public class HeapSortTest {
     @Test
     @DisplayName("checkVeryBigArray")
     void checkVeryBigArray() {
-        //25000000
         int[] expectedArray = new int[25000000];//~95Mb
         Random random = new Random();
         for (int i = 0; i < 25000000; i++) {
@@ -90,26 +90,26 @@ public class HeapSortTest {
 
     @Test
     @DisplayName("checkSortedArray")
-    void checkSortedArray(){
-        int[] testData = {1,2,3,4,5};
+    void checkSortedArray() {
+        int[] testData = {1, 2, 3, 4, 5};
         int[] actualArray = HeapSort.heapsort(testData);
         assertArrayEquals(actualArray, testData);
     }
 
     @Test
     @DisplayName("checkArrayOfOneValue")
-    void checkArrayOfOneValue(){
-        int[] testData = {1,1,1,1,1,1,1};
+    void checkArrayOfOneValue() {
+        int[] testData = {1, 1, 1, 1, 1, 1, 1};
         int[] actualArray = HeapSort.heapsort(testData);
         assertArrayEquals(actualArray, testData);
     }
 
     @Test
     @DisplayName("checkSortRevertArray")
-    void checkSortRevertArray(){
-        int[] testData = {5,4,3,2,1};
+    void checkSortRevertArray() {
+        int[] testData = {5, 4, 3, 2, 1};
         int[] actualArray = HeapSort.heapsort(testData);
-        int[] expectedArray = {1,2,3,4,5};
+        int[] expectedArray = {1, 2, 3, 4, 5};
         assertArrayEquals(actualArray, expectedArray);
     }
 }
