@@ -44,7 +44,7 @@ public class HeapSort {
         try {
             input_text = scanner.nextLine();
         } catch (java.util.NoSuchElementException e) {
-            
+
         }
 
         String[] str_numbers = input_text.split(" ");
