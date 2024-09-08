@@ -112,4 +112,14 @@ public class HeapSortTest {
         int[] expectedArray = {1, 2, 3, 4, 5};
         assertArrayEquals(actualArray, expectedArray);
     }
+
+    @Test
+    @DisplayName("checkOnlyNegativeArray")
+    void checkOnlyNegativeArray(){
+        int[] testData = {-4, -10, -1, -5, -2};
+        int[] actualArray = HeapSort.heapsort(testData);
+        int[] expectedArray = {-10, -5, -4, -2 , -1};
+        assertArrayEquals(actualArray, expectedArray);
+
+    }
 }
