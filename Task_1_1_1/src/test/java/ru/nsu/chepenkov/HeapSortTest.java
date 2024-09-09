@@ -9,7 +9,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-
+/**
+ * Класс для проверки алгоритма пирамидальной сортировки.
+ *
+ * @author ArtemChepenkov
+ */
 public class HeapSortTest {
     @Test
     @DisplayName("checkMain")
@@ -117,7 +121,7 @@ public class HeapSortTest {
 
     @Test
     @DisplayName("checkOnlyNegativeArray")
-    void checkOnlyNegativeArray(){
+    void checkOnlyNegativeArray() {
         int[] testData = {-4, -10, -1, -5, -2};
         int[] actualArray = HeapSort.heapsort(testData);
         int[] expectedArray = {-10, -5, -4, -2 , -1};
