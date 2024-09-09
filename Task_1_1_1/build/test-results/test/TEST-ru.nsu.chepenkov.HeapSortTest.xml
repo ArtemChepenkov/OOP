@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.chepenkov.HeapSortTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2024-09-08T15:38:32" hostname="HONOR_MIRACLE" time="8.873">
+  <properties/>
+  <testcase name="checkSmallArray" classname="ru.nsu.chepenkov.HeapSortTest" time="0.037"/>
+  <testcase name="checkSortRevertArray" classname="ru.nsu.chepenkov.HeapSortTest" time="0.001"/>
+  <testcase name="checkVeryBigArray" classname="ru.nsu.chepenkov.HeapSortTest" time="8.772"/>
+  <testcase name="checkBigArray" classname="ru.nsu.chepenkov.HeapSortTest" time="0.006"/>
+  <testcase name="checkOnlyNegativeArray" classname="ru.nsu.chepenkov.HeapSortTest" time="0.005"/>
+  <testcase name="checkArrayOfOneValue" classname="ru.nsu.chepenkov.HeapSortTest" time="0.002"/>
+  <testcase name="checkEmptyArray" classname="ru.nsu.chepenkov.HeapSortTest" time="0.001"/>
+  <testcase name="checkSingleElementArray" classname="ru.nsu.chepenkov.HeapSortTest" time="0.001"/>
+  <testcase name="checkCloseToLimitsArray" classname="ru.nsu.chepenkov.HeapSortTest" time="0.001"/>
+  <testcase name="checkMain" classname="ru.nsu.chepenkov.HeapSortTest" time="0.011"/>
+  <testcase name="checkSortedArray" classname="ru.nsu.chepenkov.HeapSortTest" time="0.002"/>
+  <system-out><![CDATA[0 ]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
