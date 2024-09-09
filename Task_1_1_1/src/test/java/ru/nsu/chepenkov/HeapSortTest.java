@@ -53,7 +53,7 @@ public class HeapSortTest {
     @Test
     @DisplayName("checkVeryBigArray")
     void checkVeryBigArray() {
-        int[] expectedArray = new int[25000000];//~95Mb
+        int[] expectedArray = new int[25000000]; //~95Mb
         Random random = new Random();
         for (int i = 0; i < 25000000; i++) {
             expectedArray[i] = random.nextInt();
@@ -124,7 +124,7 @@ public class HeapSortTest {
     void checkOnlyNegativeArray() {
         int[] testData = {-4, -10, -1, -5, -2};
         int[] actualArray = HeapSort.heapsort(testData);
-        int[] expectedArray = {-10, -5, -4, -2 , -1};
+        int[] expectedArray = {-10, -5, -4, -2, -1};
         assertArrayEquals(actualArray, expectedArray);
 
     }
