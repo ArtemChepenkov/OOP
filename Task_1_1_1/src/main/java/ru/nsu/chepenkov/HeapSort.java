@@ -68,8 +68,7 @@ public class HeapSort {
         String inputText = "0";
         try {
             inputText = scanner.nextLine();
-        }
-        catch (java.util.NoSuchElementException e){
+        } catch (java.util.NoSuchElementException e) {
             System.out.println("Exception occured");
         }
         String[] strNumbers = inputText.split(" ");
