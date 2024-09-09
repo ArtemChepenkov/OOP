@@ -66,7 +66,12 @@ public class HeapSort {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String inputText = "0";
-        inputText = scanner.nextLine();
+        try {
+            inputText = scanner.nextLine();
+        }
+        catch (java.util.NoSuchElementException e){
+            System.out.println("Exception occured");
+        }
         String[] strNumbers = inputText.split(" ");
         int length = strNumbers.length;
         int[] array = new int[length];
