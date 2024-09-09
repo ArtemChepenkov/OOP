@@ -8,8 +8,17 @@ import java.util.Scanner;
  * @author ArtemChepenkov
  */
 public class HeapSort {
+
+    /**
+     * Рекурсивная функция для создания кучи.
+     *
+     * @param array - массив, который мы меняем
+     * @param size - размер
+     * @param i - то, где мы сейчас
+     */
     static void heapify(int[] array, int size, int i) {
-        int maximum = i, temporary;
+        int maximum = i;
+        int temporary;
         int left = 2 * i + 1;
         int right = 2 * i + 2;
 
@@ -27,6 +36,12 @@ public class HeapSort {
         }
     }
 
+    /**
+     * Сама функция хипсорта.
+     *
+     * @param array - массив, который мы сортируем
+     * @return - возвращает новый массив
+     */
     static int[] heapsort(int[] array) {
         int size = array.length;
         int[] newArray = array.clone();
@@ -43,15 +58,15 @@ public class HeapSort {
         return newArray;
     }
 
+    /**
+     * Сама функция main.
+     *
+     * @param args - не используется
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String inputText = "0";
-        try {
-            inputText = scanner.nextLine();
-        } catch (java.util.NoSuchElementException e) {
-
-        }
-
+        inputText = scanner.nextLine();
         String[] strNumbers = inputText.split(" ");
         int length = strNumbers.length;
         int[] array = new int[length];
