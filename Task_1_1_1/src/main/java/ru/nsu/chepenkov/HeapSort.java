@@ -52,12 +52,12 @@ public class HeapSort {
 
         }
 
-        String[] str_numbers = inputText.split(" ");
-        int length = str_numbers.length;
+        String[] strNumbers = inputText.split(" ");
+        int length = strNumbers.length;
         int[] array = new int[length];
 
         for (int i = 0; i < length; i++) {
-            array[i] = Integer.parseInt(str_numbers[i]);
+            array[i] = Integer.parseInt(strNumbers[i]);
         }
 
         int[] result = heapsort(array);
