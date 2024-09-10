@@ -8,7 +8,6 @@ import java.util.Scanner;
  * @author ArtemChepenkov
  */
 public class HeapSort {
-    static int amount = 0;
     /**
      * Рекурсивная функция для создания кучи.
      *
