@@ -27,13 +27,11 @@ public class HeapSort {
         }
         if (right < size && array[right] > array[maximum]) {
             maximum = right;
-            amount++;
         }
         if (maximum != i) {
             temporary = array[i];
             array[i] = array[maximum];
             array[maximum] = temporary;
-            amount += 3;
             heapify(array, size, maximum);
         }
     }
@@ -49,14 +47,12 @@ public class HeapSort {
         int[] newArray = array.clone();
         for (int i = size / 2 - 1; i >= 0; i--) {
             heapify(newArray, size, i);
-            amount++;
         }
 
         for (int i = size - 1; i > 0; i--) {
             int temporary = newArray[0];
             newArray[0] = newArray[i];
             newArray[i] = temporary;
-            amount+=2;
             heapify(newArray, i, 0);
         }
         return newArray;
@@ -89,7 +85,7 @@ public class HeapSort {
             System.out.print(result[i] + " ");
         }
         System.out.println();
-        System.out.println(amount);
+
         scanner.close();
     }
 }
