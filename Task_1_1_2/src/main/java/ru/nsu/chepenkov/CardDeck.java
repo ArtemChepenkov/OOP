@@ -2,6 +2,11 @@ package ru.nsu.chepenkov;
 
 import java.util.Random;
 
+/**
+ * Класс, который реализует собой колоду карт(состоящую из нескольких колод)
+ *
+ * @author Artem Chepenkov
+ */
 public class CardDeck {
     private String[] suits = {"Червы", "Буби", "Трефы", "Пики"};
     private String[] names = {"Двойка", "Тройка", "Четвёрка",
@@ -11,6 +16,9 @@ public class CardDeck {
     Card[] cards;
     private int counter;
 
+    /**
+     * Конструктор класса.
+     */
     public CardDeck(int deckAmount) {
         Random random = new Random();
         Card[] array = new Card[52 * deckAmount];
@@ -33,6 +41,9 @@ public class CardDeck {
         }
     }
 
+    /**
+     * Функция для достования крайней карты.
+     */
     public Card takeLastCard() {
         this.counter--;
         return this.cards[this.counter];

@@ -1,11 +1,19 @@
 package ru.nsu.chepenkov;
 
+/**
+ * Класс, который реализует собой стол, на котором и просходит основная игра.
+ *
+ * @author Artem Chepenkov
+ */
 public class Table {
     private int dealerScore;
     private int playerScore;
     private int dealerIndex;
     private int playerIndex;
 
+    /**
+     * Конструктор класс.
+     */
     public Table() {
         this.dealerIndex = 0;
         this.playerIndex = 0;
@@ -13,6 +21,9 @@ public class Table {
         this.playerScore = 0;
     }
 
+    /**
+     * Функция для начальной раздачи карт.
+     */
     public void dealingCards(Card[] dealerCards, Card[] playerCards, CardDeck cardDeck) {
         Card curCard1, curCard2;
 
@@ -33,6 +44,11 @@ public class Table {
         this.playerScore += curCard1.getNumber() + curCard2.getNumber();
     }
 
+    /**
+     * Функция, которая выводит карты.
+     *
+     * @param needClosedCard - для случая дилера, когда нужно закрыть карту
+     */
     public void showCards(String whoseCards, Card[] cards, boolean needClosedCard) {
         int curInd;
         int curScore;
@@ -63,6 +79,9 @@ public class Table {
         }
     }
 
+    /**
+     * Функция для проверки счёта на правильность.
+     */
     public boolean checkValid(int score) {
         if (score > 21) {
             return false;
@@ -70,6 +89,9 @@ public class Table {
         return true;
     }
 
+    /**
+     * Функция для определения победителя.
+     */
     public String checkWinner() {
         if (this.playerScore > this.dealerScore) {
             return "player";
@@ -83,6 +105,9 @@ public class Table {
 
     }
 
+    /**
+     * Функция для определения в чью пользу общий счёт.
+     */
     public void whoHasMoreWins(int playerWins, int dealerWins) {
         if (playerWins > dealerWins) {
             System.out.println(" в вашу пользу");
@@ -97,34 +122,58 @@ public class Table {
         }
     }
 
+    /**
+     * Геттер для индекса дилера.
+     */
     public int getDealerIndex() {
         return this.dealerIndex;
     }
 
+    /**
+     * Геттер для индекса игрока.
+     */
     public int getPlayerIndex() {
         return this.playerIndex;
     }
 
+    /**
+     * Геттер для счёта дилера.
+     */
     public int getDealerScore() {
         return this.dealerScore;
     }
 
+    /**
+     * Геттер для счёта игрока.
+     */
     public int getPlayerScore() {
         return this.playerScore;
     }
 
+    /**
+     * Сеттер для счёта дилера.
+     */
     public void setDealerScore(int score) {
         this.dealerScore += score;
     }
 
+    /**
+     * Сеттер для счёта игрока.
+     */
     public void setPlayerScore(int score) {
         this.playerScore += score;
     }
 
+    /**
+     * Функция для увеличения индекса игрока в массиве карт.
+     */
     public void increasePlayerIndex() {
         this.playerIndex++;
     }
 
+    /**
+     * Функция для увеличения индекса дилера в массиве карт.
+     */
     public void increaseDealerIndex() {
         this.dealerIndex++;
     }
