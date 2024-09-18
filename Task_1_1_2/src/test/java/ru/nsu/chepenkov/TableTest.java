@@ -1,12 +1,12 @@
 package ru.nsu.chepenkov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
+import org.junit.jupiter.api.Test;
 import java.io.PrintStream;
 
 /**
@@ -48,7 +48,7 @@ public class TableTest {
         table.increasePlayerIndex();
         table.setPlayerScore(5);
         Card[] cards = {new Card("Трефы", "Двойка", 2),
-        new Card("Буби", "Тройка", 3)};
+                        new Card("Буби", "Тройка", 3)};
 
         table.showCards("player", cards, false);
 
@@ -81,7 +81,7 @@ public class TableTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
-        table.whoHasMoreWins(1,2);
+        table.whoHasMoreWins(1, 2);
 
         String expectedOutput = "в пользу дилера";
         assertEquals(expectedOutput, outContent.toString().trim());

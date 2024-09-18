@@ -15,7 +15,7 @@ public class CardTest {
 
     @Test
     @DisplayName("cardTestClassConstructor")
-    void cardTestClassConstructor(){
+    void cardTestClassConstructor() {
         Card card = new Card("Трефы", "Туз", 11);
         assertNotNull(card);
     }
