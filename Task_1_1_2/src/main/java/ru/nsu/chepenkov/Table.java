@@ -95,19 +95,19 @@ public class Table {
     }
 
     public int getDealerIndex() {
-        return dealerIndex;
+        return this.dealerIndex;
     }
 
     public int getPlayerIndex() {
-        return playerIndex;
+        return this.playerIndex;
     }
 
     public int getDealerScore() {
-        return dealerScore;
+        return this.dealerScore;
     }
 
     public int getPlayerScore() {
-        return playerScore;
+        return this.playerScore;
     }
 
     public void setDealerScore(int score) {
