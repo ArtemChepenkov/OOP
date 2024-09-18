@@ -10,9 +10,9 @@ import java.util.Random;
 public class CardDeck {
     private String[] suits = {"Червы", "Буби", "Трефы", "Пики"};
     private String[] names = {"Двойка", "Тройка", "Четвёрка",
-            "Пятёрка", "Шестёрка", "Семёрка", "Восьмёрка",
-            "Девятка", "Десятка", "Валет", "Дама",
-            "Король", "Туз"};
+                              "Пятёрка", "Шестёрка", "Семёрка", "Восьмёрка",
+                              "Девятка", "Десятка", "Валет", "Дама",
+                              "Король", "Туз"};
     Card[] cards;
     private int counter;
 
@@ -28,7 +28,7 @@ public class CardDeck {
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j <= 12; j++) {
                     array[(13 * i + j) + 52 * k] = new Card(suits[i],
-                            names[j], j == 12? 11 : (j > 8 ? 10 : j + 2));
+                            names[j], j == 12 ? 11 : (j > 8 ? 10 : j + 2));
                 }
             }
             this.cards = array;
