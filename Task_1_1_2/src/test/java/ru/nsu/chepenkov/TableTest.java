@@ -2,7 +2,7 @@ package ru.nsu.chepenkov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
