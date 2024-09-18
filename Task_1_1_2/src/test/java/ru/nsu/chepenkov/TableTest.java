@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.DisplayName;
 import java.io.ByteArrayOutputStream;
-import org.junit.jupiter.api.Test;
 import java.io.PrintStream;
+import org.junit.jupiter.api.Test;
 
 /**
  * Класс TableTest предназначен для тестирования класса Table.
@@ -33,7 +33,7 @@ public class TableTest {
         Card[] playerCards = new Card[maxCards];
         Card[] dealerCards = new Card[maxCards];
         table.dealingCards(dealerCards, playerCards, cardDeck);
-        assertEquals(table.getDealerIndex(),2);
+        assertEquals(table.getDealerIndex(), 2);
         assertEquals(table.getPlayerIndex(), 2);
     }
 

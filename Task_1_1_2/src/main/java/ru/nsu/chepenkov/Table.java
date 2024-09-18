@@ -1,7 +1,10 @@
 package ru.nsu.chepenkov;
 
 public class Table {
-    private int dealerScore, playerScore, dealerIndex, playerIndex;
+    private int dealerScore;
+    private int playerScore;
+    private int dealerIndex;
+    private int playerIndex;
 
     public Table() {
         this.dealerIndex = 0;
@@ -10,7 +13,7 @@ public class Table {
         this.playerScore = 0;
     }
 
-    public void dealingCards(Card[] dealerCards, Card[] playerCards, CardDeck cardDeck){
+    public void dealingCards(Card[] dealerCards, Card[] playerCards, CardDeck cardDeck) {
         Card curCard1, curCard2;
 
         curCard1 = cardDeck.takeLastCard();
@@ -34,24 +37,24 @@ public class Table {
         int curInd;
         int curScore;
         whoseCards = whoseCards.toLowerCase();
-        if(whoseCards.equals("player")){
+        if(whoseCards.equals("player")) {
             curInd = this.playerIndex;
             curScore = this.playerScore;
             System.out.print("\tВаши карты: [");
-        } else{
+        } else {
             curInd = this.dealerIndex;
             curScore = this.dealerScore;
             System.out.print("\tКарты дилера: [");
         }
 
-        for(int i = 0; i < curInd; i++){
+        for(int i = 0; i < curInd; i++) {
             if (needClosedCard && i == curInd - 1) {
                 System.out.print("<закрытая карта>]\n");
                 break;
             }
-            System.out.print(cards[i].getName() + " " +
-                    cards[i].getSuit() +
-                    "(" + cards[i].getNumber() + ")");
+            System.out.print(cards[i].getName() + " "
+                    + cards[i].getSuit()
+                    + "(" + cards[i].getNumber() + ")");
             if(i != curInd - 1) {
                 System.out.print(", ");
             } else {
