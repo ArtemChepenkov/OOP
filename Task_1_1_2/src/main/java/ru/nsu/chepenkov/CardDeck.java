@@ -19,7 +19,8 @@ public class CardDeck {
         for (int k = 0; k < deckAmount; k++) {
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j <= 12; j++) {
-                    array[(13 * i + j) + 52 * k] = new Card(suits[i], names[j], j == 12? 11: (j > 8 ? 10 : j + 2));
+                    array[(13 * i + j) + 52 * k] = new Card(suits[i],
+                            names[j], j == 12? 11 : (j > 8 ? 10 : j + 2));
                 }
             }
             this.cards = array;

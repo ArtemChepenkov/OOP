@@ -11,14 +11,13 @@ public class Main {
 
     /**
      * Функция checkHand() проверяет можно ли изменить проигрышную ситуацию.
-     *
      * При счёте больше 21-го она пытается заменить номинал тузов
      */
     public static int checkHand(Table table, Card[] cards, int score, int index) {
         int subScore = 0;
         if (score > 21) {
             for (int i = 0; i < index; i++) {
-                if (cards[i].getNumber() == 11){
+                if (cards[i].getNumber() == 11) {
                     subScore += 10;
                     cards[i].setNumber(1);
                 }
@@ -29,8 +28,7 @@ public class Main {
 
     /**
      * Главная функция, в которой и проходит игра.
-     *
-     * Количество колод и раундов задаётся константами
+     * Количество раундов и колод задаётся константами
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -68,7 +66,7 @@ public class Main {
 
             playerChoice = scanner.nextInt();
 
-            while (playerChoice == 1){
+            while (playerChoice == 1) {
 
                 tempCard = cardDeck.takeLastCard();
 
@@ -76,13 +74,14 @@ public class Main {
                     tempCard.setNumber(1);
                 }
 
-                System.out.println("Вы открыли карту" + " " +
-                        tempCard.getName() + " " + tempCard.getSuit() +
-                        "(" + tempCard.getNumber() + ")");
+                System.out.println("Вы открыли карту" + " "
+                        + tempCard.getName() + " " + tempCard.getSuit()
+                        + "(" + tempCard.getNumber() + ")");
                 table.setPlayerScore(tempCard.getNumber());
                 playerCards[table.getPlayerIndex()] = tempCard;
                 table.increasePlayerIndex();
-                int subScore = checkHand(table, playerCards, table.getPlayerScore(), table.getPlayerIndex());
+                int subScore = checkHand(table, playerCards, table.getPlayerScore(),
+                        table.getPlayerIndex());
                 table.setPlayerScore(-subScore);
                 table.showCards("player", playerCards, false);
                 isValid = table.checkValid(table.getPlayerScore());
@@ -97,16 +96,16 @@ public class Main {
                 playerChoice = scanner.nextInt();
             }
 
-            if (needSkip){
+            if (needSkip) {
                 continue;
             }
 
             System.out.println("Ход диллера");
             System.out.println("-------");
             System.out.print("Диллер открывает закрытую карту ");
-            System.out.print(dealerCards[table.getDealerIndex() - 1].getName() + " " +
-                    dealerCards[table.getDealerIndex() - 1].getSuit() + " " +
-                    "(" + dealerCards[table.getDealerIndex() - 1].getNumber() + ")\n");
+            System.out.print(dealerCards[table.getDealerIndex() - 1].getName() + " "
+                    + dealerCards[table.getDealerIndex() - 1].getSuit() + " "
+                    + "(" + dealerCards[table.getDealerIndex() - 1].getNumber() + ")\n");
 
             table.showCards("dealer", dealerCards, false);
 
@@ -131,7 +130,7 @@ public class Main {
                     needSkip = true;
                 }
             }
-            if (needSkip){
+            if (needSkip) {
                 continue;
             }
             System.out.println();
