@@ -17,7 +17,7 @@ public class MainTest {
     @DisplayName("mainTest")
     void mainTest() {
         InputStream stdin = System.in;
-        System.setIn(new ByteArrayInputStream("0\n1\n0\n0\n0\n".getBytes()));
+        System.setIn(new ByteArrayInputStream("0\n1\n0\n0\n0\n0\n".getBytes()));
         Main.main(new String[0]);
         System.setIn(stdin);
         assertTrue(true);
