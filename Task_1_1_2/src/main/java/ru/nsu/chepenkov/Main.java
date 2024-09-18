@@ -104,10 +104,11 @@ public class Main {
                 table.increaseDealerIndex();
                 table.setDealerScore(tempCard.getNumber());
                 isValid = table.checkValid(table.getDealerScore());
-                int subScore = checkHand(table, dealerCards, table.getDealerScore(), table.getDealerIndex());
+                int subScore = checkHand(table, dealerCards, table.getDealerScore(),
+                        table.getDealerIndex());
                 table.setDealerScore(-subScore);
                 table.showCards("dealer", dealerCards, false);
-                if (!isValid){
+                if (!isValid) {
                     playerWins++;
                     System.out.println("У диллера сумма очков больше 21-го.\nВы выиграли раунд");
                     System.out.print("Счёт " + playerWins + ":" + dealerWins);
