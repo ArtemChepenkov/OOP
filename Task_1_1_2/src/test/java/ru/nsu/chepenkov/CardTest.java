@@ -6,8 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
-
+/**
+ * Класс CardTest предназначен для тестирования класса Card.
+ *
+ * @author Artem Chepenkov
+ */
 public class CardTest {
 
     @Test

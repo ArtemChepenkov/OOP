@@ -2,8 +2,18 @@ package ru.nsu.chepenkov;
 
 import java.util.Scanner;
 
+/**
+ * В классе Main происходит сам процесс игры.
+ *
+ * @author Artem Chepenkov
+ */
 public class Main {
-    
+
+    /**
+     * Функция checkHand() проверяет можно ли изменить проигрышную ситуацию.
+     *
+     * При счёте больше 21-го она пытается заменить номинал тузов
+     */
     public static int checkHand(Table table, Card[] cards, int score, int index) {
         int subScore = 0;
         if (score > 21) {
@@ -17,6 +27,11 @@ public class Main {
         return subScore;
     }
 
+    /**
+     * Главная функция, в которой и проходит игра.
+     *
+     * Количество колод и раундов задаётся константами
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String curWinner;

@@ -1,10 +1,16 @@
 package ru.nsu.chepenkov;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ * Класс CardDeckTest предназначен для тестирования класса CardDeck.
+ *
+ * @author Artem Chepenkov
+ */
 public class CardDeckTest {
 
     @Test

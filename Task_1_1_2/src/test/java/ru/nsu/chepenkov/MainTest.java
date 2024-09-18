@@ -4,11 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-
+/**
+ * Класс MainTest предназначен для тестирования класса Main.
+ *
+ * @author Artem Chepenkov
+ */
 public class MainTest {
     @Test
     @DisplayName("mainTest")

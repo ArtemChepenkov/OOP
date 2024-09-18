@@ -1,5 +1,10 @@
 package ru.nsu.chepenkov;
 
+/**
+ * Класс, описывающий карту.
+ *
+ * Описывается масть, название, номинал
+ */
 public class Card {
     private String suit, name;
     private int number;

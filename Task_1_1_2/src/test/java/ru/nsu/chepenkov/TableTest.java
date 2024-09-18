@@ -1,13 +1,19 @@
 package ru.nsu.chepenkov;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ * Класс TableTest предназначен для тестирования класса Table.
+ *
+ * @author Artem Chepenkov
+ */
 public class TableTest {
 
     @Test
