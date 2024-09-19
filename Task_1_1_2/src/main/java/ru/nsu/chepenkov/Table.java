@@ -25,7 +25,8 @@ public class Table {
      * Функция для начальной раздачи карт.
      */
     public void dealingCards(Card[] dealerCards, Card[] playerCards, CardDeck cardDeck) {
-        Card curCard1, curCard2;
+        Card curCard1;
+        Card curCard2;
 
         curCard1 = cardDeck.takeLastCard();
         curCard2 = cardDeck.takeLastCard();
@@ -53,7 +54,7 @@ public class Table {
         int curInd;
         int curScore;
         whoseCards = whoseCards.toLowerCase();
-        if(whoseCards.equals("player")) {
+        if (whoseCards.equals("player")) {
             curInd = this.playerIndex;
             curScore = this.playerScore;
             System.out.print("\tВаши карты: [");
@@ -63,7 +64,7 @@ public class Table {
             System.out.print("\tКарты дилера: [");
         }
 
-        for(int i = 0; i < curInd; i++) {
+        for (int i = 0; i < curInd; i++) {
             if (needClosedCard && i == curInd - 1) {
                 System.out.print("<закрытая карта>]\n");
                 break;
@@ -71,7 +72,7 @@ public class Table {
             System.out.print(cards[i].getName() + " "
                     + cards[i].getSuit()
                     + "(" + cards[i].getNumber() + ")");
-            if(i != curInd - 1) {
+            if (i != curInd - 1) {
                 System.out.print(", ");
             } else {
                 System.out.print("] => " + curScore +"\n");

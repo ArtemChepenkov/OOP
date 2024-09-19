@@ -3,8 +3,8 @@ package ru.nsu.chepenkov;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
-import org.junit.jupiter.api.DisplayName;
 import java.io.InputStream;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
