@@ -41,6 +41,9 @@ public class CardDeckTest {
         assertNotNull(cardDeck);
     }
 
+    /**
+     * Функция проверяет достаётся ли крайняя карта.
+     */
     @Test
     @DisplayName("cardDeckTestTakeLastCard")
     void cardDeckTestTakeLastCard() {

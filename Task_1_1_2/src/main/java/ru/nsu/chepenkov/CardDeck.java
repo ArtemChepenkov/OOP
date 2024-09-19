@@ -33,7 +33,7 @@ public class CardDeck {
             }
             this.cards = array;
         }
-        for (int i = 52 * deckAmount - 1; i > 0 ; i--) {
+        for (int i = 52 * deckAmount - 1; i > 0; i--) {
             int j = random.nextInt(i + 1);
             temp = this.cards[i];
             this.cards[i] = this.cards[j];
