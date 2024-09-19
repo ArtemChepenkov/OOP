@@ -6,7 +6,8 @@ package ru.nsu.chepenkov;
  * Описывается масть, название, номинал
  */
 public class Card {
-    private String suit, name;
+    private String suit;
+    private String name;
     private int number;
 
     /**

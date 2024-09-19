@@ -75,7 +75,7 @@ public class Table {
             if (i != curInd - 1) {
                 System.out.print(", ");
             } else {
-                System.out.print("] => " + curScore +"\n");
+                System.out.print("] => " + curScore + "\n");
             }
         }
     }

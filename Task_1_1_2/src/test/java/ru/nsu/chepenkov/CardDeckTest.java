@@ -13,6 +13,11 @@ import org.junit.jupiter.api.Test;
  */
 public class CardDeckTest {
 
+    /**
+     * Функция тестирует, как создаётся общая колода.
+     * Я взял четыре карты, и проверил лежат ли они в колоде
+     * По моему предположению, если есть эти четыре карты, то в колоде есть и все карты
+     */
     @Test
     @DisplayName("cardDeckTestClassConstructor")
     void cardDeckTestClassConstructor() {
