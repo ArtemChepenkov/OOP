@@ -1,4 +1,4 @@
-package ru.nsu.chepenkov;
+package ru.nsu.chepenkov.blackjack;
 
 /**
  * Класс, описывающий карту.

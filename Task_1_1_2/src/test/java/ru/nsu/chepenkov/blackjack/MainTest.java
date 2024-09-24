@@ -1,4 +1,4 @@
-package ru.nsu.chepenkov;
+package ru.nsu.chepenkov.blackjack;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

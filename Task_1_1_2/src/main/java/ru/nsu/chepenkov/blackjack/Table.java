@@ -1,4 +1,4 @@
-package ru.nsu.chepenkov;
+package ru.nsu.chepenkov.blackjack;
 
 /**
  * Класс, который реализует собой стол, на котором и просходит основная игра.
