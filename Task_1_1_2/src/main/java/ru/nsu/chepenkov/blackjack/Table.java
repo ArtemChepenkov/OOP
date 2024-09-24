@@ -84,10 +84,7 @@ public class Table {
      * Функция для проверки счёта на правильность.
      */
     public boolean checkValid(int score) {
-        if (score > 21) {
-            return false;
-        }
-        return true;
+        return score <= 21;
     }
 
     /**

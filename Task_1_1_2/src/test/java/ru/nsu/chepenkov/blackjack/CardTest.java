@@ -16,35 +16,35 @@ public class CardTest {
     @Test
     @DisplayName("cardTestClassConstructor")
     void cardTestClassConstructor() {
-        Card card = new Card("Трефы", "Туз", 11);
+        Card card = new Card(Rank.ACE, "Трефы");
         assertNotNull(card);
     }
 
     @Test
     @DisplayName("cardTestGetNumber")
     void cardTestGetNumber() {
-        Card card = new Card("Трефы", "Туз", 11);
+        Card card = new Card(Rank.ACE, "Трефы");
         assertEquals(card.getNumber(), 11);
     }
 
     @Test
     @DisplayName("cardTestGetName")
     void cardTestGetName() {
-        Card card = new Card("Трефы", "Туз", 11);
+        Card card = new Card(Rank.ACE, "Трефы");
         assertEquals(card.getName(), "Туз");
     }
 
     @Test
     @DisplayName("cardTestGetSuit")
     void cardTestGetSuit() {
-        Card card = new Card("Трефы", "Туз", 11);
+        Card card = new Card(Rank.ACE, "Трефы");
         assertEquals(card.getSuit(), "Трефы");
     }
 
     @Test
     @DisplayName("cardTestSetNumber")
     void cardTestSetNumber() {
-        Card card = new Card("Трефы", "Туз", 11);
+        Card card = new Card(Rank.ACE, "Трефы");
         card.setNumber(1);
         assertEquals(card.getNumber(), 1);
     }

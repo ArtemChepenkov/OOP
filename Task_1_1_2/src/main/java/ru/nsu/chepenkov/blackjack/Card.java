@@ -12,10 +12,10 @@ public class Card {
     /**
      * Конструктор класса.
      */
-    public Card(String suit, String name, int number) {
+    public Card(Rank name, String suit) {
         this.suit = suit;
-        this.name = name;
-        this.number = number;
+        this.name = name.getRankName();
+        this.number = name.getRankValue();
     }
 
     /**
