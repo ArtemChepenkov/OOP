@@ -30,7 +30,7 @@ public class CardDeck {
         }
         Collections.shuffle(list);
         this.cards = list;
-   }
+    }
 
     /**
      * Функция для доставания крайней карты.
