@@ -161,4 +161,18 @@ public class Table {
     public void setPlayerScore(int score) {
         this.playerScore += score;
     }
+
+    /**
+     * Функция для увеличения индекса игрока в массиве карт.
+     */
+    public void increasePlayerIndex() {
+        this.playerIndex++;
+    }
+
+    /**
+     * Функция для увеличения индекса дилера в массиве карт.
+     */
+    public void increaseDealerIndex() {
+        this.dealerIndex++;
+    }
 }
