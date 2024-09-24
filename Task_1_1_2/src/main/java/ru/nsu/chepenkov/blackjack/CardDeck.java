@@ -36,6 +36,6 @@ public class CardDeck {
      * Функция для доставания крайней карты.
      */
     public Card takeLastCard() {
-        return list.removeLast();
+        return list.remove(list.size() - 1);
     }
 }
