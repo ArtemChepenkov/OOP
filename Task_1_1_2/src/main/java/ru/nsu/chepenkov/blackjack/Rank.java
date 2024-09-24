@@ -1,5 +1,9 @@
 package ru.nsu.chepenkov.blackjack;
 
+/**
+ * Описывает карты.
+ */
+
 public enum Rank {
     TW0(2, "Двойка"),
     THREE(3, "Тройка"),

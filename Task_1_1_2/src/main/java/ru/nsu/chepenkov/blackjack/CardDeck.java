@@ -11,8 +11,8 @@ import java.util.Collections;
 public class CardDeck {
     private final ArrayList<Card> list = new ArrayList<>();
     Rank[] ranks = new Rank[] {Rank.TW0, Rank.THREE, Rank.FOUR, Rank.FIVE, Rank.SIX,
-            Rank.SEVEN, Rank.EIGHT, Rank.NINE, Rank.TEN,
-            Rank.JACK, Rank.QUEEN, Rank.KING, Rank.ACE};
+                               Rank.SEVEN, Rank.EIGHT, Rank.NINE, Rank.TEN,
+                               Rank.JACK, Rank.QUEEN, Rank.KING, Rank.ACE};
     final ArrayList<Card> cards;
     private int counter;
 
