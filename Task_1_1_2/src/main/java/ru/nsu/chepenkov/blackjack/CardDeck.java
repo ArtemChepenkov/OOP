@@ -12,7 +12,7 @@ import java.util.List;
 public class CardDeck {
     private final List<Card> list = new ArrayList<>();
     Rank[] ranks = Rank.values();
-    final ArrayList<Card> cards;
+    final List<Card> cards;
 
     /**
      * Конструктор класса.
