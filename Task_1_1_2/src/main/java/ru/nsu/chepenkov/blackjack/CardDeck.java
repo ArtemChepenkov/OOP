@@ -11,7 +11,6 @@ import java.util.List;
  */
 public class CardDeck {
     private final List<Card> list = new ArrayList<>();
-    Rank[] ranks = Rank.values();
     final List<Card> cards;
 
     /**
@@ -21,6 +20,7 @@ public class CardDeck {
         Suit[] suits = Suit.values();
         for (int i = 0; i < deckAmount; i++) {
             for (Suit suit : suits) {
+                Rank[] ranks = Rank.values();
                 for (Rank rank : ranks) {
                     list.add(new Card(rank, suit));
                 }
