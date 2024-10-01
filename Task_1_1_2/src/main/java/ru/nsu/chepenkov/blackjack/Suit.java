@@ -1,5 +1,9 @@
 package ru.nsu.chepenkov.blackjack;
 
+/**
+ * Описывает масти.
+ */
+
 public enum Suit {
     DIAMOND("Буби"),
     CLUB("Трефы"),
