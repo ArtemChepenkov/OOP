@@ -47,8 +47,8 @@ public class TableTest {
         table.increasePlayerIndex();
         table.increasePlayerIndex();
         table.setPlayerScore(5);
-        Card[] cards = {new Card(Rank.TW0, "Трефы"),
-                        new Card(Rank.THREE, "Буби")};
+        Card[] cards = {new Card(Rank.TW0, Suit.CLUB),
+                        new Card(Rank.THREE, Suit.DIAMOND)};
 
         table.showCards("player", cards, false);
 

@@ -24,10 +24,10 @@ public class CardDeckTest {
         final int deckAmount = 2;
         int counter = 0;
         CardDeck cardDeck = new CardDeck(deckAmount);
-        Card[] testCards = {new Card(Rank.THREE, "Трефы"),
-                            new Card(Rank.KING, "Червы"),
-                            new Card(Rank.NINE, "Буби"),
-                            new Card(Rank.ACE, "Пики")};
+        Card[] testCards = {new Card(Rank.THREE, Suit.CLUB),
+                            new Card(Rank.KING, Suit.HEART),
+                            new Card(Rank.NINE, Suit.DIAMOND),
+                            new Card(Rank.ACE, Suit.SPADE)};
         for (int i = 0; i < testCards.length; i++) {
             for (int j = 0; j < 52 * deckAmount; j++) {
                 if (testCards[i].getNumber() == cardDeck.cards.get(j).getNumber()

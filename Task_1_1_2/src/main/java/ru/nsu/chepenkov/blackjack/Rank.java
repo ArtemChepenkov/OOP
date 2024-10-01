@@ -33,4 +33,5 @@ public enum Rank {
     public String getRankName() {
         return name;
     }
+
 }

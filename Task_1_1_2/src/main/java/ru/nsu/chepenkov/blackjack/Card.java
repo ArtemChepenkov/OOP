@@ -12,8 +12,8 @@ public class Card {
     /**
      * Конструктор класса.
      */
-    public Card(Rank name, String suit) {
-        this.suit = suit;
+    public Card(Rank name, Suit suit) {
+        this.suit = suit.getSuit();
         this.name = name.getRankName();
         this.number = name.getRankValue();
     }

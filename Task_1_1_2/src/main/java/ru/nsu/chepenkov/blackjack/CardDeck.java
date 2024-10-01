@@ -12,21 +12,22 @@ import java.util.List;
 public class CardDeck {
     private final List<Card> list = new ArrayList<>();
     Rank[] ranks = Rank.values();
+    final ArrayList<Card> cards;
 
     /**
      * Конструктор класса.
      */
     public CardDeck(int deckAmount) {
-        String[] suits = {"Червы", "Буби", "Трефы", "Пики"};
+        Suit[] suits = Suit.values();
         for (int i = 0; i < deckAmount; i++) {
-            for (String suit : suits) {
+            for (Suit suit : suits) {
                 for (Rank rank : ranks) {
                     list.add(new Card(rank, suit));
                 }
             }
         }
         Collections.shuffle(list);
-        ArrayList<Card> cards = (ArrayList<Card>) list;
+        this.cards = (ArrayList<Card>) list;
     }
 
     /**
