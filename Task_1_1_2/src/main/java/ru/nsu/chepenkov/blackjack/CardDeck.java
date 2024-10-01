@@ -27,7 +27,7 @@ public class CardDeck {
             }
         }
         Collections.shuffle(list);
-        this.cards = (ArrayList<Card>) list;
+        this.cards = list;
     }
 
     /**
