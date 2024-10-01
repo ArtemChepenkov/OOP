@@ -5,8 +5,8 @@ package ru.nsu.chepenkov.blackjack;
  * Описывается масть, название, номинал
  */
 public class Card {
-    final String suit;
-    final String name;
+    private final String suit;
+    private final String name;
     private int number;
 
     /**

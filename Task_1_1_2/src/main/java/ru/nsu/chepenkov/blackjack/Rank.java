@@ -18,8 +18,8 @@ public enum Rank {
     QUEEN(10, "Дама"),
     KING(10, "Король"),
     ACE(11, "Туз");
-    private int value;
-    private String name;
+    private final int value;
+    private final String name;
 
     Rank(int value, String name) {
         this.value = value;

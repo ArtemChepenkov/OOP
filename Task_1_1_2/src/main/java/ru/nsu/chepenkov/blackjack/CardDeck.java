@@ -2,6 +2,7 @@ package ru.nsu.chepenkov.blackjack;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Класс, который реализует собой колоду карт(состоящую из нескольких колод).
@@ -9,12 +10,8 @@ import java.util.Collections;
  * @author Artem Chepenkov
  */
 public class CardDeck {
-    private final ArrayList<Card> list = new ArrayList<>();
-    Rank[] ranks = new Rank[] {Rank.TW0, Rank.THREE, Rank.FOUR, Rank.FIVE, Rank.SIX,
-                               Rank.SEVEN, Rank.EIGHT, Rank.NINE, Rank.TEN,
-                               Rank.JACK, Rank.QUEEN, Rank.KING, Rank.ACE};
-    final ArrayList<Card> cards;
-    private int counter;
+    private final List<Card> list = new ArrayList<>();
+    Rank[] ranks = Rank.values();
 
     /**
      * Конструктор класса.
@@ -29,7 +26,7 @@ public class CardDeck {
             }
         }
         Collections.shuffle(list);
-        this.cards = list;
+        ArrayList<Card> cards = (ArrayList<Card>) list;
     }
 
     /**
