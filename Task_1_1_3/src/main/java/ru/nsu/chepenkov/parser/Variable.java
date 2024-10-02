@@ -10,7 +10,7 @@ public class Variable extends Expression {
     }
     @Override
     public void print() {
-        System.out.println(variable);
+        System.out.print(variable);
     }
 
     @Override

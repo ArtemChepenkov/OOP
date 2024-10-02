@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
     static int pos;
     static int oldpos;
-    static String token;
+    static String token = "";
     static String text;
 
     static Map<String, Double> parseVariables(String variables) {
@@ -29,38 +29,37 @@ public class Main {
             pos++;
         }
 
-        if (pos == text.length() - 1){
+        if (pos == text.length() - 1) {
             token = "";
             return token;
         }
         if (text.charAt(pos) == '+' || text.charAt(pos) == '-' || text.charAt(pos) == '*' ||
                 text.charAt(pos) == '/' || text.charAt(pos) == '(' ||
                 text.charAt(pos) == ')') {
+            token = "";
             token += text.charAt(pos++);
             return token;
         }
-        int left = pos;
+        token = "";
         while (Character.isDigit(text.charAt(pos)) || Character.isLetter(text.charAt(pos))) {
-            pos++;
-        }
 
-        for(int i = 0; i < pos - left; i++) {
-            token += text.charAt(left+i);
+            token += text.charAt(pos++);
         }
         return token;
     }
 
     static String peekToken() {
         oldpos = pos;
-        token = readToken();
+        readToken();
         pos = oldpos;
         return token;
     }
 
     static Expression ParseExpr() {
+
         Expression res = ParseMonome();
         String temp = peekToken();
-        while(temp.equals("+") || temp.equals("-")) {
+        while (temp.equals("+") || temp.equals("-")) {
             String oper = readToken();
             if (oper.equals("+")) {
                 Expression value = ParseMonome();
@@ -77,13 +76,12 @@ public class Main {
     static Expression ParseMonome() {
         Expression res = ParseAtom();
         String temp = peekToken();
-        while(temp.equals("*") || temp.equals("/")) {
+        while (temp.equals("*") || temp.equals("/")) {
             String oper = readToken();
             if (oper.equals("*")) {
                 Expression value = ParseAtom();
                 res = new Mul(res, value);
-            }
-            else if (oper.equals("/")) {
+            } else if (oper.equals("/")) {
                 Expression value = ParseAtom();
                 res = new Div(res, value);
             }
@@ -120,15 +118,14 @@ public class Main {
     }
 
     public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.print("Введите выражение: ");
-//        text = scanner.nextLine();
-//        System.out.print("Введите значения переменных(x=1;y=2 и тд): ");
-//        String variables = scanner.nextLine();
-        text = "(x-y)";
-        String variables = "x=5;y=2";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите выражение: ");
+        text = scanner.nextLine();
+        System.out.print("Введите значения переменных(x=1;y=2 и тд): ");
+        String variables = scanner.nextLine();
         Expression e = ParseExpr();
         e.print();
+        System.out.println();
         double res = e.eval(parseVariables(variables));
         System.out.println(res);
     }

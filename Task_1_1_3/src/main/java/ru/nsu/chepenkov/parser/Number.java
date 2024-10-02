@@ -11,7 +11,7 @@ public class Number extends Expression {
 
     @Override
     public void print() {
-        System.out.println(this.value);
+        System.out.print(this.value);
     }
 
     @Override
