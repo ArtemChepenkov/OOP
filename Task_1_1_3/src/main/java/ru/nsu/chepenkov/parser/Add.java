@@ -15,14 +15,14 @@ public class Add extends Expression{
     public void print() {
         System.out.print("(");
         this.left.print();
-        System.out.println("+");
+        System.out.print("+");
         this.right.print();
-        System.out.println(")");
+        System.out.print(")");
     }
 
     @Override
     public Double eval(Map<String, Double> variables) {
-        return this.left.eval(variables) + this.left.eval(variables);
+        return this.left.eval(variables) + this.right.eval(variables);
     }
 
     @Override

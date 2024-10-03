@@ -16,14 +16,14 @@ public class Mul extends Expression {
     public void print() {
         System.out.print("(");
         this.left.print();
-        System.out.println("*");
+        System.out.print("*");
         this.right.print();
-        System.out.println(")");
+        System.out.print(")");
     }
 
     @Override
     public Double eval(Map<String, Double> variables) {
-        return left.eval(variables) * left.eval(variables);
+        return left.eval(variables) * right.eval(variables);
     }
 
     @Override
