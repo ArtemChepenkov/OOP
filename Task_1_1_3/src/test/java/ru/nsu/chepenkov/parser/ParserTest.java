@@ -16,7 +16,8 @@ public class ParserTest {
         String derivative = "y";
         Double resExpr;
         Double resDer;
-        Expression e = Parser.parseExpr(text);
+        Expression e;
+        e = Parser.parseExpr(text);
         resExpr = e.eval(Parser.parseVariables(variables));
         resDer = e.derivative(derivative).eval(Parser.parseVariables(variables));
 
