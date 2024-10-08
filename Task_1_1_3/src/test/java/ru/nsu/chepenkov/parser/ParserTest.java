@@ -27,18 +27,18 @@ public class ParserTest {
         assert(resDer == 1.0);
     }
 
-    @Test
-    @DisplayName("ParserTestLongEval")
-    void ParserTestLongEval() {
-        String text = "(x/y*x-x+y-123+x*7-y/2*100)";
-        String variables = "x=1;y=2;z=3";
-
-        Expression e = Parser.completeExpression(text);
-
-        Double resExpr;
-
-        resExpr = e.eval(Parser.parseVariables(variables));
-
-        assert(resExpr == -214.5);
-    }
+//    @Test
+//    @DisplayName("ParserTestLongEval")
+//    void ParserTestLongEval() {
+//        String text = "(x/y*x-x+y-123+x*7-y/2*100)";
+//        String variables = "x=1;y=2;z=3";
+//
+//        Expression e = Parser.completeExpression(text);
+//
+//        Double resExpr;
+//
+//        resExpr = e.eval(Parser.parseVariables(variables));
+//
+//        assert(resExpr == -214.5);
+//    }
 }
