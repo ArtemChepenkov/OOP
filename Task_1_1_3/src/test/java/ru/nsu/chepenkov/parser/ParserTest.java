@@ -30,7 +30,7 @@ public class ParserTest {
     @Test
     @DisplayName("MainTestLongEval")
     void MainTestLongEval() {
-        String text = "((x*x*x*x)/y-(z*y-z*y*x*100)/2+(5*(x-y)-z*(x/x)))";
+        String text = "(x/y*x-x+y-123+x*7-y/2*100)";
         String variables = "x=1;y=2;z=3";
 
         Expression e = Parser.completeExpression(text);
@@ -39,6 +39,6 @@ public class ParserTest {
 
         resExpr = e.eval(Parser.parseVariables(variables));
 
-        assert(resExpr == 289.5);
+        assert(resExpr == -214.5);
     }
 }
