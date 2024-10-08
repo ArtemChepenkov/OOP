@@ -13,11 +13,7 @@ public class Sub extends Expression {
     }
 
     public void print() {
-        System.out.print("(");
-        left.print();
-        System.out.print("-");
-        right.print();
-        System.out.print(")");
+        System.out.println(this.toString());
     }
 
 
@@ -27,5 +23,10 @@ public class Sub extends Expression {
 
     public Expression derivative(String var) {
         return new Sub(left.derivative(var), right.derivative(var));
+    }
+
+    @Override
+    public String toString() {
+        return "(" + left.toString() + " - " + right.toString() + ")";
     }
 }

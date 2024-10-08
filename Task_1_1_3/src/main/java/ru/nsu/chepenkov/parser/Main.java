@@ -33,11 +33,13 @@ public class Main {
             token = "";
             return token;
         }
-        if (text.charAt(pos) == '+' || text.charAt(pos) == '-' || text.charAt(pos) == '*' ||
-                text.charAt(pos) == '/' || text.charAt(pos) == '(' ||
-                text.charAt(pos) == ')') {
+        char currentChar = text.charAt(pos);
+        if (currentChar == '+' || currentChar == '-' || currentChar == '*' ||
+                currentChar == '/' || currentChar == '(' ||
+                currentChar == ')') {
             token = "";
-            token += text.charAt(pos++);
+            token += currentChar;
+            pos++;
             return token;
         }
         token = "";
@@ -55,17 +57,17 @@ public class Main {
         return token;
     }
 
-    static Expression ParseExpr() {
+    static Expression parseExpr() {
 
-        Expression res = ParseMonome();
+        Expression res = parseMonome();
         String temp = peekToken();
         while (temp.equals("+") || temp.equals("-")) {
             String oper = readToken();
             if (oper.equals("+")) {
-                Expression value = ParseMonome();
+                Expression value = parseMonome();
                 res = new Add(res, value);
             } else if (oper.equals("-")) {
-                Expression value = ParseMonome();
+                Expression value = parseMonome();
                 res = new Sub(res, value);
             }
             temp = peekToken();
@@ -73,16 +75,16 @@ public class Main {
         return res;
     }
 
-    static Expression ParseMonome() {
-        Expression res = ParseAtom();
+    static Expression parseMonome() {
+        Expression res = parseAtom();
         String temp = peekToken();
         while (temp.equals("*") || temp.equals("/")) {
             String oper = readToken();
             if (oper.equals("*")) {
-                Expression value = ParseAtom();
+                Expression value = parseAtom();
                 res = new Mul(res, value);
             } else if (oper.equals("/")) {
-                Expression value = ParseAtom();
+                Expression value = parseAtom();
                 res = new Div(res, value);
             }
             temp = peekToken();
@@ -90,11 +92,11 @@ public class Main {
         return res;
     }
 
-    static Expression ParseAtom() {
+    static Expression parseAtom() {
         String temp = peekToken();
         if (temp.equals("(")) {
             readToken();
-            Expression res = ParseExpr();
+            Expression res = parseExpr();
             readToken();
             return res;
         }
@@ -123,10 +125,14 @@ public class Main {
         text = scanner.nextLine();
         System.out.print("Введите значения переменных(x=1;y=2 и тд): ");
         String variables = scanner.nextLine();
-        Expression e = ParseExpr();
+        Expression e = parseExpr();
         e.print();
         System.out.println();
         double res = e.eval(parseVariables(variables));
         System.out.println(res);
+        System.out.println("\nВведите по какой переменной брать производную");
+        String derivativeVariable = scanner.nextLine();
+        System.out.println(e.derivative(derivativeVariable));
+        System.out.println(e.derivative(derivativeVariable).eval(parseVariables("x=1")));
     }
 }

@@ -13,11 +13,7 @@ public class Div extends Expression {
     }
 
     public void print() {
-        System.out.print("(");
-        left.print();
-        System.out.print("/");
-        right.print();
-        System.out.print(")");
+        System.out.println(this.toString());
     }
 
     public Double eval(Map<String, Double> map) {
@@ -28,5 +24,10 @@ public class Div extends Expression {
         return new Div (new Sub(new Mul(left.derivative(var), right),
                 new Mul(left, right.derivative(var))),
                 new Mul(right.derivative(var), right.derivative(var)));
+    }
+
+    @Override
+    public String toString() {
+        return "(" + left.toString() + " / " + right.toString() + ")";
     }
 }

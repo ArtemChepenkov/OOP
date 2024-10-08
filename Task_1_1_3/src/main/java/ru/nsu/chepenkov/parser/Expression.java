@@ -7,4 +7,5 @@ public abstract class Expression {
     public abstract void print();
     public abstract Double eval(Map<String, Double> variables);
     public abstract Expression derivative(String var);
+    public abstract String toString();
 }

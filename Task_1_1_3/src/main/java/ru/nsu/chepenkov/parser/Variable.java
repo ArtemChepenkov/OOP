@@ -10,7 +10,7 @@ public class Variable extends Expression {
     }
     @Override
     public void print() {
-        System.out.print(variable);
+        System.out.println(this.toString());
     }
 
     @Override
@@ -21,5 +21,10 @@ public class Variable extends Expression {
     @Override
     public Expression derivative(String var) {
         return var.equals(this.variable) ? new Number(1) : new Number(0);
+    }
+
+    @Override
+    public String toString() {
+        return variable;
     }
 }

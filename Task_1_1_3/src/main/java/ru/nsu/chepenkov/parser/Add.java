@@ -13,11 +13,7 @@ public class Add extends Expression{
 
     @Override
     public void print() {
-        System.out.print("(");
-        this.left.print();
-        System.out.print("+");
-        this.right.print();
-        System.out.print(")");
+        System.out.println(this.toString());
     }
 
     @Override
@@ -28,5 +24,10 @@ public class Add extends Expression{
     @Override
     public Expression derivative(String var) {
         return new Add(this.left.derivative(var), this.right.derivative(var));
+    }
+
+    @Override
+    public String toString() {
+        return "(" + left.toString() + " + " + right.toString() + ")";
     }
 }
