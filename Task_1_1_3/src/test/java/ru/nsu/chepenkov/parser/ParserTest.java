@@ -1,0 +1,27 @@
+package ru.nsu.chepenkov.parser;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+
+public class ParserTest {
+
+    @Test
+    @DisplayName("MainTestEval")
+    void MainTestEval() {
+        String text = "(x/y*x-x+y)";
+        String variables = "x=3;y=6";
+        String derivative = "y";
+        Double resExpr;
+        Double resDer;
+        Expression e = Parser.parseExpr(text);
+        resExpr = e.eval(Parser.parseVariables(variables));
+        resDer = e.derivative(derivative).eval(Parser.parseVariables(variables));
+
+        assert(resExpr == 4.5);
+        assert(resDer == -8.0);
+
+    }
+}

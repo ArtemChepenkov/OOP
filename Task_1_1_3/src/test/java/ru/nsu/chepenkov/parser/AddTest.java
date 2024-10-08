@@ -36,7 +36,7 @@ public class AddTest {
     @Test
     @DisplayName("addTestEval")
     void addTestEval() {
-        double res = add.eval(Main.parseVariables("x=4"));
+        double res = add.eval(Parser.parseVariables("x=4"));
         assertEquals(8.0, res);
     }
 
