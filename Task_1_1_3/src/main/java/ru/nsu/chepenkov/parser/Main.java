@@ -133,6 +133,6 @@ public class Main {
         System.out.println("\nВведите по какой переменной брать производную");
         String derivativeVariable = scanner.nextLine();
         System.out.println(e.derivative(derivativeVariable));
-        System.out.println(e.derivative(derivativeVariable).eval(parseVariables("x=1")));
+        System.out.println(e.derivative(derivativeVariable).eval(parseVariables(variables)));
     }
 }
