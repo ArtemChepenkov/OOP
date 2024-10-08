@@ -1,6 +1,7 @@
 package ru.nsu.chepenkov.parser;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Number extends Expression {
     private double value;
@@ -27,5 +28,22 @@ public class Number extends Expression {
     @Override
     public String toString() {
         return Double.toString(value);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Number number = (Number)obj;
+        return number.value == this.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(value);
     }
 }

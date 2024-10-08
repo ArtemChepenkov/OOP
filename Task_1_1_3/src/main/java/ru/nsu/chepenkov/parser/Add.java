@@ -1,6 +1,7 @@
 package ru.nsu.chepenkov.parser;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Add extends Expression{
     private final Expression left;
@@ -29,5 +30,22 @@ public class Add extends Expression{
     @Override
     public String toString() {
         return "(" + left.toString() + " + " + right.toString() + ")";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Add sum = (Add)obj;
+        return left.equals(sum.left) && right.equals(sum.right);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(left, right);
     }
 }

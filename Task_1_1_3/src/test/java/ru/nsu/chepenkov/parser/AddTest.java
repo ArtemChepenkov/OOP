@@ -43,14 +43,8 @@ public class AddTest {
     @Test
     @DisplayName("addTestDerivative")
     void addTestDerivative() {
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-
         Expression res = add.derivative("x");
-        res.print();
-        String output = outContent.toString();
-
-        assertEquals("(0.0 + 1.0)", output);
-        System.setOut(System.out);
+        Expression expected = new Add(new Number(0), new Number(1));
+        assertEquals(expected, res);
     }
 }

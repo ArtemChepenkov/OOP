@@ -1,6 +1,7 @@
 package ru.nsu.chepenkov.parser;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Div extends Expression {
 
@@ -17,6 +18,9 @@ public class Div extends Expression {
     }
 
     public Double eval(Map<String, Double> map) {
+        if (right.eval(map) == 0) {
+            throw new ArithmeticException("/0");
+        }
         return left.eval(map) / right.eval(map);
     }
 
@@ -29,5 +33,22 @@ public class Div extends Expression {
     @Override
     public String toString() {
         return "(" + left.toString() + " / " + right.toString() + ")";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Div div = (Div)obj;
+        return left.equals(div.left) && right.equals(div.right);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(left, right);
     }
 }

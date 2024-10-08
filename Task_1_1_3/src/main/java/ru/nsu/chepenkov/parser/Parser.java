@@ -117,4 +117,12 @@ public class Parser {
             }
         }
     }
+    static Expression completeExpression(String text) {
+        Expression e;
+        Expression res = parseExpr(text);
+        pos = 0;
+        oldpos = 0;
+        token = "";
+        return res;
+    }
 }

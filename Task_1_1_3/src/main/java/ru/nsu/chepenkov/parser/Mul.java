@@ -1,6 +1,7 @@
 package ru.nsu.chepenkov.parser;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Mul extends Expression {
 
@@ -31,5 +32,22 @@ public class Mul extends Expression {
     @Override
     public String toString() {
         return "(" + left.toString() + " * " + right.toString() + ")";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Mul mul = (Mul)obj;
+        return left.equals(mul.left) && right.equals(mul.right);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(left, right);
     }
 }

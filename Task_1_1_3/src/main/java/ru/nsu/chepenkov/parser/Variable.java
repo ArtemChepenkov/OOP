@@ -27,4 +27,16 @@ public class Variable extends Expression {
     public String toString() {
         return variable;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Variable var = (Variable)obj;
+        return (this.variable.compareTo(var.variable) == 0);
+    }
 }
