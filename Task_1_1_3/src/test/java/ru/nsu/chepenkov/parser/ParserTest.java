@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test;
 public class ParserTest {
 
     @Test
-    @DisplayName("MainTestEval")
-    void MainTestEval() {
-        String text = "(x/y*x-x+y)";
+    @DisplayName("ParserTestEval")
+    void ParserTestEval() {
+        String text = "(x-y)";
         String variables = "x=3;y=6";
-        String derivative = "y";
+        String derivative = "x";
 
         Expression e = Parser.completeExpression(text);
 
@@ -23,13 +23,13 @@ public class ParserTest {
         resExpr = e.eval(Parser.parseVariables(variables));
         resDer = e.derivative(derivative).eval(Parser.parseVariables(variables));
 
-        assert(resExpr == 4.5);
-        assert(resDer == -8.0);
+        assert(resExpr == -3.0);
+        assert(resDer == 1.0);
     }
 
     @Test
-    @DisplayName("MainTestLongEval")
-    void MainTestLongEval() {
+    @DisplayName("ParserTestLongEval")
+    void ParserTestLongEval() {
         String text = "(x/y*x-x+y-123+x*7-y/2*100)";
         String variables = "x=1;y=2;z=3";
 
