@@ -13,7 +13,7 @@ public class Add extends Expression{
 
     @Override
     public void print() {
-        System.out.println(this.toString());
+        System.out.print(this.toString());
     }
 
     @Override

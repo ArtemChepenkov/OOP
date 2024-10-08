@@ -29,7 +29,7 @@ public class AddTest {
         add.print();
         String output = outContent.toString();
 
-        assertEquals("(4.0 + x)\r\n", output);
+        assertEquals("(4.0 + x)", output);
         System.setOut(System.out);
     }
 
@@ -50,7 +50,7 @@ public class AddTest {
         res.print();
         String output = outContent.toString();
 
-        assertEquals("(0.0 + 1.0)\r\n", output);
+        assertEquals("(0.0 + 1.0)", output);
         System.setOut(System.out);
     }
 }

@@ -13,7 +13,7 @@ public class Div extends Expression {
     }
 
     public void print() {
-        System.out.println(this.toString());
+        System.out.print(this.toString());
     }
 
     public Double eval(Map<String, Double> map) {
