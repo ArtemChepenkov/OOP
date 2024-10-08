@@ -11,20 +11,17 @@ public class ParserTest {
     @Test
     @DisplayName("ParserTestEval")
     void ParserTestEval() {
-        String text = "(x-y)";
+        String text = "(x/y*x-x+y)";
         String variables = "x=3;y=6";
-        String derivative = "x";
-
-        Expression e = Parser.completeExpression(text);
-
+        String derivative = "y";
         Double resExpr;
         Double resDer;
-
+        Expression e = Parser.parseExpr(text);
         resExpr = e.eval(Parser.parseVariables(variables));
         resDer = e.derivative(derivative).eval(Parser.parseVariables(variables));
 
-        assert(resExpr == -3.0);
-        assert(resDer == 1.0);
+        assert(resExpr == 4.5);
+        assert(resDer == -8.0);
     }
 
 //    @Test
