@@ -40,7 +40,9 @@ public class SubTest {
         Sub sub = new Sub(new Number(0), new Number(1));
         Sub sub1 = new Sub(new Number(0), new Number(1));
         Sub sub2 = new Sub(new Number(0), new Number(2));
+        Sub sub3 = null;
         assert(sub.equals(sub1));
         assertFalse(sub.equals(sub2));
+        assertFalse(sub.equals(sub3));
     }
 }
