@@ -20,9 +20,16 @@ public class DivTest {
     @Test
     @DisplayName("divTestEval")
     void divTestEval() {
+        boolean flag = false;
         Expression e;
         e = new Div(new Number(3), new Variable("x"));
-        Double res =e.eval(Parser.parseVariables("x=3"));
+        Double res = e.eval(Parser.parseVariables("x=3"));
+        try {
+            Double resException = e.eval(Parser.parseVariables("x=0"));
+        } catch (ArithmeticException exception) {
+            flag = true;
+        }
+        assert(flag);
         assertEquals(1.0, res);
     }
 
