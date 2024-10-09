@@ -47,4 +47,12 @@ public class AddTest {
         Expression expected = new Add(new Number(0), new Number(1));
         assertEquals(expected, res);
     }
+
+    @Test
+    @DisplayName("addTestEquals")
+    void addTestEquals() {
+        Add add = new Add(new Number(0), new Number(1));
+        Add add1 = new Add(new Number(0), new Number(1));
+        assert(add.equals(add1));
+    }
 }

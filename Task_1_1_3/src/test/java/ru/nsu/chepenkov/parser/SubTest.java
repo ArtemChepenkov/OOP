@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SubTest {
     @Test
-    @DisplayName("SubTestToString")
-    void SubTestToString() {
+    @DisplayName("subTestToString")
+    void subTestToString() {
         Expression e;
         e = new Sub(new Variable("x"), new Number(3));
         assertEquals("(x - 3.0)", e.toString());
@@ -16,7 +16,7 @@ public class SubTest {
 
     @Test
     @DisplayName("SubTestEval")
-    void SubTestEval() {
+    void subTestEval() {
         Expression e;
         e = new Sub(new Number(3), new Variable("x"));
         Double res =e.eval(Parser.parseVariables("x=3"));
@@ -25,11 +25,19 @@ public class SubTest {
 
     @Test
     @DisplayName("SubTestDerivative")
-    void SubTestDerivative() {
+    void subTestDerivative() {
         Expression e;
         e = new Sub(new Number(3), new Variable("x"));
         String actual = e.derivative("x").toString();
         String expected = "(0.0 - 1.0)";
         assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("subTestEquals")
+    void subTestEquals() {
+        Sub sub = new Sub(new Number(0), new Number(1));
+        Sub sub1 = new Sub(new Number(0), new Number(1));
+        assert(sub.equals(sub1));
     }
 }

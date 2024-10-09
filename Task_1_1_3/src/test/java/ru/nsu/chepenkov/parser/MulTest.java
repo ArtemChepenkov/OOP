@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MulTest {
     @Test
-    @DisplayName("MulTestToString")
-    void MulTestToString() {
+    @DisplayName("mulTestToString")
+    void mulTestToString() {
         Expression e;
         e = new Mul(new Variable("x"), new Number(3));
         assertEquals("(x * 3.0)", e.toString());
@@ -16,7 +16,7 @@ public class MulTest {
 
     @Test
     @DisplayName("MulTestEval")
-    void MulTestEval() {
+    void mulTestEval() {
         Expression e;
         e = new Mul(new Number(3), new Variable("x"));
         Double res = e.eval(Parser.parseVariables("x=3"));
@@ -25,11 +25,19 @@ public class MulTest {
 
     @Test
     @DisplayName("MulTestDerivative")
-    void MulTestDerivative() {
+    void mulTestDerivative() {
         Expression e;
         e = new Mul(new Number(3), new Variable("x"));
         String actual = e.derivative("x").toString();
         String expected = "((0.0 * x) + (3.0 * 1.0))";
         assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("mulTestEquals")
+    void mulTestEquals() {
+        Mul mul = new Mul(new Number(0), new Number(1));
+        Mul mul1 = new Mul(new Number(0), new Number(1));
+        assert(mul.equals(mul1));
     }
 }

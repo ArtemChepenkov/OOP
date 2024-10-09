@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NumberTest {
     @Test
-    @DisplayName("NumberTestToString")
-    void NumberTestToString() {
+    @DisplayName("numberTestToString")
+    void numberTestToString() {
         Number n;
         n = new Number(1.0);
         assertEquals("1.0", n.toString());
@@ -16,7 +16,7 @@ public class NumberTest {
 
     @Test
     @DisplayName("NumberTestEval")
-    void NumberTestEval() {
+    void numberTestEval() {
         Number n;
         n = new Number(1.0);
         Double res = n.eval(Parser.parseVariables("x=3"));
@@ -25,11 +25,19 @@ public class NumberTest {
 
     @Test
     @DisplayName("NumberTestDerivative")
-    void NumberTestDerivative() {
+    void numberTestDerivative() {
         Number n;
         n = new Number(1.0);
         String actual = n.derivative("x").toString();
         String expected = "0.0";
         assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("numberTestEquals")
+    void numberTestEquals() {
+        Number number0 = new Number(0);
+        Number number1 = new Number(0);
+        assert(number0.equals(number1));
     }
 }

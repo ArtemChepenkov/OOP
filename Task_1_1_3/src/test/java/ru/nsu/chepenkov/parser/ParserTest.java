@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 public class ParserTest {
 
     @Test
-    @DisplayName("ParserTestEval")
-    void ParserTestEval() {
+    @DisplayName("parserTestEval")
+    void parserTestEval() {
         String text = "(x/y*x-x+y)";
         String variables = "x=3;y=6";
         String derivative = "y";
@@ -26,7 +26,7 @@ public class ParserTest {
 
     @Test
     @DisplayName("ParserTestLongEval")
-    void ParserTestLongEval() {
+    void parserTestLongEval() {
         String text = "(x/y*x-x+y-123+x*7-y/2*100)";
         String variables = "x=1;y=2;z=3";
 
