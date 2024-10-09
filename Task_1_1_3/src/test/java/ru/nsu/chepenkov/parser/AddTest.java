@@ -24,6 +24,7 @@ public class AddTest {
     @DisplayName("addTestConstructor")
     void addTestConstructor() {
         Add add1 = new Add(number, variable);
+
         assert(true);
     }
 
@@ -37,6 +38,7 @@ public class AddTest {
         String output = outContent.toString();
 
         assertEquals("(4.0 + x)", output);
+
         System.setOut(System.out);
     }
 
@@ -44,6 +46,7 @@ public class AddTest {
     @DisplayName("addTestEval")
     void addTestEval() {
         double res = add.eval(Parser.parseVariables("x=4"));
+
         assertEquals(8.0, res);
     }
 
@@ -52,6 +55,7 @@ public class AddTest {
     void addTestDerivative() {
         Expression res = add.derivative("x");
         Expression expected = new Add(new Number(0), new Number(1));
+
         assertEquals(expected, res);
     }
 
@@ -64,7 +68,9 @@ public class AddTest {
         Add add3 = null;
 
         assert(add.equals(add1));
+
         assertFalse(add.equals(add2));
+
         assertFalse(add.equals(add3));
     }
 }

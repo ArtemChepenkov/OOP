@@ -24,6 +24,7 @@ public class ParserTest {
         resDer = e.derivative(derivative).eval(Parser.parseVariables(variables));
 
         assert(resExpr == 4.5);
+
         assert(resDer == -8.0);
     }
 

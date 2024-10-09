@@ -51,6 +51,7 @@ public class VariableTest {
         Variable variable2 = new Variable("y");
 
         assert(variable0.equals(variable1));
+
         assertFalse(variable0.equals(variable2));
     }
 }

@@ -36,6 +36,7 @@ public class DivTest {
         }
 
         assert(flag);
+
         assertEquals(1.0, res);
     }
 
@@ -58,6 +59,7 @@ public class DivTest {
         Div div2 = new Div(new Number(0), new Number(2));
 
         assert(div.equals(div1));
+
         assertFalse(div.equals(div2));
     }
 }
