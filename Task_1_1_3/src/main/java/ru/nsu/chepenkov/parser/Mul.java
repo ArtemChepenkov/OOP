@@ -3,6 +3,12 @@ package ru.nsu.chepenkov.parser;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Класс для описания операции умножения.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Mul extends Expression {
 
     private final Expression left;
@@ -42,7 +48,7 @@ public class Mul extends Expression {
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Mul mul = (Mul)obj;
+        Mul mul = (Mul) obj;
         return left.equals(mul.left) && right.equals(mul.right);
     }
 

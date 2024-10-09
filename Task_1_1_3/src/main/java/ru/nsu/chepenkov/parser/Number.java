@@ -3,6 +3,12 @@ package ru.nsu.chepenkov.parser;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Класс для описания числа.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Number extends Expression {
     private double value;
 
@@ -38,7 +44,7 @@ public class Number extends Expression {
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Number number = (Number)obj;
+        Number number = (Number) obj;
         return number.value == this.value;
     }
 

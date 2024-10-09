@@ -3,6 +3,12 @@ package ru.nsu.chepenkov.parser;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Класс для описания операции сложения.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Add extends Expression{
     private final Expression left;
     private final Expression right;
@@ -40,7 +46,7 @@ public class Add extends Expression{
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Add sum = (Add)obj;
+        Add sum = (Add) obj;
         return left.equals(sum.left) && right.equals(sum.right);
     }
 

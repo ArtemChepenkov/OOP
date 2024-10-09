@@ -3,6 +3,12 @@ package ru.nsu.chepenkov.parser;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Класс для описания операции Деления.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Div extends Expression {
 
     private final Expression left;
@@ -43,7 +49,7 @@ public class Div extends Expression {
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Div div = (Div)obj;
+        Div div = (Div) obj;
         return left.equals(div.left) && right.equals(div.right);
     }
 

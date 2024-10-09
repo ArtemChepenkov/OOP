@@ -3,6 +3,12 @@ package ru.nsu.chepenkov.parser;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Класс для описания самого парсера.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Parser {
     static int pos;
     static int oldpos;

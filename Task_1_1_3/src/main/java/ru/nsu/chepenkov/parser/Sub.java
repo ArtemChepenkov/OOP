@@ -3,6 +3,12 @@ package ru.nsu.chepenkov.parser;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Класс для описания операции вычитания.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Sub extends Expression {
 
     private final Expression left;
@@ -39,7 +45,7 @@ public class Sub extends Expression {
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Sub sub = (Sub)obj;
+        Sub sub = (Sub) obj;
         return left.equals(sub.left) && right.equals(sub.right);
     }
 

@@ -2,6 +2,12 @@ package ru.nsu.chepenkov.parser;
 
 import java.util.Map;
 
+/**
+ * Класс для описания переменной.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Variable extends Expression {
     private String variable;
 
@@ -36,7 +42,7 @@ public class Variable extends Expression {
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Variable var = (Variable)obj;
+        Variable var = (Variable) obj;
         return (this.variable.compareTo(var.variable) == 0);
     }
 }
