@@ -1,5 +1,8 @@
 package ru.nsu.chepenkov.parser;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -23,9 +26,9 @@ public class ParserTest {
         resExpr = e.eval(Parser.parseVariables(variables));
         resDer = e.derivative(derivative).eval(Parser.parseVariables(variables));
 
-        assert(resExpr == 4.5);
+        assertEquals(4.5, resExpr);
 
-        assert(resDer == -8.0);
+        assertEquals(-8.0, resDer);
     }
 
     @Test
@@ -40,6 +43,6 @@ public class ParserTest {
 
         resExpr = e.eval(Parser.parseVariables(variables));
 
-        assert(resExpr == -216);
+        assertEquals(-216, (double) resExpr);
     }
 }
