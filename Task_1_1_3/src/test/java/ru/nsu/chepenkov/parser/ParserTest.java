@@ -35,7 +35,7 @@ public class ParserTest {
         Double resExpr;
 
         resExpr = e.eval(Parser.parseVariables(variables));
-        
+
         assert(resExpr == -216);
     }
 }

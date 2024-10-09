@@ -1,6 +1,7 @@
 package ru.nsu.chepenkov.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -53,6 +54,8 @@ public class AddTest {
     void addTestEquals() {
         Add add = new Add(new Number(0), new Number(1));
         Add add1 = new Add(new Number(0), new Number(1));
+        Add add2 = new Add(new Number(0), new Number(2));
         assert(add.equals(add1));
+        assertFalse(add.equals(add2));
     }
 }
