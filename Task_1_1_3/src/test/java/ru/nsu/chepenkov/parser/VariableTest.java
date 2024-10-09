@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class VariableTest {
     @Test
@@ -38,6 +39,8 @@ public class VariableTest {
     void variableTestEquals() {
         Variable variable0 = new Variable("x");
         Variable variable1 = new Variable("x");
+        Variable variable2 = new Variable("y");
         assert(variable0.equals(variable1));
+        assertFalse(variable0.equals(variable2));
     }
 }

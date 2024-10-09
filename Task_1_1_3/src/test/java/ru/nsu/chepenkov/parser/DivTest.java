@@ -1,6 +1,7 @@
 package ru.nsu.chepenkov.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -40,6 +41,8 @@ public class DivTest {
     void divTestEquals() {
         Div div = new Div(new Number(0), new Number(1));
         Div div1 = new Div(new Number(0), new Number(1));
+        Div div2 = new Div(new Number(0), new Number(2));;
         assert(div.equals(div1));
+        assertFalse(div.equals(div2));
     }
 }

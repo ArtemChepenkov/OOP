@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class SubTest {
     @Test
@@ -38,6 +39,8 @@ public class SubTest {
     void subTestEquals() {
         Sub sub = new Sub(new Number(0), new Number(1));
         Sub sub1 = new Sub(new Number(0), new Number(1));
+        Sub sub2 = new Sub(new Number(0), new Number(2));
         assert(sub.equals(sub1));
+        assertFalse(sub.equals(sub2));
     }
 }

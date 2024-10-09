@@ -38,6 +38,8 @@ public class MulTest {
     void mulTestEquals() {
         Mul mul = new Mul(new Number(0), new Number(1));
         Mul mul1 = new Mul(new Number(0), new Number(1));
+        Mul mul2 = new Mul(new Number(0), new Number(2));
         assert(mul.equals(mul1));
+        assert(mul.equals(mul2));
     }
 }
