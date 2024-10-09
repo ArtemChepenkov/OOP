@@ -1,10 +1,16 @@
 package ru.nsu.chepenkov.parser;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+/**
+ * Класс для тестирования Variable.
+ *
+ * @author ArtemChepenkov
+ */
 
 public class VariableTest {
     @Test
@@ -12,6 +18,7 @@ public class VariableTest {
     void variableTestToString() {
         Variable v;
         v = new Variable("x");
+
         assertEquals("x", v.toString());
     }
 
@@ -21,6 +28,7 @@ public class VariableTest {
         Variable v;
         v = new Variable("x");
         Double res = v.eval(Parser.parseVariables("x=3"));
+
         assertEquals(3.0, res);
     }
 
@@ -31,6 +39,7 @@ public class VariableTest {
         v = new Variable("x");
         String actual = v.derivative("x").toString();
         String expected = "1.0";
+
         assertEquals(expected, actual);
     }
 
@@ -40,6 +49,7 @@ public class VariableTest {
         Variable variable0 = new Variable("x");
         Variable variable1 = new Variable("x");
         Variable variable2 = new Variable("y");
+
         assert(variable0.equals(variable1));
         assertFalse(variable0.equals(variable2));
     }

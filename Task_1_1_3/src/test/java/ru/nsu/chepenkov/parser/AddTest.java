@@ -8,6 +8,12 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+/**
+ * Класс для тестирования Add.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class AddTest {
 
     Number number = new Number(4);
@@ -56,6 +62,7 @@ public class AddTest {
         Add add1 = new Add(new Number(0), new Number(1));
         Add add2 = new Add(new Number(0), new Number(2));
         Add add3 = null;
+
         assert(add.equals(add1));
         assertFalse(add.equals(add2));
         assertFalse(add.equals(add3));

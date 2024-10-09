@@ -1,10 +1,13 @@
 package ru.nsu.chepenkov.parser;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Класс для тестирования Parser.
+ *
+ * @author ArtemChepenkov
+ */
 
 public class ParserTest {
 

@@ -1,10 +1,16 @@
 package ru.nsu.chepenkov.parser;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+/**
+ * Класс для тестирования Number.
+ *
+ * @author ArtemChepenkov
+ */
 
 public class NumberTest {
     @Test
@@ -12,6 +18,7 @@ public class NumberTest {
     void numberTestToString() {
         Number n;
         n = new Number(1.0);
+
         assertEquals("1.0", n.toString());
     }
 
@@ -21,6 +28,7 @@ public class NumberTest {
         Number n;
         n = new Number(1.0);
         Double res = n.eval(Parser.parseVariables("x=3"));
+
         assertEquals(1.0, res);
     }
 
@@ -31,6 +39,7 @@ public class NumberTest {
         n = new Number(1.0);
         String actual = n.derivative("x").toString();
         String expected = "0.0";
+
         assertEquals(expected, actual);
     }
 
@@ -41,6 +50,7 @@ public class NumberTest {
         Number number1 = new Number(0);
         Number number2 = new Number(1);
         Number number3 = null;
+
         assert(number0.equals(number1));
         assertFalse(number0.equals(number2));
         assertFalse(number0.equals(number3));
