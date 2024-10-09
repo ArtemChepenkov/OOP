@@ -9,10 +9,11 @@ import java.util.Objects;
  * @author ArtemChepenkov
  */
 
-public class Add extends Expression{
+public class Add extends Expression {
     private final Expression left;
     private final Expression right;
 
+    /**Конструктор класса.*/
     public Add(Expression left, Expression right) {
         this.left = left;
         this.right = right;

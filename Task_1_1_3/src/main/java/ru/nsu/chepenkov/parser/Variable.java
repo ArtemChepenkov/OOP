@@ -11,9 +11,11 @@ import java.util.Map;
 public class Variable extends Expression {
     private String variable;
 
+    /**Конструктор класса.*/
     public Variable(String variable) {
         this.variable = variable;
     }
+
     @Override
     public void print() {
         System.out.print(this.toString());

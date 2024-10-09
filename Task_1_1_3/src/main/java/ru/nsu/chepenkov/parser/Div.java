@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Класс для описания операции Деления.
+ * Класс для описания операции Делениям.
  *
  * @author ArtemChepenkov
  */
@@ -14,6 +14,7 @@ public class Div extends Expression {
     private final Expression left;
     private final Expression right;
 
+    /**Конструктор класса.*/
     public Div(Expression left, Expression right) {
         this.left = left;
         this.right = right;

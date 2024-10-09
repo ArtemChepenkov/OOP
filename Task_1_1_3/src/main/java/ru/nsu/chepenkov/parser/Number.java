@@ -12,6 +12,7 @@ import java.util.Objects;
 public class Number extends Expression {
     private double value;
 
+    /**Конструктор класса.*/
     public Number(double value) {
         this.value = value;
     }

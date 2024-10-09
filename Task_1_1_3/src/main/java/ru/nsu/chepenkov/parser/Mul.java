@@ -14,6 +14,7 @@ public class Mul extends Expression {
     private final Expression left;
     private final Expression right;
 
+    /**Конструктор класса.*/
     public Mul(Expression left, Expression right) {
         this.left = left;
         this.right = right;
