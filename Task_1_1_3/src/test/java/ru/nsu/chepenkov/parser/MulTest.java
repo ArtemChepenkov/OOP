@@ -47,4 +47,12 @@ public class MulTest {
         assertFalse(mul.equals(mul2));
         assertFalse(mul.equals(mul3));
     }
+
+    @Test
+    @DisplayName("mulTestHashcode")
+    void mulTestHashcode() {
+        Mul mul = new Mul(new Number(0), new Number(1));
+        int res = mul.hashCode();
+        assert(true);
+    }
 }

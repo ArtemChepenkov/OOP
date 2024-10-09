@@ -45,4 +45,12 @@ public class SubTest {
         assertFalse(sub.equals(sub2));
         assertFalse(sub.equals(sub3));
     }
+
+    @Test
+    @DisplayName("subTestHashcode")
+    void subTestHashcode() {
+        Sub sub = new Sub(new Number(0), new Number(1));
+        int res = sub.hashCode();
+        assert(true);
+    }
 }

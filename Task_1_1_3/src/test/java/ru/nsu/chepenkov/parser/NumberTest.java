@@ -40,7 +40,9 @@ public class NumberTest {
         Number number0 = new Number(0);
         Number number1 = new Number(0);
         Number number2 = new Number(1);
+        Number number3 = null;
         assert(number0.equals(number1));
         assertFalse(number0.equals(number2));
+        assertFalse(number0.equals(number3));
     }
 }
