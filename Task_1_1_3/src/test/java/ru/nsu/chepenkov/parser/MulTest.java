@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class MulTest {
     @Test
@@ -40,6 +41,6 @@ public class MulTest {
         Mul mul1 = new Mul(new Number(0), new Number(1));
         Mul mul2 = new Mul(new Number(0), new Number(2));
         assert(mul.equals(mul1));
-        assert(mul.equals(mul2));
+        assertFalse(mul.equals(mul2));
     }
 }
