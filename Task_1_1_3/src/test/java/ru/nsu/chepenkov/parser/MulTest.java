@@ -1,10 +1,9 @@
 package ru.nsu.chepenkov.parser;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Класс для тестирования Mul.
@@ -52,7 +51,7 @@ public class MulTest {
         Mul mul2 = new Mul(new Number(0), new Number(2));
         Mul mul3 = null;
 
-        assert(mul.equals(mul1));
+        assertTrue(mul.equals(mul1));
 
         assertFalse(mul.equals(mul2));
 
@@ -65,6 +64,6 @@ public class MulTest {
         Mul mul = new Mul(new Number(0), new Number(1));
         int res = mul.hashCode();
 
-        assert(true);
+        assertTrue(true);
     }
 }

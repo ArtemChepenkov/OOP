@@ -1,10 +1,9 @@
 package ru.nsu.chepenkov.parser;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Класс для тестирования Number.
@@ -51,7 +50,7 @@ public class NumberTest {
         Number number2 = new Number(1);
         Number number3 = null;
 
-        assert(number0.equals(number1));
+        assertTrue(number0.equals(number1));
 
         assertFalse(number0.equals(number2));
 

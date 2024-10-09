@@ -1,12 +1,11 @@
 package ru.nsu.chepenkov.parser;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.io.ByteArrayOutputStream;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Класс для тестирования Add.
@@ -25,7 +24,7 @@ public class AddTest {
     void addTestConstructor() {
         Add add1 = new Add(number, variable);
 
-        assert(true);
+        assertTrue(true);
     }
 
     @Test
@@ -67,7 +66,7 @@ public class AddTest {
         Add add2 = new Add(new Number(0), new Number(2));
         Add add3 = null;
 
-        assert(add.equals(add1));
+        assertTrue(add.equals(add1));
 
         assertFalse(add.equals(add2));
 

@@ -1,10 +1,9 @@
 package ru.nsu.chepenkov.parser;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Класс для тестирования Sub.
@@ -51,7 +50,7 @@ public class SubTest {
         Sub sub2 = new Sub(new Number(0), new Number(2));
         Sub sub3 = null;
 
-        assert(sub.equals(sub1));
+        assertTrue(sub.equals(sub1));
 
         assertFalse(sub.equals(sub2));
 
@@ -64,6 +63,6 @@ public class SubTest {
         Sub sub = new Sub(new Number(0), new Number(1));
         int res = sub.hashCode();
 
-        assert(true);
+        assertTrue(true);
     }
 }
