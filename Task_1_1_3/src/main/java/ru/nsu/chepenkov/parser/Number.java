@@ -17,6 +17,7 @@ public class Number extends Expression {
         this.value = value;
     }
 
+    /**Функция для вывода с использованием toString.*/
     @Override
     public void print() {
         System.out.print(this.toString());

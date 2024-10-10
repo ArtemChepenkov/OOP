@@ -20,6 +20,7 @@ public class Sub extends Expression {
         this.right = right;
     }
 
+    /**Функция для вывода с использованием toString.*/
     public void print() {
         System.out.print(this.toString());
     }

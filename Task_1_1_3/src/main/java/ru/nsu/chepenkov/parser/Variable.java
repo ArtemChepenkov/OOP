@@ -16,6 +16,7 @@ public class Variable extends Expression {
         this.variable = variable;
     }
 
+    /**Функция для вывода с использованием toString.*/
     @Override
     public void print() {
         System.out.print(this.toString());
