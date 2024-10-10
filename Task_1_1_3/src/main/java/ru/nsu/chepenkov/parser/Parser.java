@@ -10,10 +10,10 @@ import java.util.Map;
  */
 
 public class Parser {
-    static int pos;
-    static int oldpos;
-    static String token = "";
-    static String text;
+    static private int pos;
+    static private int oldpos;
+    static private String token = "";
+    static private String text;
 
     static Map<String, Double> parseVariables(String variables) {
         Map<String, Double> variablesHashMap = new HashMap<>();

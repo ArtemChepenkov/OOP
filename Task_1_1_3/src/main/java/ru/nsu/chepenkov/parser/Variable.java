@@ -9,7 +9,7 @@ import java.util.Map;
  */
 
 public class Variable extends Expression {
-    private String variable;
+    private final String variable;
 
     /**Конструктор класса.*/
     public Variable(String variable) {

@@ -10,7 +10,7 @@ import java.util.Objects;
  */
 
 public class Number extends Expression {
-    private double value;
+    private final double value;
 
     /**Конструктор класса.*/
     public Number(double value) {
