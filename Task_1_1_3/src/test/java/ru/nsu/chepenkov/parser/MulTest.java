@@ -52,9 +52,7 @@ public class MulTest {
         Mul mul3 = null;
 
         assertTrue(mul.equals(mul1));
-
         assertFalse(mul.equals(mul2));
-
         assertFalse(mul.equals(mul3));
     }
 

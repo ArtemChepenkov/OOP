@@ -67,9 +67,7 @@ public class AddTest {
         Add add3 = null;
 
         assertTrue(add.equals(add1));
-
         assertFalse(add.equals(add2));
-
         assertFalse(add.equals(add3));
     }
 }

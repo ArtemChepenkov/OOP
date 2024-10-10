@@ -51,9 +51,7 @@ public class SubTest {
         Sub sub3 = null;
 
         assertTrue(sub.equals(sub1));
-
         assertFalse(sub.equals(sub2));
-
         assertFalse(sub.equals(sub3));
     }
 
