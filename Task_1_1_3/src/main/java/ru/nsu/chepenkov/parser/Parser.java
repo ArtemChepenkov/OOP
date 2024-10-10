@@ -39,9 +39,9 @@ public class Parser {
             return token;
         }
         char currentChar = text.charAt(pos);
-        if (currentChar == '+' || currentChar == '-' || currentChar == '*' ||
-                currentChar == '/' || currentChar == '(' ||
-                currentChar == ')') {
+        if (currentChar == '+' || currentChar == '-' || currentChar == '*'
+                || currentChar == '/' || currentChar == '('
+                || currentChar == ')') {
             token = "";
             token += currentChar;
             pos++;
@@ -123,12 +123,12 @@ public class Parser {
             }
         }
     }
+
     static Expression completeExpression(String text) {
-        Expression e;
-        Expression res = parseExpr(text);
         pos = 0;
         oldpos = 0;
         token = "";
+        Expression res = parseExpr(text);
         return res;
     }
 }

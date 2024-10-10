@@ -2,6 +2,7 @@ package ru.nsu.chepenkov.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -50,8 +51,7 @@ public class VariableTest {
         Variable variable1 = new Variable("x");
         Variable variable2 = new Variable("y");
 
-        assert(variable0.equals(variable1));
-
+        assertTrue(variable0.equals(variable1));
         assertFalse(variable0.equals(variable2));
     }
 }
