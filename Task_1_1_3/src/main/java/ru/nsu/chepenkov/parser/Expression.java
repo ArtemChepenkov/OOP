@@ -2,6 +2,12 @@ package ru.nsu.chepenkov.parser;
 
 import java.util.Map;
 
+/**
+ * Абстракный ласс для описания выражения.
+ *
+ * @author ArtemChepenkov
+ */
+
 public abstract class Expression {
     private String expression;
 

@@ -21,10 +21,12 @@ public class Div extends Expression {
     }
 
     /**Функция для вывода с использованием toString.*/
+    @Override
     public void print() {
         System.out.print(this.toString());
     }
 
+    /**Функция для подсчёта выражения.*/
     public Double eval(Map<String, Double> map) {
         if (right.eval(map) == 0) {
             throw new ArithmeticException("/0");
@@ -32,6 +34,7 @@ public class Div extends Expression {
         return left.eval(map) / right.eval(map);
     }
 
+    @Override
     public Expression derivative(String var) {
         return new Div(new Sub(new Mul(left.derivative(var), right),
                 new Mul(left, right.derivative(var))),

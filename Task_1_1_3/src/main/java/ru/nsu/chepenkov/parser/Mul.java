@@ -26,6 +26,7 @@ public class Mul extends Expression {
         System.out.print(this.toString());
     }
 
+    /**Функция для подсчёта выражения.*/
     @Override
     public Double eval(Map<String, Double> variables) {
         return left.eval(variables) * right.eval(variables);

@@ -25,6 +25,7 @@ public class Add extends Expression {
         System.out.print(this.toString());
     }
 
+    /**Функция для подсчёта выражения.*/
     @Override
     public Double eval(Map<String, Double> variables) {
         return this.left.eval(variables) + this.right.eval(variables);

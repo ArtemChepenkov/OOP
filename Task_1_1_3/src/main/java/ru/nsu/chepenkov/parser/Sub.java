@@ -20,16 +20,17 @@ public class Sub extends Expression {
         this.right = right;
     }
 
-    /**Функция для вывода с использованием toString.*/
+    @Override
     public void print() {
         System.out.print(this.toString());
     }
 
-
+    @Override
     public Double eval(Map<String, Double> map) {
         return left.eval(map) - right.eval(map);
     }
 
+    @Override
     public Expression derivative(String var) {
         return new Sub(left.derivative(var), right.derivative(var));
     }
