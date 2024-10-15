@@ -13,19 +13,16 @@ public class Add extends Expression {
     private final Expression left;
     private final Expression right;
 
-    /**Конструктор класса.*/
     public Add(Expression left, Expression right) {
         this.left = left;
         this.right = right;
     }
 
-    /**Функция для вывода с использованием toString.*/
     @Override
     public void print() {
         System.out.print(this.toString());
     }
 
-    /**Функция для подсчёта выражения.*/
     @Override
     public Double eval(Map<String, Double> variables) {
         return this.left.eval(variables) + this.right.eval(variables);

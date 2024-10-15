@@ -12,18 +12,16 @@ import java.util.Objects;
 public class Number extends Expression {
     private final double value;
 
-    /**Конструктор класса.*/
     public Number(double value) {
         this.value = value;
     }
 
-    /**Функция для вывода с использованием toString.*/
     @Override
     public void print() {
         System.out.print(this.toString());
     }
 
-    /**Функция для подсчёта выражения.*/
+
     @Override
     public Double eval(Map<String, Double> variables) {
         return this.value;

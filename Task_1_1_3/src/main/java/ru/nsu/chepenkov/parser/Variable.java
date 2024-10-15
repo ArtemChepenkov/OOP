@@ -11,18 +11,15 @@ import java.util.Map;
 public class Variable extends Expression {
     private final String variable;
 
-    /**Конструктор класса.*/
     public Variable(String variable) {
         this.variable = variable;
     }
 
-    /**Функция для вывода с использованием toString.*/
     @Override
     public void print() {
         System.out.print(this.toString());
     }
 
-    /**Функция для подсчёта выражения.*/
     @Override
     public Double eval(Map<String, Double> variables) {
         return variables.get(variable);

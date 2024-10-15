@@ -14,19 +14,17 @@ public class Div extends Expression {
     private final Expression left;
     private final Expression right;
 
-    /**Конструктор класса.*/
     public Div(Expression left, Expression right) {
         this.left = left;
         this.right = right;
     }
 
-    /**Функция для вывода с использованием toString.*/
     @Override
     public void print() {
         System.out.print(this.toString());
     }
 
-    /**Функция для подсчёта выражения.*/
+    @Override
     public Double eval(Map<String, Double> map) {
         if (right.eval(map) == 0) {
             throw new ArithmeticException("/0");

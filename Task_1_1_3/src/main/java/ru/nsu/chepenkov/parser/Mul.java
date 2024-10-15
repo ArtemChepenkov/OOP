@@ -14,19 +14,16 @@ public class Mul extends Expression {
     private final Expression left;
     private final Expression right;
 
-    /**Конструктор класса.*/
     public Mul(Expression left, Expression right) {
         this.left = left;
         this.right = right;
     }
 
-    /**Функция для вывода с использованием toString.*/
     @Override
     public void print() {
         System.out.print(this.toString());
     }
 
-    /**Функция для подсчёта выражения.*/
     @Override
     public Double eval(Map<String, Double> variables) {
         return left.eval(variables) * right.eval(variables);
