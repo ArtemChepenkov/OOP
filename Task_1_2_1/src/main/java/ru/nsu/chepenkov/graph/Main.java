@@ -5,6 +5,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         AdjacencyMatrix<Object> adjacencyMatrix = new AdjacencyMatrix<>();
+        //try use getresources
         adjacencyMatrix.readFile("src/main/resources/test.txt");
         List<Vertex<Object>> toposort = adjacencyMatrix.topoSort();
 

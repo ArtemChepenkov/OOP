@@ -5,12 +5,10 @@ import java.util.Objects;
 public class Edge<T> {
     private final Vertex<T> from;
     private final Vertex<T> to;
-    private final boolean isDirected;
 
-    public Edge(Vertex<T> from, Vertex<T> to, boolean isDirected) {
+    public Edge(Vertex<T> from, Vertex<T> to) {
         this.from = from;
         this.to = to;
-        this.isDirected = isDirected;
     }
 
     @Override
@@ -18,22 +16,15 @@ public class Edge<T> {
         if (this == object) {
             return true;
         }
-        if (object == null || this.getClass() != object.getClass()) {
+        if (!(object instanceof Edge<?> edge)) {
             return false;
         }
-
-        //Edge<?> edge = (Edge<?>) object; IDEA says i have to use this
-        @SuppressWarnings("unchecked")
-        Edge<T> edge = (Edge<T>) object;
-
-        return this.isDirected == edge.isDirected
-                && this.from.equals(edge.from)
-                && this.to.equals(edge.to);
+        return Objects.equals(from, edge.from) && Objects.equals(to, edge.to);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(from, to, isDirected);
+        return Objects.hash(from, to);
     }
 
     @Override
@@ -41,7 +32,6 @@ public class Edge<T> {
         return "Edge{" +
                 "from=" + from +
                 ", to=" + to +
-                ", isDirected=" + isDirected +
                 '}';
     }
 

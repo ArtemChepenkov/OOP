@@ -6,7 +6,7 @@ import java.util.*;
 
 public class AdjacencyMatrix<T> implements Graph<T>{
     private final List<List<Boolean>> matrix;
-    private List<Vertex<T>> vertices;
+    private ArrayList<Vertex<T>> vertices;
     private ArrayList<Vertex<T>> visited;
     private ArrayList<Vertex<T>> topoSortArray;
     private ArrayList<Edge<T>> edges;
@@ -46,6 +46,7 @@ public class AdjacencyMatrix<T> implements Graph<T>{
         for (int i = 0; i < verticesSize; i++) {
             matrix.get(i).remove(removeIndex);
         }
+        vertices.remove(removeIndex);
         matrix.remove(removeIndex);
     }
 
@@ -71,8 +72,7 @@ public class AdjacencyMatrix<T> implements Graph<T>{
         }
         if (flag) {
             matrix.get(from).set(to, true);
-        }
-        else {
+        } else {
             throw new NoSuchElementException("No suitable vertices");
         }
     }
@@ -152,8 +152,7 @@ public class AdjacencyMatrix<T> implements Graph<T>{
                 String[] verts = scanner.nextLine().split(" ");
                 try {
                     addEdge(new Edge(new Vertex(verts[0]),
-                            new Vertex(verts[1]),
-                            true));
+                            new Vertex(verts[1])));
                 } catch (NoSuchElementException exception) {
                     System.out.println("Error occured while adding edge");
                 }
@@ -184,5 +183,17 @@ public class AdjacencyMatrix<T> implements Graph<T>{
             }
         }
         return topoSortArray;
+    }
+
+    public ArrayList<Vertex<T>> getVertices() {
+        return vertices;
+    }
+
+    public List<List<Boolean>> getMatrix() {
+        return matrix;
+    }
+
+    public ArrayList<Edge<T>> getEdges() {
+        return edges;
     }
 }

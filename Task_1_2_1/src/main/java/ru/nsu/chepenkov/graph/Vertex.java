@@ -20,19 +20,17 @@ public class Vertex<T> {
         if (this == object) {
             return true;
         }
-        if (object == null || this.getClass() != object.getClass()){
+        if (!(object instanceof Vertex<?> vertex)) {
             return false;
         }
-
-        @SuppressWarnings("unchecked")
-        Vertex<T> vertex = (Vertex<T>) object;
-        return this.value.equals(vertex.value);
+        return Objects.equals(value, vertex.value);
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(value);
     }
+
 
     @Override
     public String toString() {
