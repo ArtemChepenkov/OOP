@@ -3,6 +3,10 @@ plugins {
     id 'jacoco'
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17 targetCompatibility = JavaVersion.VERSION_17
+}
+
 group = 'ru.nsu.chepenkov.graph'
 version = '1.0-SNAPSHOT'
 
