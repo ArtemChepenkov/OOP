@@ -16,4 +16,6 @@ public interface Graph<T> {
     void delEdge(Edge<T> edge) throws NoSuchElementException;
 
     List<Vertex<T>> getNeigbours(Vertex<T> vertex) throws NoSuchElementException;
+
+    List<Vertex<T>> getVertices();
 }

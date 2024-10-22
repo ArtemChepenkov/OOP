@@ -4,19 +4,21 @@ import java.util.*;
 
 public class AdjacencyList<T> implements Graph<T> {
     private final Map<Vertex<T>, List<Edge<T>>> adjacencyList;
-    private final Set<Vertex<T>> vertices;
+    private final List<Vertex<T>> vertices;
 
     public AdjacencyList() {
         adjacencyList = new HashMap<>();
-        vertices = new HashSet<>();
+        vertices = new ArrayList<>();
     }
 
-    @Override public void addVertex(Vertex<T> vertex) {
+    @Override
+    public void addVertex(Vertex<T> vertex) {
         vertices.add(vertex);
         adjacencyList.putIfAbsent(vertex, new ArrayList<>());
     }
 
-    @Override public void delVertex(Vertex<T> vertex) throws NoSuchElementException {
+    @Override
+    public void delVertex(Vertex<T> vertex) throws NoSuchElementException {
         if (!vertices.contains(vertex)) {
             throw new NoSuchElementException("No such vertex");
         }
@@ -29,7 +31,8 @@ public class AdjacencyList<T> implements Graph<T> {
         }
     }
 
-    @Override public void addEdge(Edge<T> edge) throws NoSuchElementException {
+    @Override
+    public void addEdge(Edge<T> edge) throws NoSuchElementException {
         if (!vertices.contains(edge.getFrom()) || !vertices.contains(edge.getTo())) {
             throw new NoSuchElementException("No suitable vertices");
         }
@@ -37,7 +40,8 @@ public class AdjacencyList<T> implements Graph<T> {
         adjacencyList.get(edge.getFrom()).add(edge);
     }
 
-    @Override public void delEdge(Edge<T> edge) throws NoSuchElementException {
+    @Override
+    public void delEdge(Edge<T> edge) throws NoSuchElementException {
         if (!vertices.contains(edge.getFrom()) || !vertices.contains(edge.getTo())) {
             throw new NoSuchElementException("No suitable vertices");
         }
@@ -46,7 +50,8 @@ public class AdjacencyList<T> implements Graph<T> {
         edges.remove(edge);
     }
 
-    @Override public List<Vertex<T>> getNeigbours(Vertex<T> vertex) throws NoSuchElementException {
+    @Override
+    public List<Vertex<T>> getNeigbours(Vertex<T> vertex) throws NoSuchElementException {
         if (!vertices.contains(vertex)) {
             throw new NoSuchElementException("No such vertex");
         }
@@ -59,7 +64,8 @@ public class AdjacencyList<T> implements Graph<T> {
         return result;
     }
 
-    public Set<Vertex<T>> getVertices() {
+    @Override
+    public List<Vertex<T>> getVertices() {
         return vertices;
     }
 

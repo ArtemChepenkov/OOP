@@ -95,8 +95,8 @@ class AdjacencyListTest {
         graph.addEdge(edgeAC);
         graph.delVertex(vertexB);
         List<Vertex<Integer>> neighbours = graph.getNeigbours(vertexA);
-        assertFalse(neighbours.contains(vertexB)); // B should be removed
-        assertTrue(neighbours.contains(vertexC));  // C should still be there
+        assertFalse(neighbours.contains(vertexB));
+        assertTrue(neighbours.contains(vertexC));
     }
 
     @Test void testAddEdgeNoSuchVertex() {
