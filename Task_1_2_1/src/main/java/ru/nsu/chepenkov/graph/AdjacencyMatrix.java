@@ -129,7 +129,7 @@ public class AdjacencyMatrix<T> implements Graph<T>{
         
         return result;
     }
-    
+
     public ArrayList<Vertex<T>> getVertices() {
         return vertices;
     }
