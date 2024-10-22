@@ -86,21 +86,21 @@ public class IncidenceListTest {
         assertTrue(neighbours.contains(vertexC));
     }
 
-//    @Test public void testGetNeighboursNoSuchVertex() {
-//        assertThrows(NoSuchElementException.class, () -> graph.getNeigbours(vertexA));
-//    }
-//
-//    @Test public void testDelEdgeNoSuchEdge() {
-//        graph.addVertex(vertexA);
-//        graph.addVertex(vertexB);
-//        assertThrows(NoSuchElementException.class, () -> graph.delEdge(edgeAB));
-//    }
-//
-//    @Test public void testDelVertexNoSuchVertex() {
-//        assertThrows(NoSuchElementException.class, () -> graph.delVertex(vertexA));
-//    }
-//
-//    @Test public void testAddEdgeNoSuchVertex() {
-//        assertThrows(NoSuchElementException.class, () -> graph.addEdge(edgeAB));
-//    }
+    @Test public void testGetNeighboursNoSuchVertex() {
+        assertThrows(NoSuchElementException.class, () -> graph.getNeigbours(vertexA));
+    }
+
+    @Test public void testDelEdgeNoSuchEdge() {
+        graph.addVertex(vertexA);
+        graph.addVertex(vertexB);
+        assertThrows(NoSuchElementException.class, () -> graph.delEdge(edgeAB));
+    }
+
+    @Test public void testDelVertexNoSuchVertex() {
+        assertThrows(NoSuchElementException.class, () -> graph.delVertex(vertexA));
+    }
+
+    @Test public void testAddEdgeNoSuchVertex() {
+        assertThrows(NoSuchElementException.class, () -> graph.addEdge(edgeAB));
+    }
 }

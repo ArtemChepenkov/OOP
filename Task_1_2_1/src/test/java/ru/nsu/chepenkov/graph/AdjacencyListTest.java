@@ -99,7 +99,7 @@ class AdjacencyListTest {
         assertTrue(neighbours.contains(vertexC));  // C should still be there
     }
 
-//    @Test void testAddEdgeNoSuchVertex() {
-//        assertThrows(NoSuchElementException.class, () -> graph.addEdge(edgeAB));
-//    }
+    @Test void testAddEdgeNoSuchVertex() {
+        assertThrows(NoSuchElementException.class, () -> graph.addEdge(edgeAB));
+    }
 }
