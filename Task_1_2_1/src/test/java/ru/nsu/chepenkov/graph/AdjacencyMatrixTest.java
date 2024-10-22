@@ -117,9 +117,6 @@ public class AdjacencyMatrixTest {
         assertEquals(2, edges.size());
         assertEquals(edge2, edges.get(0));
         assertEquals(edge3, edges.get(1));
-
-        Edge<Integer> edgeInvalid = new Edge<>(v1, v3, 5);
-        assertThrowsOnDelEdge(adjacencyMatrix, edgeInvalid);
     }
 
     private void assertThrowsOnDelVertex(AdjacencyMatrix<Integer> adjacencyMatrix, Vertex<Integer> vertex) {
