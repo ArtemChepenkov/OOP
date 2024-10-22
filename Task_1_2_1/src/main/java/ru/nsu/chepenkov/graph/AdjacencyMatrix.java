@@ -129,62 +129,7 @@ public class AdjacencyMatrix<T> implements Graph<T>{
         
         return result;
     }
-
-    @Override
-    public void readFile(String path) {
-        int vertAmount;
-        int edgeAmount;
-        try {
-            File file = new File(path);
-            Scanner scanner = new Scanner(file);
-            vertAmount = scanner.nextInt();
-            edgeAmount = scanner.nextInt();
-            scanner.nextLine();
-            for (int i = 0; i < vertAmount; i++) {
-                try {
-                    String prikol = scanner.nextLine();
-                    addVertex(new Vertex(prikol));
-                } catch (NoSuchElementException exception) {
-                    System.out.println("Error occured while adding vertex");
-                }
-            }
-            for (int i = 0; i < edgeAmount; i++) {
-                String[] verts = scanner.nextLine().split(" ");
-                try {
-                    addEdge(new Edge(new Vertex(verts[0]),
-                            new Vertex(verts[1]), Integer.parseInt(verts[2])));
-                } catch (NoSuchElementException exception) {
-                    System.out.println("Error occured while adding edge");
-                }
-            }
-        } catch (FileNotFoundException exception) {
-            System.out.println("Failed to open file");
-        }
-    }
-
-    public void dfs (Vertex<T> v) {
-        visited.add(v);
-        List<Vertex<T>> currentNeighbours = getNeigbours(v);
-        int curSize = currentNeighbours.size();
-        for (int i = 0; i < curSize; i++) {
-            Vertex<T> curVert = currentNeighbours.get(i);
-            if(!visited.contains(curVert)) {
-                dfs(curVert);
-            }
-        }
-        topoSortArray.add(v);
-    }
-
-    public List<Vertex<T>> topoSort() {
-        int curSize = vertices.size();
-        for (int i = 0; i < curSize; i++) {
-            if (!visited.contains(vertices.get(i))) {
-                dfs(vertices.get(i));
-            }
-        }
-        return topoSortArray;
-    }
-
+    
     public ArrayList<Vertex<T>> getVertices() {
         return vertices;
     }
