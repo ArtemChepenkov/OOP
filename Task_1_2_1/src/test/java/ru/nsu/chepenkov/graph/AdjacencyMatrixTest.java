@@ -11,13 +11,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AdjacencyMatrixTest {
 
-    @Test @DisplayName("AdjacencyMatrixTestConstructor")
+    @Test
+    @DisplayName("AdjacencyMatrixTestConstructor")
     void AdjacencyMatrixTestConstructor() {
         AdjacencyMatrix<Object> adjacencyMatrix = new AdjacencyMatrix<>();
         assertTrue(true);
     }
 
-    @Test @DisplayName("AdjacencyMatrixTestAddVertex")
+    @Test
+    @DisplayName("AdjacencyMatrixTestAddVertex")
     void AdjacencyMatrixTestAddVertex() {
         AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
         Vertex<Integer> v1 = new Vertex<>(1);
@@ -43,7 +45,8 @@ public class AdjacencyMatrixTest {
         }
     }
 
-    @Test @DisplayName("AdjacencyMatrixTestDelVertex")
+    @Test
+    @DisplayName("AdjacencyMatrixTestDelVertex")
     void AdjacencyMatrixTestDelVertex() {
         AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
         Vertex<Integer> v1 = new Vertex<>(1);
@@ -64,10 +67,10 @@ public class AdjacencyMatrixTest {
         }
         assertNotEquals(prevSize, curSize);
 
-        assertThrowsOnDelVertex(adjacencyMatrix, v2);
     }
 
-    @Test @DisplayName("AdjacencyMatrixTestAddEdge")
+    @Test
+    @DisplayName("AdjacencyMatrixTestAddEdge")
     void AdjacencyMatrixTestAddEdge() {
         AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
         Vertex<Integer> v1 = new Vertex<>(1);
@@ -88,10 +91,6 @@ public class AdjacencyMatrixTest {
         assertEquals(edge1, edges.get(0));
         assertEquals(edge2, edges.get(1));
         assertEquals(edge3, edges.get(2));
-
-        Vertex<Integer> v4 = new Vertex<>(4);
-        Edge<Integer> edgeInvalid = new Edge<>(v1, v4, 5);
-        assertThrowsOnAddEdge(adjacencyMatrix, edgeInvalid);
     }
 
     @Test
@@ -119,15 +118,27 @@ public class AdjacencyMatrixTest {
         assertEquals(edge3, edges.get(1));
     }
 
-    private void assertThrowsOnDelVertex(AdjacencyMatrix<Integer> adjacencyMatrix, Vertex<Integer> vertex) {
+    @Test
+    @DisplayName("assertThrowsOnDelVertex")
+    void assertThrowsOnDelVertex() {
+        Vertex<Integer> vertex = new Vertex<>(1);
+        AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
         assertThrows(NoSuchElementException.class, () -> adjacencyMatrix.delVertex(vertex));
     }
 
-    private void assertThrowsOnAddEdge(AdjacencyMatrix<Integer> adjacencyMatrix, Edge<Integer> edge) {
+    @Test
+    @DisplayName("assertThrowsOnAddEdge")
+    void assertThrowsOnAddEdge() {
+        Edge<Integer> edge = new Edge<>(new Vertex<>(1), new Vertex<>(2), 3);
+        AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
         assertThrows(NoSuchElementException.class, () -> adjacencyMatrix.addEdge(edge));
     }
 
-    private void assertThrowsOnDelEdge(AdjacencyMatrix<Integer> adjacencyMatrix, Edge<Integer> edge) {
+    @Test
+    @DisplayName("assertThrowsOnDelEdge")
+    void assertThrowsOnDelEdge() {
+        Edge<Integer> edge = new Edge<>(new Vertex<>(1), new Vertex<>(2), 3);
+        AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
         assertThrows(NoSuchElementException.class, () -> adjacencyMatrix.delEdge(edge));
     }
 }
