@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class AdjacencyMatrix<T> implements Graph<T>{
-    private final List<List<Boolean>> matrix;
+    private final List<List<Integer>> matrix;
     private ArrayList<Vertex<T>> vertices;
     private ArrayList<Vertex<T>> visited;
     private ArrayList<Vertex<T>> topoSortArray;
@@ -22,9 +22,9 @@ public class AdjacencyMatrix<T> implements Graph<T>{
     public void addVertex(Vertex<T> vertex) {
         vertices.add(vertex);
         int curSize = vertices.size();
-        ArrayList<Boolean> newRow= new ArrayList<>(Collections.nCopies(curSize, false));
+        ArrayList<Integer> newRow= new ArrayList<>(Collections.nCopies(curSize, -1));
         for (int i = 0; i < curSize - 1; i++) {
-            matrix.get(i).add(false);
+            matrix.get(i).add(-1);
         }
         matrix.add(newRow);
     }
@@ -71,7 +71,7 @@ public class AdjacencyMatrix<T> implements Graph<T>{
             }
         }
         if (flag) {
-            matrix.get(from).set(to, true);
+            matrix.get(from).set(to, edge.getWeight());
         } else {
             throw new NoSuchElementException("No suitable vertices");
         }
@@ -97,7 +97,8 @@ public class AdjacencyMatrix<T> implements Graph<T>{
             }
         }
         if (flag) {
-            matrix.get(from).set(to, true);
+            matrix.get(from).set(to, -1);
+            edges.remove(edge);
         }
         else {
             throw new NoSuchElementException("No suitable vertices");
@@ -121,7 +122,7 @@ public class AdjacencyMatrix<T> implements Graph<T>{
         }
 
         for (int i = 0; i < verticesSize; i++) {
-            if (matrix.get(i).get(neighbourIndex)) {
+            if (matrix.get(i).get(neighbourIndex) != -1) {
                 result.add(vertices.get(i));
             }
         }
@@ -140,7 +141,6 @@ public class AdjacencyMatrix<T> implements Graph<T>{
             edgeAmount = scanner.nextInt();
             scanner.nextLine();
             for (int i = 0; i < vertAmount; i++) {
-
                 try {
                     String prikol = scanner.nextLine();
                     addVertex(new Vertex(prikol));
@@ -152,7 +152,7 @@ public class AdjacencyMatrix<T> implements Graph<T>{
                 String[] verts = scanner.nextLine().split(" ");
                 try {
                     addEdge(new Edge(new Vertex(verts[0]),
-                            new Vertex(verts[1])));
+                            new Vertex(verts[1]), Integer.parseInt(verts[2])));
                 } catch (NoSuchElementException exception) {
                     System.out.println("Error occured while adding edge");
                 }
@@ -189,7 +189,7 @@ public class AdjacencyMatrix<T> implements Graph<T>{
         return vertices;
     }
 
-    public List<List<Boolean>> getMatrix() {
+    public List<List<Integer>> getMatrix() {
         return matrix;
     }
 

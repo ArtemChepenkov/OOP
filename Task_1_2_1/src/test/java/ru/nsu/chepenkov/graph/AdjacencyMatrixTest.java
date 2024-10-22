@@ -36,10 +36,10 @@ public class AdjacencyMatrixTest {
         assertEquals(v2, vertList.get(1));
         assertEquals(v3, vertList.get(2));
 
-        List<List<Boolean>> matrix = adjacencyMatrix.getMatrix();
+        List<List<Integer>> matrix = adjacencyMatrix.getMatrix();
         for (int i = 0; i < vertSize; i++) {
             for (int j = 0; j < vertSize; j++) {
-                assertFalse(matrix.get(i).get(j));
+                assertEquals(matrix.get(i).get(j), -1);
             }
         }
     }
@@ -77,9 +77,9 @@ public class AdjacencyMatrixTest {
         adjacencyMatrix.addVertex(v1);
         adjacencyMatrix.addVertex(v2);
         adjacencyMatrix.addVertex(v3);
-        Edge<Integer> edge1 = new Edge<>(v1,v2);
-        Edge<Integer> edge2 = new Edge<>(v2,v3);
-        Edge<Integer> edge3 = new Edge<>(v3,v2);
+        Edge<Integer> edge1 = new Edge<>(v1,v2, 5);
+        Edge<Integer> edge2 = new Edge<>(v2,v3, 5);
+        Edge<Integer> edge3 = new Edge<>(v3,v2, 5);
         adjacencyMatrix.addEdge(edge1);
         adjacencyMatrix.addEdge(edge2);
         adjacencyMatrix.addEdge(edge3);
@@ -89,5 +89,30 @@ public class AdjacencyMatrixTest {
         assertEquals(edge1, edges.get(0));
         assertEquals(edge2, edges.get(1));
         assertEquals(edge3, edges.get(2));
+    }
+
+    @Test
+    @DisplayName("AdjacencyMatrixTestDelEdge")
+    void AdjacencyMatrixTestDelEdge() {
+        AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
+        Vertex<Integer> v1 = new Vertex<>(1);
+        Vertex<Integer> v2 = new Vertex<>(2);
+        Vertex<Integer> v3 = new Vertex<>(3);
+        adjacencyMatrix.addVertex(v1);
+        adjacencyMatrix.addVertex(v2);
+        adjacencyMatrix.addVertex(v3);
+        Edge<Integer> edge1 = new Edge<>(v1,v2, 5);
+        Edge<Integer> edge2 = new Edge<>(v2,v3, 5);
+        Edge<Integer> edge3 = new Edge<>(v3,v2, 5);
+        adjacencyMatrix.addEdge(edge1);
+        adjacencyMatrix.addEdge(edge2);
+        adjacencyMatrix.addEdge(edge3);
+        ArrayList<Edge<Integer>> edges = adjacencyMatrix.getEdges();
+
+        adjacencyMatrix.delEdge(edge1);
+
+        assertEquals(2, edges.size());
+        assertEquals(edge2, edges.get(0));
+        assertEquals(edge3, edges.get(1));
     }
 }

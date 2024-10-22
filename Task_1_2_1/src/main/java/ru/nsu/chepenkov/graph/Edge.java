@@ -5,10 +5,12 @@ import java.util.Objects;
 public class Edge<T> {
     private final Vertex<T> from;
     private final Vertex<T> to;
+    private final int weight;
 
-    public Edge(Vertex<T> from, Vertex<T> to) {
+    public Edge(Vertex<T> from, Vertex<T> to, int weight) {
         this.from = from;
         this.to = to;
+        this.weight = weight;
     }
 
     @Override
@@ -41,5 +43,9 @@ public class Edge<T> {
 
     public Vertex<T> getTo() {
         return to;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }
