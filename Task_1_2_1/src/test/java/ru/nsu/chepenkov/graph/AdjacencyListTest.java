@@ -20,8 +20,8 @@ class AdjacencyListTest {
     private Edge<Integer> edgeBC;
 
     @BeforeEach
-    @DisplayName("setUp")
-    void setUp() {
+    @DisplayName("AdjacencyListSetUp")
+    void adjacencyListSetUp() {
         graph = new AdjacencyList<>();
         vertexA = new Vertex<>(1);
         vertexB = new Vertex<>(2);
@@ -32,15 +32,15 @@ class AdjacencyListTest {
     }
 
     @Test
-    @DisplayName("testAddVertex")
-    void testAddVertex() {
+    @DisplayName("AdjacencyListTestAddVertex")
+    void adjacencyListTestAddVertex() {
         graph.addVertex(vertexA);
         assertTrue(graph.getVertices().contains(vertexA));
     }
 
     @Test
-    @DisplayName("testAddEdge")
-    void testAddEdge() {
+    @DisplayName("AdjacencyListTestAddEdge")
+    void adjacencyListTestAddEdge() {
         graph.addVertex(vertexA);
         graph.addVertex(vertexB);
         graph.addEdge(edgeAB);
@@ -49,8 +49,8 @@ class AdjacencyListTest {
     }
 
     @Test
-    @DisplayName("testDelVertex")
-    void testDelVertex() {
+    @DisplayName("AdjacencyListTestDelVertex")
+    void adjacencyListTestDelVertex() {
         graph.addVertex(vertexA);
         graph.addVertex(vertexB);
         graph.addEdge(edgeAB);
@@ -60,8 +60,8 @@ class AdjacencyListTest {
     }
 
     @Test
-    @DisplayName("testDelEdge")
-    void testDelEdge() {
+    @DisplayName("AdjacencyListTestDelEdge")
+    void adjacencyListTestDelEdge() {
         graph.addVertex(vertexA);
         graph.addVertex(vertexB);
         graph.addEdge(edgeAB);
@@ -71,8 +71,8 @@ class AdjacencyListTest {
     }
 
     @Test
-    @DisplayName("testGetNeighbours")
-    void testGetNeighbours() {
+    @DisplayName("AdjacencyListTestGetNeighbours")
+    void adjacencyListTestGetNeighbours() {
         graph.addVertex(vertexA);
         graph.addVertex(vertexB);
         graph.addVertex(vertexC);
@@ -85,8 +85,8 @@ class AdjacencyListTest {
     }
 
     @Test
-    @DisplayName("testDelVertexRemovesEdges")
-    void testDelVertexRemovesEdges() {
+    @DisplayName("AdjacencyListTestDelVertexRemovesEdges")
+    void adjacencyListTestDelVertexRemovesEdges() {
         graph.addVertex(vertexA);
         graph.addVertex(vertexB);
         graph.addVertex(vertexC);
@@ -99,7 +99,9 @@ class AdjacencyListTest {
         assertTrue(neighbours.contains(vertexC));
     }
 
-    @Test void testAddEdgeNoSuchVertex() {
+    @Test
+    @DisplayName("AdjacencyListTestAddEdgeNoSuchVertex")
+    void adjacencyListTestAddEdgeNoSuchVertex() {
         assertThrows(NoSuchElementException.class, () -> graph.addEdge(edgeAB));
     }
 }

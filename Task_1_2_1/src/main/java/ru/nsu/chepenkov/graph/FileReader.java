@@ -21,7 +21,7 @@ public class FileReader {
         Edge<T> edge;
 
         InputStream inputStream;
-        inputStream = Parser.class.getClassLoader().getResourceAsStream(fileName);
+        inputStream = FileReader.class.getClassLoader().getResourceAsStream(fileName);
         if (inputStream == null) {
             throw new FileNotFoundException("File not found");
         }
@@ -42,8 +42,8 @@ public class FileReader {
         for (int i = 0; i < m; i++) {
             edgeInput = scanner.nextLine();
             edgeList = edgeInput.split(" ");
-            from = new Vertex(parse.apply(edgeList[0]));
-            to = new Vertex(parse.apply(edgeList[1]));
+            from = new Vertex<>(parse.apply(edgeList[0]));
+            to = new Vertex<>(parse.apply(edgeList[1]));
             if (edgeList.length == 3) {
                 weight = Integer.parseInt(edgeList[2]);
             } else {

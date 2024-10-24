@@ -1,6 +1,7 @@
 package ru.nsu.chepenkov.graph;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -12,11 +13,14 @@ public class IncidenceMatrixTest {
     private IncidenceMatrix<String> graph;
 
     @BeforeEach
-    void setUp() {
+    @DisplayName("IncidenceMatrixSetUp")
+    void incidenceMatrixSetUp() {
         graph = new IncidenceMatrix<>();
     }
 
-    @Test void testAddVertex() {
+    @Test
+    @DisplayName("IncidenceMatrixTestAddVertex")
+    void incidenceMatrixTestAddVertex() {
         Vertex<String> v1 = new Vertex<>("A");
         Vertex<String> v2 = new Vertex<>("B");
 
@@ -28,7 +32,9 @@ public class IncidenceMatrixTest {
         assertTrue(graph.getVertices().contains(v2));
     }
 
-    @Test void testDelVertex() {
+    @Test
+    @DisplayName("IncidenceMatrixTestDelVertex")
+    void incidenceMatrixTestDelVertex() {
         Vertex<String> v1 = new Vertex<>("A");
         Vertex<String> v2 = new Vertex<>("B");
         graph.addVertex(v1);
@@ -40,7 +46,9 @@ public class IncidenceMatrixTest {
         assertFalse(graph.getVertices().contains(v1));
     }
 
-    @Test void testAddEdge() {
+    @Test
+    @DisplayName("IncidenceMatrixTestAddEdge")
+    void incidenceMatrixTestAddEdge() {
         Vertex<String> v1 = new Vertex<>("A");
         Vertex<String> v2 = new Vertex<>("B");
         graph.addVertex(v1);
@@ -55,7 +63,9 @@ public class IncidenceMatrixTest {
         assertTrue(graph.getNeigbours(v1).contains(v2));
     }
 
-    @Test void testDelEdge() {
+    @Test
+    @DisplayName("IncidenceMatrixTestDelEdge")
+    void incidenceMatrixTestDelEdge() {
         Vertex<String> v1 = new Vertex<>("A");
         Vertex<String> v2 = new Vertex<>("B");
         graph.addVertex(v1);
@@ -69,7 +79,9 @@ public class IncidenceMatrixTest {
         assertFalse(graph.getEdges().contains(edge));
     }
 
-    @Test void testGetNeighbours() {
+    @Test
+    @DisplayName("IncidenceMatrixTestGetNeighbours")
+    void incidenceMatrixTestGetNeighbours() {
         Vertex<String> v1 = new Vertex<>("A");
         Vertex<String> v2 = new Vertex<>("B");
         Vertex<String> v3 = new Vertex<>("C");
@@ -88,7 +100,9 @@ public class IncidenceMatrixTest {
         assertTrue(neighbours.contains(v3));
     }
 
-    @Test void testGetNeighboursNoSuchVertex() {
+    @Test
+    @DisplayName("IncidenceMatrixTestGetNeighboursNoSuchVertex")
+    void incidenceMatrixTestGetNeighboursNoSuchVertex() {
         Vertex<String> v1 = new Vertex<>("A");
         graph.addVertex(v1);
 

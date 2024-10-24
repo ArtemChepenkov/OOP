@@ -18,4 +18,6 @@ public interface Graph<T> {
     List<Vertex<T>> getNeigbours(Vertex<T> vertex) throws NoSuchElementException;
 
     List<Vertex<T>> getVertices();
+
+
 }

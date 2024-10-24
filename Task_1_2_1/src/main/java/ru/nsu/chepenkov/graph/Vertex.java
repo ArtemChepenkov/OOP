@@ -36,4 +36,8 @@ public class Vertex<T> {
     public String toString() {
         return "" + value;
     }
+
+    public T getValue() {
+        return value;
+    }
 }
