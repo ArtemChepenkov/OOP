@@ -29,14 +29,6 @@ public class Edge<T> {
         return Objects.hash(from, to);
     }
 
-    @Override
-    public String toString() {
-        return "Edge{" +
-                "from=" + from +
-                ", to=" + to +
-                '}';
-    }
-
     public Vertex<T> getFrom() {
         return from;
     }
