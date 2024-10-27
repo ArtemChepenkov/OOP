@@ -24,6 +24,5 @@ public class EqualsTest {
         Edge<Integer> edge1 = new Edge<>(vertexA, vertexB, 1);
         Edge<Integer> edge2 = new Edge<>(vertexA, vertexB, 1);
         assertTrue(edge1.equals(edge2));
-        as
     }
 }
