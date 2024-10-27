@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -103,5 +105,45 @@ class AdjacencyListTest {
     @DisplayName("AdjacencyListTestAddEdgeNoSuchVertex")
     void adjacencyListTestAddEdgeNoSuchVertex() {
         assertThrows(NoSuchElementException.class, () -> graph.addEdge(edgeAB));
+    }
+
+    @Test
+    @DisplayName("AdjacencyListTestTopoSort")
+    void adjacencyListTestTopoSort() {
+        Algorithm algorithm = new Algorithm();
+        List<Vertex<Integer>> res = new ArrayList<>();
+        List<Vertex<Integer>> expected = new ArrayList<>();
+        vertexA = new Vertex<>(1);
+        vertexB = new Vertex<>(2);
+        vertexC = new Vertex<>(3);
+        Vertex<Integer> vertexD = new Vertex<>(4);
+        Vertex<Integer> vertexE = new Vertex<>(5);
+        Vertex<Integer> vertexF = new Vertex<>(6);
+        graph.addVertex(vertexA);
+        graph.addVertex(vertexB);
+        graph.addVertex(vertexC);
+        graph.addVertex(vertexD);
+        graph.addVertex(vertexE);
+        graph.addVertex(vertexF);
+        Edge<Integer> edgeDC = new Edge<>(vertexD, vertexC, 1);
+        Edge<Integer> edgeEC = new Edge<>(vertexE, vertexC, 1);
+        Edge<Integer> edgeDB = new Edge<>(vertexD, vertexB, 1);
+        Edge<Integer> edgeEF = new Edge<>(vertexE, vertexF, 1);
+        Edge<Integer> edgeBA = new Edge<>(vertexB, vertexA, 1);
+        Edge<Integer> edgeAF = new Edge<>(vertexA, vertexF, 1);
+        graph.addEdge(edgeDC);
+        graph.addEdge(edgeEC);
+        graph.addEdge(edgeDB);
+        graph.addEdge(edgeEF);
+        graph.addEdge(edgeBA);
+        graph.addEdge(edgeAF);
+        res = algorithm.toposort(graph);
+        expected.add(vertexE);
+        expected.add(vertexD);
+        expected.add(vertexC);
+        expected.add(vertexB);
+        expected.add(vertexA);
+        expected.add(vertexF);
+        assertEquals(expected, res);
     }
 }

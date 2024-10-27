@@ -119,26 +119,46 @@ public class AdjacencyMatrixTest {
     }
 
     @Test
-    @DisplayName("AdjacencyMatrixAssertThrowsOnDelVertex")
-    void adjacencyMatrixAssertThrowsOnDelVertex() {
+    @DisplayName("AdjacencyMatrixTestAssertThrowsOnDelVertex")
+    void adjacencyMatrixTestAssertThrowsOnDelVertex() {
         Vertex<Integer> vertex = new Vertex<>(1);
         AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
         assertThrows(NoSuchElementException.class, () -> adjacencyMatrix.delVertex(vertex));
     }
 
     @Test
-    @DisplayName("AdjacencyMatrixAssertThrowsOnAddEdge")
-    void adjacencyMatrixAssertThrowsOnAddEdge() {
+    @DisplayName("AdjacencyMatrixTestAssertThrowsOnAddEdge")
+    void adjacencyMatrixTestAssertThrowsOnAddEdge() {
         Edge<Integer> edge = new Edge<>(new Vertex<>(1), new Vertex<>(2), 3);
         AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
         assertThrows(NoSuchElementException.class, () -> adjacencyMatrix.addEdge(edge));
     }
 
     @Test
-    @DisplayName("AdjacencyMatrixAssertThrowsOnDelEdge")
-    void adjacencyMatrixAssertThrowsOnDelEdge() {
+    @DisplayName("AdjacencyMatrixTestAssertThrowsOnDelEdge")
+    void adjacencyMatrixTestAssertThrowsOnDelEdge() {
         Edge<Integer> edge = new Edge<>(new Vertex<>(1), new Vertex<>(2), 3);
         AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
         assertThrows(NoSuchElementException.class, () -> adjacencyMatrix.delEdge(edge));
     }
+
+    @Test
+    @DisplayName("AdjacencyMatrixTestGetNeighbours")
+    void adjacencyMatrixTestGetNeighbours() {
+        AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
+        Vertex<Integer> v1 = new Vertex<>(1);
+        Vertex<Integer> v2 = new Vertex<>(2);
+        Vertex<Integer> v3 = new Vertex<>(3);
+        adjacencyMatrix.addVertex(v1);
+        adjacencyMatrix.addVertex(v2);
+        adjacencyMatrix.addVertex(v3);
+        Edge<Integer> edge1 = new Edge<>(v1, v2, 5);
+        Edge<Integer> edge2 = new Edge<>(v2, v3, 5);
+        Edge<Integer> edge3 = new Edge<>(v3, v2, 5);
+        adjacencyMatrix.addEdge(edge1);
+        adjacencyMatrix.addEdge(edge2);
+        adjacencyMatrix.addEdge(edge3);
+        assertEquals(2, adjacencyMatrix.getNeigbours(v2).size());
+    }
 }
+
