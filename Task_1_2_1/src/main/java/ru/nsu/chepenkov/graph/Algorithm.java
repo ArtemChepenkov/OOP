@@ -1,9 +1,6 @@
 package ru.nsu.chepenkov.graph;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Algorithm {
 
@@ -30,7 +27,7 @@ public class Algorithm {
                 dfs(graph, vertex, visited, res);
             }
         }
-        res = res.reversed();
+        Collections.reverse(res);
         return res;
     }
 
