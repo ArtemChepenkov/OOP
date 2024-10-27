@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EqualsTest {
 
@@ -12,7 +13,7 @@ public class EqualsTest {
     void equalsTestVertex() {
         Vertex<Integer> vertexA = new Vertex<>(1);
         Vertex<Integer> vertexB = new Vertex<>(1);
-        assertEquals(vertexA, vertexB);
+        assertTrue(vertexA.equals(vertexB));
     }
 
     @Test
@@ -22,6 +23,7 @@ public class EqualsTest {
         Vertex<Integer> vertexB = new Vertex<>(1);
         Edge<Integer> edge1 = new Edge<>(vertexA, vertexB, 1);
         Edge<Integer> edge2 = new Edge<>(vertexA, vertexB, 1);
-        assertEquals(edge1, edge2);
+        assertTrue(edge1.equals(edge2));
+        as
     }
 }

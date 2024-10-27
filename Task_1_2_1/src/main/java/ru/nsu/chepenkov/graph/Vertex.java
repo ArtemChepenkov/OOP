@@ -30,5 +30,5 @@ public class Vertex<T> {
     public int hashCode() {
         return Objects.hashCode(value);
     }
-    
+
 }
