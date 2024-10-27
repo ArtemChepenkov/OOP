@@ -26,5 +26,6 @@ public class EqualsTest {
         assertTrue(edge1.equals(edge2));
         assertFalse(edge1.equals(edge3));
         assertTrue(edge1.equals(edge1));
+        assertEquals(edge1.hashCode(), edge2.hashCode());
     }
 }
