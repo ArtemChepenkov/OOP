@@ -21,7 +21,8 @@ public class Edge<T> {
         if (!(object instanceof Edge<?> edge)) {
             return false;
         }
-        return Objects.equals(from, edge.from) && Objects.equals(to, edge.to);
+        return Objects.equals(from, edge.from) && Objects.equals(to, edge.to)
+                && Objects.equals(weight, edge.weight);
     }
 
     @Override
