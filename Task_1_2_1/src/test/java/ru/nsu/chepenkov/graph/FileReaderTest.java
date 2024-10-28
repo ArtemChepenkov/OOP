@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Класс для тестрирования правильного чтения из файла.
- * <p></>Тут тестируюстя int, double, string
+ * <p>Тут тестируюстя int, double, string
  */
 public class FileReaderTest {
 
