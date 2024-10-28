@@ -16,6 +16,8 @@ import java.util.function.Function;
  */
 
 public class FileReader {
+
+    /** Читает по определённому формату, описанному выше.*/
     public <T> void readFromFile(Graph<T> graph, String fileName,
                                  Function<String, T> parse) throws FileNotFoundException {
 
