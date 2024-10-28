@@ -15,6 +15,11 @@ import java.util.Set;
 
 public class Algorithm {
 
+    /**
+     * Функция для опсиания дфса.
+     *
+     * <p>Записывает результат в массив, который передаётся в аргументы
+     */
     public <T> void dfs(Graph<T> graph, Vertex<T> vertex,
                         Set<Vertex<T>> visited, List<Vertex<T>> res) {
 
@@ -27,6 +32,8 @@ public class Algorithm {
         res.add(vertex);
     }
 
+    /**
+     * Функция для топосорта.*/
     public <T> List<Vertex<T>> toposort(Graph<T> graph) {
         final Set<Vertex<T>> visited = new HashSet<>();
         List<Vertex<T>> res = new ArrayList<>();

@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * Класс для описания матрицы инцидентности.
+ *
+ * @author ArtemChepenkov
+ */
 public class IncidenceMatrix<T> implements Graph<T> {
     List<List<Integer>> matrix;
     List<Vertex<T>> vertices;

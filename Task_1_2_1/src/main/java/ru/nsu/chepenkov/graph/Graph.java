@@ -5,6 +5,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
+/**
+ * Интерфейс для описания графа.
+ *
+ * @author ArtemChepenkov
+ */
+
 public interface Graph<T> {
 
     void addVertex(Vertex<T> vertex);
