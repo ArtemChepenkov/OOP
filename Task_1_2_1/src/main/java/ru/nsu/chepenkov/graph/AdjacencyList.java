@@ -16,7 +16,7 @@ public class AdjacencyList<T> implements Graph<T> {
     private final Map<Vertex<T>, List<Edge<T>>> adjacencyList;
     private final List<Vertex<T>> vertices;
 
-    public AdjacencyList() {
+    AdjacencyList() {
         adjacencyList = new HashMap<>();
         vertices = new ArrayList<>();
     }

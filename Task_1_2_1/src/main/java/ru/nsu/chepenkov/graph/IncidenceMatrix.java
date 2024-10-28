@@ -9,7 +9,7 @@ public class IncidenceMatrix<T> implements Graph<T> {
     List<Vertex<T>> vertices;
     List<Edge<T>> edges;
 
-    public IncidenceMatrix() {
+    IncidenceMatrix() {
         matrix = new ArrayList<>();
         vertices = new ArrayList<>();
         edges = new ArrayList<>();

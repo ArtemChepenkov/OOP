@@ -12,7 +12,7 @@ public class Vertex<T> {
     private final T value;
     private static int vertCounter = 0;
 
-    public Vertex(T value) {
+    Vertex(T value) {
         this.value = value;
         vertCounter++;
     }

@@ -16,7 +16,7 @@ public class AdjacencyMatrix<T> implements Graph<T> {
     private final ArrayList<Vertex<T>> vertices;
     private final ArrayList<Edge<T>> edges;
 
-    public AdjacencyMatrix() {
+    AdjacencyMatrix() {
         vertices = new ArrayList<>();
         edges = new ArrayList<>();
         ArrayList<Vertex<T>> visited = new ArrayList<>();
