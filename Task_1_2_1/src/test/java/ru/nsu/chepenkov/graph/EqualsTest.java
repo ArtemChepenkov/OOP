@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Класс для тестирования equals и hashcode.
- * <p>
- * Вообще эти методы не используются,
+ *
+ * <p>Вообще эти методы не используются,
  * мне просто coverage не хватало
  */
 public class EqualsTest {

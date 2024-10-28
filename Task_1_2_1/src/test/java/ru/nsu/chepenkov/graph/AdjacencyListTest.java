@@ -24,9 +24,9 @@ class AdjacencyListTest {
     private Vertex<Integer> vertexA;
     private Vertex<Integer> vertexB;
     private Vertex<Integer> vertexC;
-    private Edge<Integer> edgeAB;
-    private Edge<Integer> edgeAC;
-    private Edge<Integer> edgeBC;
+    private Edge<Integer> edgeAb;
+    private Edge<Integer> edgeAc;
+    private Edge<Integer> edgeBc;
 
     @BeforeEach
     @DisplayName("AdjacencyListSetUp")
@@ -35,9 +35,9 @@ class AdjacencyListTest {
         vertexA = new Vertex<>(1);
         vertexB = new Vertex<>(2);
         vertexC = new Vertex<>(3);
-        edgeAB = new Edge<>(vertexA, vertexB, 5);
-        edgeAC = new Edge<>(vertexA, vertexC, 10);
-        edgeBC = new Edge<>(vertexB, vertexC, 15);
+        edgeAb = new Edge<>(vertexA, vertexB, 5);
+        edgeAc = new Edge<>(vertexA, vertexC, 10);
+        edgeBc = new Edge<>(vertexB, vertexC, 15);
     }
 
     @Test
@@ -52,7 +52,7 @@ class AdjacencyListTest {
     void adjacencyListTestAddEdge() {
         graph.addVertex(vertexA);
         graph.addVertex(vertexB);
-        graph.addEdge(edgeAB);
+        graph.addEdge(edgeAb);
         List<Vertex<Integer>> neighbours = graph.getNeigbours(vertexA);
         assertTrue(neighbours.contains(vertexB));
     }
@@ -62,7 +62,7 @@ class AdjacencyListTest {
     void adjacencyListTestDelVertex() {
         graph.addVertex(vertexA);
         graph.addVertex(vertexB);
-        graph.addEdge(edgeAB);
+        graph.addEdge(edgeAb);
         graph.delVertex(vertexA);
         assertFalse(graph.getVertices().contains(vertexA));
         assertThrows(NoSuchElementException.class, () -> graph.getNeigbours(vertexA));
@@ -73,8 +73,8 @@ class AdjacencyListTest {
     void adjacencyListTestDelEdge() {
         graph.addVertex(vertexA);
         graph.addVertex(vertexB);
-        graph.addEdge(edgeAB);
-        graph.delEdge(edgeAB);
+        graph.addEdge(edgeAb);
+        graph.delEdge(edgeAb);
         List<Vertex<Integer>> neighbours = graph.getNeigbours(vertexA);
         assertFalse(neighbours.contains(vertexB));
     }
@@ -85,8 +85,8 @@ class AdjacencyListTest {
         graph.addVertex(vertexA);
         graph.addVertex(vertexB);
         graph.addVertex(vertexC);
-        graph.addEdge(edgeAB);
-        graph.addEdge(edgeAC);
+        graph.addEdge(edgeAb);
+        graph.addEdge(edgeAc);
         List<Vertex<Integer>> neighbours = graph.getNeigbours(vertexA);
         assertTrue(neighbours.contains(vertexB));
         assertTrue(neighbours.contains(vertexC));
@@ -99,9 +99,9 @@ class AdjacencyListTest {
         graph.addVertex(vertexA);
         graph.addVertex(vertexB);
         graph.addVertex(vertexC);
-        graph.addEdge(edgeAB);
-        graph.addEdge(edgeBC);
-        graph.addEdge(edgeAC);
+        graph.addEdge(edgeAb);
+        graph.addEdge(edgeBc);
+        graph.addEdge(edgeAc);
         graph.delVertex(vertexB);
         List<Vertex<Integer>> neighbours = graph.getNeigbours(vertexA);
         assertFalse(neighbours.contains(vertexB));
@@ -111,7 +111,7 @@ class AdjacencyListTest {
     @Test
     @DisplayName("AdjacencyListTestAddEdgeNoSuchVertex")
     void adjacencyListTestAddEdgeNoSuchVertex() {
-        assertThrows(NoSuchElementException.class, () -> graph.addEdge(edgeAB));
+        assertThrows(NoSuchElementException.class, () -> graph.addEdge(edgeAb));
     }
 
     @Test
@@ -132,18 +132,18 @@ class AdjacencyListTest {
         graph.addVertex(vertexD);
         graph.addVertex(vertexE);
         graph.addVertex(vertexF);
-        Edge<Integer> edgeDC = new Edge<>(vertexD, vertexC, 1);
-        Edge<Integer> edgeEC = new Edge<>(vertexE, vertexC, 1);
-        Edge<Integer> edgeDB = new Edge<>(vertexD, vertexB, 1);
-        Edge<Integer> edgeEF = new Edge<>(vertexE, vertexF, 1);
-        Edge<Integer> edgeBA = new Edge<>(vertexB, vertexA, 1);
-        Edge<Integer> edgeAF = new Edge<>(vertexA, vertexF, 1);
-        graph.addEdge(edgeDC);
-        graph.addEdge(edgeEC);
-        graph.addEdge(edgeDB);
-        graph.addEdge(edgeEF);
-        graph.addEdge(edgeBA);
-        graph.addEdge(edgeAF);
+        Edge<Integer> edgeDc = new Edge<>(vertexD, vertexC, 1);
+        Edge<Integer> edgeEc = new Edge<>(vertexE, vertexC, 1);
+        Edge<Integer> edgeDb = new Edge<>(vertexD, vertexB, 1);
+        Edge<Integer> edgeEf = new Edge<>(vertexE, vertexF, 1);
+        Edge<Integer> edgeBa = new Edge<>(vertexB, vertexA, 1);
+        Edge<Integer> edgeAf = new Edge<>(vertexA, vertexF, 1);
+        graph.addEdge(edgeDc);
+        graph.addEdge(edgeEc);
+        graph.addEdge(edgeDb);
+        graph.addEdge(edgeEf);
+        graph.addEdge(edgeBa);
+        graph.addEdge(edgeAf);
         res = algorithm.toposort(graph);
         expected.add(vertexE);
         expected.add(vertexD);

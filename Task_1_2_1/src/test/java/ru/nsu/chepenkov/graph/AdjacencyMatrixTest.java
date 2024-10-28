@@ -13,8 +13,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Класс для тестирования матрицы смежности.
- * <p>
- * Тут ещё и топосорт тестируется
+ *
+ * <p>Тут ещё и топосорт тестируется
  */
 public class AdjacencyMatrixTest {
 
