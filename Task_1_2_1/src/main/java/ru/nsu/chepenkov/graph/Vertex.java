@@ -2,6 +2,12 @@ package ru.nsu.chepenkov.graph;
 
 import java.util.Objects;
 
+/**
+ * Класс для описания вершины графа.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Vertex<T> {
     private final T value;
     private static int vertCounter = 0;

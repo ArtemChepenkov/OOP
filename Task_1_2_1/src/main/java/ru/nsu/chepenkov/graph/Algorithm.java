@@ -7,6 +7,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Класс для описания дфса и топосорта.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Algorithm {
 
     public <T> void dfs(Graph<T> graph, Vertex<T> vertex,

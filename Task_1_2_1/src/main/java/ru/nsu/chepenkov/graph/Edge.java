@@ -2,6 +2,12 @@ package ru.nsu.chepenkov.graph;
 
 import java.util.Objects;
 
+/**
+ * Класс для описания ребра графа.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Edge<T> {
     private final Vertex<T> from;
     private final Vertex<T> to;

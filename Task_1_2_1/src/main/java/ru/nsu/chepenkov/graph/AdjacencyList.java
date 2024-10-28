@@ -7,6 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+/**
+ * Класс для описания списка смежности.
+ *
+ * @author ArtemChepenkov
+ */
 public class AdjacencyList<T> implements Graph<T> {
     private final Map<Vertex<T>, List<Edge<T>>> adjacencyList;
     private final List<Vertex<T>> vertices;

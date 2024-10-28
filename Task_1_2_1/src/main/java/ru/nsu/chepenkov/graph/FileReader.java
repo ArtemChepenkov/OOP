@@ -5,6 +5,16 @@ import java.io.InputStream;
 import java.util.Scanner;
 import java.util.function.Function;
 
+/**
+ * Класс для описания file reader.
+ *
+ * <p>формат:
+ * количество вершин
+ * вершины
+ * количество рёбер
+ * рёбра(откуда, куда, вес)
+ */
+
 public class FileReader {
     public <T> void readFromFile(Graph<T> graph, String fileName,
                                  Function<String, T> parse) throws FileNotFoundException {

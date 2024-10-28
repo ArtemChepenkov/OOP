@@ -5,6 +5,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * Класс для описания матрицы смежности.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class AdjacencyMatrix<T> implements Graph<T>{
     private final List<List<Integer>> matrix;
     private final ArrayList<Vertex<T>> vertices;
