@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
  * @author ArtemChepenkov
  */
 
-public class AdjacencyMatrix<T> implements Graph<T>{
+public class AdjacencyMatrix<T> implements Graph<T> {
     private final List<List<Integer>> matrix;
     private final ArrayList<Vertex<T>> vertices;
     private final ArrayList<Edge<T>> edges;
@@ -27,7 +27,7 @@ public class AdjacencyMatrix<T> implements Graph<T>{
     public void addVertex(Vertex<T> vertex) {
         vertices.add(vertex);
         int curSize = vertices.size();
-        ArrayList<Integer> newRow= new ArrayList<>(Collections.nCopies(curSize, -1));
+        ArrayList<Integer> newRow = new ArrayList<>(Collections.nCopies(curSize, -1));
         for (int i = 0; i < curSize - 1; i++) {
             matrix.get(i).add(-1);
         }
@@ -83,7 +83,7 @@ public class AdjacencyMatrix<T> implements Graph<T>{
     }
 
     @Override
-    public void delEdge(Edge<T> edge) throws NoSuchElementException{
+    public void delEdge(Edge<T> edge) throws NoSuchElementException {
         int from = -1;
         int to = -1;
         int vertSize = vertices.size();
@@ -104,14 +104,13 @@ public class AdjacencyMatrix<T> implements Graph<T>{
         if (flag) {
             matrix.get(from).set(to, -1);
             edges.remove(edge);
-        }
-        else {
+        } else {
             throw new NoSuchElementException("No suitable vertices");
         }
     }
 
     @Override
-    public List<Vertex<T>> getNeigbours(Vertex<T> vertex) throws NoSuchElementException{
+    public List<Vertex<T>> getNeigbours(Vertex<T> vertex) throws NoSuchElementException {
         int neighbourIndex = -1;
         int verticesSize = vertices.size();
         ArrayList<Vertex<T>> result = new ArrayList<>();

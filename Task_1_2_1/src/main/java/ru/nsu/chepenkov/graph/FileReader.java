@@ -19,8 +19,6 @@ public class FileReader {
     public <T> void readFromFile(Graph<T> graph, String fileName,
                                  Function<String, T> parse) throws FileNotFoundException {
 
-        int n;
-        int m;
         String vertexName;
         String edgeInput;
         String[] edgeList;
@@ -37,7 +35,7 @@ public class FileReader {
         }
         Scanner scanner;
         scanner = new Scanner(inputStream);
-
+        int n;
         n = scanner.nextInt();
         scanner.nextLine();
 
@@ -46,7 +44,7 @@ public class FileReader {
             vertex = new Vertex<>(parse.apply(vertexName));
             graph.addVertex(vertex);
         }
-
+        int m;
         m = scanner.nextInt();
         scanner.nextLine();
         for (int i = 0; i < m; i++) {
