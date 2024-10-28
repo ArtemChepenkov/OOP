@@ -2,13 +2,13 @@ package ru.nsu.chepenkov.graph;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.DisplayName;
 import java.io.FileNotFoundException;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
  * Класс для тестрирования правильного чтения из файла.
- *
+ * <p>
  * Тут тестируюстя int, double, string
  */
 public class FileReaderTest {
