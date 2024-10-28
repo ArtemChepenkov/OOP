@@ -38,7 +38,8 @@ public class AdjacencyMatrixTest {
 
         List<Vertex<Integer>> vertList = adjacencyMatrix.getVertices();
 
-        int vertSize = vertList.size();
+        int vertSize;
+        vertSize = vertList.size();
 
         assertEquals(v1, vertList.get(0));
         assertEquals(v2, vertList.get(1));

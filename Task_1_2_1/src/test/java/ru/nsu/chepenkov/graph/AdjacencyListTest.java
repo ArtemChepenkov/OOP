@@ -117,9 +117,12 @@ class AdjacencyListTest {
     @Test
     @DisplayName("AdjacencyListTestTopoSort")
     void adjacencyListTestTopoSort() {
-        Algorithm algorithm = new Algorithm();
-        List<Vertex<Integer>> res = new ArrayList<>();
-        List<Vertex<Integer>> expected = new ArrayList<>();
+        Algorithm algorithm;
+        algorithm = new Algorithm();
+        List<Vertex<Integer>> res;
+        res = new ArrayList<>();
+        List<Vertex<Integer>> expected;
+        expected = new ArrayList<>();
         vertexA = new Vertex<>(1);
         vertexB = new Vertex<>(2);
         vertexC = new Vertex<>(3);
