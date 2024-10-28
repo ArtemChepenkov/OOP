@@ -1,14 +1,16 @@
 package ru.nsu.chepenkov.graph;
 
-import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.DisplayName;
+import java.io.FileNotFoundException;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+/**
+ * Класс для тестрирования правильного чтения из файла.
+ *
+ * Тут тестируюстя int, double, string
+ */
 public class FileReaderTest {
 
     @Test
@@ -17,7 +19,7 @@ public class FileReaderTest {
         AdjacencyMatrix<Integer> adjacencyMatrix = new AdjacencyMatrix<>();
         FileReader fileReader = new FileReader();
         String test1 = "test1.txt";
-        fileReader.readFromFile(adjacencyMatrix, test1, Integer :: parseInt);
+        fileReader.readFromFile(adjacencyMatrix, test1, Integer::parseInt);
         assertEquals(5, adjacencyMatrix.getVertices().size());
     }
 
@@ -37,7 +39,7 @@ public class FileReaderTest {
         IncidenceMatrix<Double> incidenceMatrix = new IncidenceMatrix<>();
         FileReader fileReader = new FileReader();
         String test3 = "test3.txt";
-        fileReader.readFromFile(incidenceMatrix, test3, Double :: parseDouble);
+        fileReader.readFromFile(incidenceMatrix, test3, Double::parseDouble);
         assertEquals(2, incidenceMatrix.getVertices().size());
     }
 }
