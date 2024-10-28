@@ -1,11 +1,16 @@
 package ru.nsu.chepenkov.graph;
 
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Algorithm {
 
     public <T> void dfs(Graph<T> graph, Vertex<T> vertex,
-                    Set<Vertex<T>> visited, List<Vertex<T>> res) {
+                        Set<Vertex<T>> visited, List<Vertex<T>> res) {
 
         visited.add(vertex);
         for (Vertex<T> v : graph.getNeigbours(vertex)) {

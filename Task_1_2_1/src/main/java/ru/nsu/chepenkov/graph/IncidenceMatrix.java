@@ -3,7 +3,6 @@ package ru.nsu.chepenkov.graph;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 
 public class IncidenceMatrix<T> implements Graph<T> {
     List<List<Integer>> matrix;

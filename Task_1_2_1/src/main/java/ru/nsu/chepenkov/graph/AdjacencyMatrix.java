@@ -1,20 +1,19 @@
 package ru.nsu.chepenkov.graph;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 public class AdjacencyMatrix<T> implements Graph<T>{
     private final List<List<Integer>> matrix;
-    private ArrayList<Vertex<T>> vertices;
-    private ArrayList<Vertex<T>> visited;
-    private ArrayList<Vertex<T>> topoSortArray;
-    private ArrayList<Edge<T>> edges;
+    private final ArrayList<Vertex<T>> vertices;
+    private final ArrayList<Edge<T>> edges;
+
     public AdjacencyMatrix() {
         vertices = new ArrayList<>();
         edges = new ArrayList<>();
-        topoSortArray = new ArrayList<>();
-        visited = new ArrayList<>();
+        ArrayList<Vertex<T>> visited = new ArrayList<>();
         this.matrix = new ArrayList<>();
     }
 
