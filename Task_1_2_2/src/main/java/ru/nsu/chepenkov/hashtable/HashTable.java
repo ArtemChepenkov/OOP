@@ -1,11 +1,16 @@
 package ru.nsu.chepenkov.hashtable;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Objects;
 
 /**
  * Класс для хэш таблицы, внутри ещё итератор.
  *
- * @author ArtemChepenkov
+ * @author ArtemChepenkovz
  */
 public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
@@ -15,7 +20,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     private int changesAmount;
 
     @SuppressWarnings("unchecked")
-    public HashTable() {
+    HashTable() {
         this.capacity = 8;
         this.hashTable = new ArrayList[capacity];
         this.size = 0;
@@ -30,7 +35,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         capacity *= 2;
         @SuppressWarnings("unchecked")
         ArrayList<Entry<K, V>>[] newTable = new ArrayList[capacity];
-        for (List<Entry<K, V>> entries : hashTable) {
+        for (ArrayList<Entry<K, V>> entries : hashTable) {
             if (entries != null) {
                 for (Entry<K, V> entry : entries) {
                     int newIndex = hash(entry.key);
@@ -160,5 +165,9 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     @Override
     public int hashCode() {
         return Objects.hash(Arrays.hashCode(hashTable), capacity, size, changesAmount);
+    }
+
+    public boolean containsKey(K key) {
+        return get(key) != null;
     }
 }
