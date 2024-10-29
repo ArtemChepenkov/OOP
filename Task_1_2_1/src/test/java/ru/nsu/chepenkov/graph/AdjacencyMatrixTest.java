@@ -68,7 +68,7 @@ public class AdjacencyMatrixTest {
         adjacencyMatrix.delVertex(v2);
         int curSize = adjacencyMatrix.getVertices().size();
 
-        ArrayList<Vertex<Integer>> vertList = adjacencyMatrix.getVertices();
+        ArrayList<Vertex<Integer>> vertList = (ArrayList<Vertex<Integer>>) adjacencyMatrix.getVertices();
 
         for (int i = 0; i < curSize; i++) {
             assertNotEquals(v2, vertList.get(i));
@@ -93,7 +93,7 @@ public class AdjacencyMatrixTest {
         adjacencyMatrix.addEdge(edge1);
         adjacencyMatrix.addEdge(edge2);
         adjacencyMatrix.addEdge(edge3);
-        ArrayList<Edge<Integer>> edges = adjacencyMatrix.getEdges();
+        ArrayList<Edge<Integer>> edges = (ArrayList<Edge<Integer>>) adjacencyMatrix.getEdges();
 
         assertEquals(3, edges.size());
         assertEquals(edge1, edges.get(0));
@@ -117,7 +117,7 @@ public class AdjacencyMatrixTest {
         adjacencyMatrix.addEdge(edge1);
         adjacencyMatrix.addEdge(edge2);
         adjacencyMatrix.addEdge(edge3);
-        ArrayList<Edge<Integer>> edges = adjacencyMatrix.getEdges();
+        ArrayList<Edge<Integer>> edges = (ArrayList<Edge<Integer>>) adjacencyMatrix.getEdges();
 
         adjacencyMatrix.delEdge(edge1);
 
