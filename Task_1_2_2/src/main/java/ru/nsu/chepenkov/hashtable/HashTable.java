@@ -27,10 +27,12 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         this.changesAmount = 0;
     }
 
+    /**Функция хэша.*/
     private int hash(K key) {
         return (Objects.hashCode(key) % hashTable.length);
     }
 
+    /**Функция ресайза, вызывается, когда не хватает размера.*/
     private void resize() {
         capacity *= 2;
         @SuppressWarnings("unchecked")
@@ -49,6 +51,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         hashTable = newTable;
     }
 
+    /**Вставка по ключу, она же и update.*/
     public void put(K key, V value) {
         double needResize = 0.75d;
         if ((double) size / capacity >= needResize) {
@@ -69,7 +72,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         changesAmount++;
     }
 
-
+    /**Получение значения по ключу.*/
     public V get(K key) {
         int index = hash(key);
         if (hashTable[index] != null) {
@@ -82,6 +85,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         return null;
     }
 
+    /**Удаление по ключу.*/
     public void remove(K key) {
         int index = hash(key);
         if (hashTable[index] != null) {
@@ -98,6 +102,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         }
     }
 
+    /**Тут просто put используется.*/
     public void update(K key, V value) {
         put(key, value);
     }
