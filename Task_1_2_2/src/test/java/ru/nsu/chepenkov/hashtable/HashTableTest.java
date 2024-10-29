@@ -77,5 +77,17 @@ public class HashTableTest {
         assertEquals(hashTable1, hashTable2);
     }
 
-    
+    @Test
+    @DisplayName("HashTableTestIterator")
+    void hashTableTestIterator() {
+        HashTable<Number, Number> hashTable = new HashTable<>();
+        hashTable.put(1, 1);
+        hashTable.put(10, 10);
+        hashTable.put(100, 100);
+        for (Entry<Number, Number> entry: hashTable) {
+            assertEquals(hashTable.get(entry.getKey()),
+                    entry.getValue());
+            
+        }
+    }
 }

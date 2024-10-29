@@ -12,7 +12,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     @SuppressWarnings("unchecked")
     public HashTable() {
-        this.capacity = 2;
+        this.capacity = 8;
         this.hashTable = new ArrayList[capacity];
         this.size = 0;
         this.changesAmount = 0;
@@ -124,10 +124,6 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
             }
             return currentIterator.next();
         }
-    }
-
-    public boolean containsKey(K key) {
-        return get(key) != null;
     }
 
     public int size() {
