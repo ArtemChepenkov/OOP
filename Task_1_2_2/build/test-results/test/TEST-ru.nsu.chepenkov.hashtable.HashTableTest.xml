@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.chepenkov.hashtable.HashTableTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-10-29T07:06:01" hostname="HONOR_MIRACLE" time="0.098">
+  <properties/>
+  <testcase name="HashTableTestBigSize" classname="ru.nsu.chepenkov.hashtable.HashTableTest" time="0.071"/>
+  <testcase name="HashTableTestOneElementTest" classname="ru.nsu.chepenkov.hashtable.HashTableTest" time="0.001"/>
+  <testcase name="HashTableTestEqualKeys" classname="ru.nsu.chepenkov.hashtable.HashTableTest" time="0.003"/>
+  <testcase name="HashTableTestEquals" classname="ru.nsu.chepenkov.hashtable.HashTableTest" time="0.003"/>
+  <testcase name="HashTableTestRemove" classname="ru.nsu.chepenkov.hashtable.HashTableTest" time="0.003"/>
+  <testcase name="HashTableTestUpdate" classname="ru.nsu.chepenkov.hashtable.HashTableTest" time="0.001"/>
+  <testcase name="HashTableTestIterator" classname="ru.nsu.chepenkov.hashtable.HashTableTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
