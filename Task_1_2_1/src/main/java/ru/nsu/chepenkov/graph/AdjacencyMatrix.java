@@ -13,8 +13,8 @@ import java.util.NoSuchElementException;
 
 public class AdjacencyMatrix<T> implements Graph<T> {
     private final List<List<Integer>> matrix;
-    private final ArrayList<Vertex<T>> vertices;
-    private final ArrayList<Edge<T>> edges;
+    private final List<Vertex<T>> vertices;
+    private final List<Edge<T>> edges;
 
     AdjacencyMatrix() {
         vertices = new ArrayList<>();
@@ -134,7 +134,7 @@ public class AdjacencyMatrix<T> implements Graph<T> {
         return result;
     }
 
-    public ArrayList<Vertex<T>> getVertices() {
+    public List<Vertex<T>> getVertices() {
         return vertices;
     }
 
@@ -142,7 +142,7 @@ public class AdjacencyMatrix<T> implements Graph<T> {
         return matrix;
     }
 
-    public ArrayList<Edge<T>> getEdges() {
+    public List<Edge<T>> getEdges() {
         return edges;
     }
 }
