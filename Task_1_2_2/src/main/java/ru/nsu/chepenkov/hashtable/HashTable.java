@@ -2,8 +2,12 @@ package ru.nsu.chepenkov.hashtable;
 
 import java.util.*;
 
+/**
+ * Класс для хэш таблицы, внутри ещё итератор.
+ *
+ * @author ArtemChepenkov
+ */
 public class HashTable<K, V> implements Iterable<Entry<K, V>> {
-
 
     private ArrayList<Entry<K, V>>[] hashTable;
     private int capacity;

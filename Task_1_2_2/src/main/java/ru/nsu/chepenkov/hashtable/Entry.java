@@ -1,6 +1,11 @@
 package ru.nsu.chepenkov.hashtable;
 
-public class Entry <K, V> {
+/**
+ * Это класс для описания записи.
+ *
+ * @author ArtemChepenkov
+ */
+public class Entry<K, V> {
     K key;
     V value;
 

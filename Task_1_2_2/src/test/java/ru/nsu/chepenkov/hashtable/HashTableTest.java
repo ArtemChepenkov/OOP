@@ -5,6 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Класс для тестирования хэш таблицы.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class HashTableTest {
 
     @Test
@@ -54,7 +60,7 @@ public class HashTableTest {
 
     @Test
     @DisplayName("HashTableTestBigSize")
-    void HashTableTestBigSize() {
+    void hashTableTestBigSize() {
         HashTable<Number, Number> hashTable = new HashTable<>();
         for (int i = 0; i < 100000; i++) {
             hashTable.put(i, i);
@@ -84,10 +90,10 @@ public class HashTableTest {
         hashTable.put(1, 1);
         hashTable.put(10, 10);
         hashTable.put(100, 100);
-        for (Entry<Number, Number> entry: hashTable) {
+        for (Entry<Number, Number> entry : hashTable) {
             assertEquals(hashTable.get(entry.getKey()),
                     entry.getValue());
-            
+
         }
     }
 }
