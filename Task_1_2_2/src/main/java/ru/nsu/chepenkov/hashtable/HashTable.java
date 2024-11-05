@@ -18,7 +18,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     private int capacity;
     private int size;
     private int changesAmount;
-    private final double NEEDRESIZE = 0.75d;
+    private final double needResize = 0.75d;
 
     @SuppressWarnings("unchecked")
     HashTable() {
@@ -54,7 +54,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**Вставка по ключу, она же и update.*/
     public void put(K key, V value) {
-        if ((double) size / capacity >= NEEDRESIZE) {
+        if ((double) size / capacity >= needResize) {
             resize();
         }
         int index = hash(key);
