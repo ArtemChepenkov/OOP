@@ -30,7 +30,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**Функция хэша.*/
     private int hash(K key) {
-        return Objects.hashCode(key) % hashTable.length;
+        return Math.abs((Objects.hashCode(key) % hashTable.length));
     }
 
     /**Функция ресайза, вызывается, когда не хватает размера.*/
