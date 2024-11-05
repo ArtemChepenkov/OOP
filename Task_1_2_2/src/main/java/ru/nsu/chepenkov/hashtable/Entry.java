@@ -6,8 +6,8 @@ package ru.nsu.chepenkov.hashtable;
  * @author ArtemChepenkov
  */
 public class Entry<K, V> {
-    K key;
-    V value;
+    private final K key;
+    private V value;
 
     Entry(K key, V value) {
         this.key = key;
@@ -20,5 +20,9 @@ public class Entry<K, V> {
 
     public V getValue() {
         return value;
+    }
+
+    public void setValue(V value) {
+        this.value = value;
     }
 }

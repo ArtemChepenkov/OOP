@@ -1,11 +1,14 @@
 package ru.nsu.chepenkov.hashtable;
 
+import java.util.ConcurrentModificationException;
+import java.util.NoSuchElementException;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Класс для тестирования хэш таблицы.
@@ -95,7 +98,40 @@ public class HashTableTest {
         for (Entry<Number, Number> entry : hashTable) {
             assertEquals(hashTable.get(entry.getKey()),
                     entry.getValue());
-
         }
+    }
+
+    @Test
+    @DisplayName("HashTableTestConcurrentModificationException")
+    void hashTableTestConcurrentModificationException() {
+        HashTable<Number, Number> hashTable = new HashTable<>();
+        hashTable.put(1, 1);
+        hashTable.put(10, 10);
+        hashTable.put(100, 100);
+        try {
+            for (Entry<Number, Number> entry : hashTable) {
+                hashTable.remove(10);
+            }
+        } catch (ConcurrentModificationException exception) {
+            assertTrue(true);
+            return;
+        }
+        assertTrue(false);
+    }
+
+    @Test
+    @DisplayName("HashTableTestUpdateNoSuchElement")
+    void hashTableTestUpdateNoSuchElement() {
+        HashTable<Number, Number> hashTable = new HashTable<>();
+        hashTable.put(1, 1);
+        hashTable.put(10, 10);
+        hashTable.put(100, 100);
+        try {
+            hashTable.update(111,111);
+        } catch (NoSuchElementException exception) {
+            assertTrue(true);
+            return;
+        }
+        assertTrue(false);
     }
 }
