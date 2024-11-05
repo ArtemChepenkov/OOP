@@ -18,7 +18,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     private int capacity;
     private int size;
     private int changesAmount;
-    private final double NEED_RESIZE = 0.75d;
+    private final double NEEDRESIZE = 0.75d;
 
     @SuppressWarnings("unchecked")
     HashTable() {
@@ -54,7 +54,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**Вставка по ключу, она же и update.*/
     public void put(K key, V value) {
-        if ((double) size / capacity >= NEED_RESIZE) {
+        if ((double) size / capacity >= NEEDRESIZE) {
             resize();
         }
         int index = hash(key);
@@ -103,7 +103,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**Тут просто put используется.*/
     public void update(K key, V value) throws NoSuchElementException {
-        if (!containsKey(key)){
+        if (!containsKey(key)) {
             throw new NoSuchElementException("No key");
         }
         put(key, value);
@@ -122,7 +122,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         @Override
         public boolean hasNext() {
             while ((currentIterator == null || !currentIterator.hasNext()) && index < capacity) {
-                ArrayList<Entry<K,V>> curEntry = hashTable[index];
+                ArrayList<Entry<K, V>> curEntry = hashTable[index];
                 if (curEntry != null) {
                     currentIterator = curEntry.iterator();
                 }

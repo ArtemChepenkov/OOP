@@ -1,14 +1,14 @@
 package ru.nsu.chepenkov.hashtable;
 
-import java.util.ConcurrentModificationException;
-import java.util.NoSuchElementException;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ConcurrentModificationException;
+import java.util.NoSuchElementException;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 /**
  * Класс для тестирования хэш таблицы.
@@ -127,7 +127,7 @@ public class HashTableTest {
         hashTable.put(10, 10);
         hashTable.put(100, 100);
         try {
-            hashTable.update(111,111);
+            hashTable.update(111, 111);
         } catch (NoSuchElementException exception) {
             assertTrue(true);
             return;
