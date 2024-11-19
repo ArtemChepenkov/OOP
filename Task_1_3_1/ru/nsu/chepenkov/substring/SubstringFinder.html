@@ -178,12 +178,16 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static java.util.List&lt;java.lang.Long&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#find(java.lang.String,java.lang.String)">find</a></span>&#8203;(java.lang.String&nbsp;path,
     java.lang.String&nbsp;subString)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Осуществялет поиск с помощью алгоритма Рабина-Карпа.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBufferSize()">getBufferSize</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Нужно, чтобы в тестах проверить граничный случай.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -237,6 +241,9 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public static&nbsp;java.util.List&lt;java.lang.Long&gt;&nbsp;find&#8203;(java.lang.String&nbsp;path,
                                                   java.lang.String&nbsp;subString)
                                            throws java.io.FileNotFoundException</pre>
+<div class="block">Осуществялет поиск с помощью алгоритма Рабина-Карпа.
+
+ Также проверяет граничный случай</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.FileNotFoundException</code></dd>
@@ -250,6 +257,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getBufferSize</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;getBufferSize()</pre>
+<div class="block">Нужно, чтобы в тестах проверить граничный случай.</div>
 </li>
 </ul>
 </li>
