@@ -107,7 +107,7 @@ public class SubstringFinderTest {
         assertEquals(expected, res);
     }
 
-    //@Test
+    @Test
     @DisplayName("SubstringFinderTestLargeFile")
     void testLargeFile() throws IOException {
         ArrayList<Long> expected = new ArrayList<>();
