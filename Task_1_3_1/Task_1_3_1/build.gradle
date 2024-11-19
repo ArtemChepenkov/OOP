@@ -6,7 +6,7 @@ plugins {
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 
-group = 'ru.nsu.chepenkov.graph'
+group = 'ru.nsu.chepenkov.substring'
 version = '1.0-SNAPSHOT'
 
 repositories {
