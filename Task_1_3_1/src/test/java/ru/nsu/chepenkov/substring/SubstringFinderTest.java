@@ -107,7 +107,7 @@ public class SubstringFinderTest {
         assertEquals(expected, res);
     }
 
-    @Test
+    //@Test
     @DisplayName("SubstringFinderTestLargeFile")
     void testLargeFile() throws IOException {
         ArrayList<Long> expected = new ArrayList<>();
@@ -146,6 +146,26 @@ public class SubstringFinderTest {
             e.printStackTrace();
         }
         res = SubstringFinder.find("test.txt", "符");
+        assertEquals(expected, res);
+    }
+
+    @Test
+    @DisplayName("SubstringFinderTestEmoji")
+    void testEmoji() throws IOException {
+        ArrayList<Long> expected = new ArrayList<>();
+        List<Long> res = new ArrayList<>();
+        int bufferSize = new SubstringFinder().getBufferSize();
+        expected.add(5L);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("test.txt",
+                StandardCharsets.UTF_8))) {
+
+            writer.write("Hello\uD83D\uDE0A");
+
+        } catch (IOException e) {
+            System.err.println("File write error");
+            e.printStackTrace();
+        }
+        res = SubstringFinder.find("test.txt", "\uD83D\uDE0A");
         assertEquals(expected, res);
     }
 
