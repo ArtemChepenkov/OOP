@@ -7,9 +7,12 @@ import java.util.List;
  * Алгортим Рабина-Карпа.
  */
 public class RabinKarp {
+
+    /**Алгоритм Рабина-Карпа.*/
     public static List<Integer> search(String text, String subString) {
         int subStringLength = subString.length();
-        int textLength = text.length();
+        int textLength;
+        textLength = text.length();
         int prime = 17; //change to a normal one
 
         int subStringHash = 0;
@@ -32,20 +35,20 @@ public class RabinKarp {
         for (int i = 0; i <= textLength - subStringLength; i++) {
             if (subStringHash == textHash) {
                 int j;
+                j = 0; //linter
                 for (j = 0; j < subStringLength; j++) {
                     if (text.charAt(i + j) != subString.charAt(j)) {
                         break;
                     }
                 }
 
-                if(j == subStringLength) {
+                if (j == subStringLength) {
                     result.add(i);
                 }
             }
 
             if (i < textLength - subStringLength) {
-                textHash = (256 * (textHash - text.charAt(i) * slidingValue)
-                + text.charAt(i + subStringLength)) % prime;
+                textHash = (256 * (textHash - text.charAt(i) * slidingValue) + text.charAt(i + subStringLength)) % prime;
                 if (textHash < 0) {
                     textHash += prime;
                 }
