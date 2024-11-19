@@ -129,6 +129,26 @@ public class SubstringFinderTest {
         assertEquals(expected, res);
     }
 
+    @Test
+    @DisplayName("SubstringFinderTestChinese")
+    void testChinese() throws IOException {
+        ArrayList<Long> expected = new ArrayList<>();
+        List<Long> res = new ArrayList<>();
+        int bufferSize = new SubstringFinder().getBufferSize();
+        expected.add(1L);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("test.txt",
+                StandardCharsets.UTF_8))) {
+
+            writer.write("字符串");
+
+        } catch (IOException e) {
+            System.err.println("File write error");
+            e.printStackTrace();
+        }
+        res = SubstringFinder.find("test.txt", "符");
+        assertEquals(expected, res);
+    }
+
 }
 
 
