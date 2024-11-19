@@ -48,7 +48,8 @@ public class RabinKarp {
             }
 
             if (i < textLength - subStringLength) {
-                textHash = (256 * (textHash - text.charAt(i) * slidingValue) + text.charAt(i + subStringLength)) % prime;
+                textHash = (256 * (textHash - text.charAt(i) * slidingValue)
+                           + text.charAt(i + subStringLength)) % prime;
                 if (textHash < 0) {
                     textHash += prime;
                 }

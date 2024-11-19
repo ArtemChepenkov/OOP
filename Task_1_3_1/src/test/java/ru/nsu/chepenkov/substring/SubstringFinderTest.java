@@ -91,10 +91,10 @@ public class SubstringFinderTest {
         ArrayList<Long> expected = new ArrayList<>();
         List<Long> res = new ArrayList<>();
         int bufferSize = new SubstringFinder().getBufferSize();
-        expected.add(bufferSize-2L);
+        expected.add(bufferSize - 2L);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("test.txt",
                 StandardCharsets.UTF_8))) {
-            for (long i = 0L; i < bufferSize-2L; i++) {
+            for (long i = 0L; i < bufferSize - 2L; i++) {
                 writer.write("a");
             }
             writer.write("Hello");

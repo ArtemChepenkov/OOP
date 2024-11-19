@@ -16,10 +16,7 @@ public class SubstringFinder {
     private static final int bufferSize = 1_000_000_0;
 
     /**
-     * Осуществялет поиск с помощью алгоритма Рабина-Карпа.
-     *
-     * Также проверяет граничный случай
-     */
+     * Осуществялет поиск с помощью алгоритма Рабина-Карпа.*/
     public static List<Long> find(String path, String subString) throws FileNotFoundException {
         List<Long> res = new ArrayList<>();
         int subStringLength = subString.length();
