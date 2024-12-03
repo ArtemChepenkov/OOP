@@ -56,7 +56,7 @@ public class RecordBook {
             return false;
         }
         if (currentSemestr != 8) {
-            return (double)markFive / totalMarks >= 0.75;
+            return (double) markFive / totalMarks >= 0.75;
         }
         return currentSemestr == 8
                 && semestrList.get(currentSemestr - 1).getVkrMark() == 5;
