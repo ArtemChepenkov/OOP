@@ -16,6 +16,7 @@ public class Grades {
         this.maxGrades = maxGrades;
     }
 
+    /**Получение среднего.*/
     public double getAverage() {
         return grades.values()
                 .stream()
@@ -24,11 +25,13 @@ public class Grades {
                 .orElse(0);
     }
 
+    /**Вспомогательная функция для стримов.*/
     public Stream<Integer> getGrades() {
         return grades.values()
                 .stream();
     }
 
+    /**Один из этапов добавления оценки.*/
     public void addGrade(int grade, String subject) {
         if (!grades.containsKey(subject) && grades.size() < maxGrades) {
             grades.put(subject, grade);

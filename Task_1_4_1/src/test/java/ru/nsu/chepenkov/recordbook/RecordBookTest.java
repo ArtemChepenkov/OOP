@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
 
 /**
  * Тесты для зачётной книжки, тут проверяются и успешный случай и неуспешный.
@@ -78,7 +78,7 @@ public class RecordBookTest {
     @DisplayName("RecordBookAverageScoreTest")
     void averageScoreTest() {
         recordBook.addGrade(2, "Models of computing", 3, ControlType.DIF_CREDIT);
-        assertEquals((double)58 / 12, recordBook.getAverageScore());
+        assertEquals((double) 58 / 12, recordBook.getAverageScore());
     }
 
     @Test
