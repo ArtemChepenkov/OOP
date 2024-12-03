@@ -45,15 +45,7 @@ public class Semestr {
                 .findAny();
         return !res.isEmpty() && !res1.isEmpty();
     }
-
-    public long getMarksNumber(int mark, ControlType controlType) {
-        return semestrRecord.get(controlType)
-                .getGrades()
-                .filter(x -> x == mark)
-                .count();
-
-    }
-
+    
     public Map<ControlType, Grades> getSemestrRecord() {
         return semestrRecord;
     }
