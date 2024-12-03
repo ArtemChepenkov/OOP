@@ -10,7 +10,7 @@ import java.util.Optional;
 public class Semestr {
     private final Map<ControlType, Grades> semestrRecord;
 
-    public Semestr (int taskGrades, int testGrades, int colloquimGrades,
+    public Semestr(int taskGrades, int testGrades, int colloquimGrades,
                     int examGrades, int difCreditGrades,
                     int creditGrades, int practiceDefenseGrades,
                     int vkrDefenseGrades) {
@@ -25,16 +25,18 @@ public class Semestr {
         semestrRecord.put(ControlType.VKR_DEFENSE, new Grades(vkrDefenseGrades));
     }
 
+    /**Получение среднего балла за семестр.*/
     public double getSemestrAverageScore() {
 
         return semestrRecord.values()
                 .stream()
-                .mapToDouble(Grades :: getAverage)
+                .mapToDouble(Grades::getAverage)
                 .filter(x -> x > 0)
                 .average()
                 .orElse(0);
     }
 
+    /**Проверка на наличие оценок диф зачёта и экзамена.*/
     public boolean hasMarks(int examMark, int difCreditMark) {
         Optional<Integer> res = semestrRecord.values()
                 .stream()
@@ -49,10 +51,12 @@ public class Semestr {
         return !res.isEmpty() || !res1.isEmpty();
     }
 
+    /**Просто получение записи для работы со стримами.*/
     public Map<ControlType, Grades> getSemestrRecord() {
         return semestrRecord;
     }
 
+    /**Просто для одного случая получение оценки ВКР.*/
     public int getVkrMark() {
         return semestrRecord.get(ControlType.VKR_DEFENSE)
                 .getGrades()
@@ -60,6 +64,7 @@ public class Semestr {
                 .orElse(0);
     }
 
+    /**Добавление оценки.*/
     public void addGradeSemestr(String subject, int grade, ControlType controlType) {
         semestrRecord.get(controlType).addGrade(grade, subject);
     }
