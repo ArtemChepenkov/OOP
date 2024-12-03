@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Grades {
-    private Map<String, Integer> grades;
-    private int maxGrades;
+    private final Map<String, Integer> grades;
+    private final int maxGrades;
 
     public Grades(int maxGrades) {
         this.grades = new HashMap<>();
@@ -29,6 +29,14 @@ public class Grades {
                 .stream();
     }
 
-
+    public void addGrade(int grade, String subject) {
+        if (grades.size() > maxGrades) {
+            return;
+        }
+        if (grades.containsKey(subject)) {
+            return;
+        }
+        grades.put(subject, grade);
+    }
 
 }

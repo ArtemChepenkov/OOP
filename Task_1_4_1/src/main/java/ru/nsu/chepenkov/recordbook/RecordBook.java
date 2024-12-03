@@ -8,16 +8,8 @@ import java.util.stream.Collectors;
 public class RecordBook {
     private final List<Semestr> semestrList;
 
-    public RecordBook() {
-        this.semestrList = new ArrayList<>();
-        semestrList.add(new Semestr(2, 3, 1, 3, 3, 3, 0, 0));
-        semestrList.add(new Semestr(2, 3, 1, 3, 3, 2, 0, 0));
-        semestrList.add(new Semestr(3, 2, 0, 2, 6, 0, 0, 0));
-        semestrList.add(new Semestr(2, 1, 0, 5, 5, 0, 0, 0));
-        semestrList.add(new Semestr(2, 2, 0, 3, 4, 0, 0, 0));
-        semestrList.add(new Semestr(2, 2, 0, 2, 6, 0, 0, 0));
-        semestrList.add(new Semestr(2, 0, 0, 1, 4, 1, 1, 0));
-        semestrList.add(new Semestr(0, 0, 0, 0, 0, 0, 0, 1));
+    public RecordBook(List<Semestr> semestrList) {
+        this.semestrList = semestrList;
     }
 
         public boolean canBudgetTransfer(int currentSemestr) {
@@ -60,10 +52,41 @@ public class RecordBook {
             if (markThree > 0) {
                 return false;
             }
-            if (currentSemestr == 8
-                    && semestrList.get(currentSemestr - 1).getVkrMark() == 5) {
-                return true;
+            if (currentSemestr != 8) {
+                return (double)markFive / totalMarks >= 0.75;
             }
-            return false;
+            return currentSemestr == 8
+                    && semestrList.get(currentSemestr - 1).getVkrMark() == 5;
+        }
+
+        public void addGrade(int semestr, String subject,
+                             int grade, ControlType controlType) {
+            semestrList.get(semestr - 1).addGradeSemestr(subject, grade, controlType);
+        }
+
+        public double getAverageScore() {
+            return semestrList.stream()
+                    .mapToDouble(Semestr :: getSemestrAverageScore)
+                    .filter(x -> x > 0)
+                    .average()
+                    .orElse(0);
+        }
+
+        public boolean canGetIncreasedScholarship(int currentSemestr) {
+            return semestrList.get(currentSemestr - 1)
+                    .getSemestrRecord()
+                    .entrySet()
+                    .stream()
+                    .flatMap(entry -> entry.getValue().getGrades())
+                    .count()
+                    ==
+                    semestrList.get(currentSemestr - 1)
+                            .getSemestrRecord()
+                            .entrySet()
+                            .stream()
+                            .flatMap(entry -> entry.getValue().getGrades())
+                            .filter(x -> x == 5)
+                            .count();
+
         }
 }

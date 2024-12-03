@@ -22,17 +22,17 @@ public class Semestr {
         semestrRecord.put(ControlType.VKR_DEFENSE, new Grades(vkrDefenseGrades));
     }
 
-    public double getAverageScore() {
+    public double getSemestrAverageScore() {
 
         return semestrRecord.values()
                 .stream()
                 .mapToDouble(Grades :: getAverage)
+                .filter(x -> x > 0)
                 .average()
                 .orElse(0);
     }
 
     public boolean hasMarks(int examMark, int difCreditMark) {
-        semestrRecord.put(ControlType.TASK, new Grades(2));
         Optional<Integer> res = semestrRecord.values()
                 .stream()
                 .flatMap(Grades :: getGrades)
@@ -43,7 +43,7 @@ public class Semestr {
                 .getGrades()
                 .filter(x -> x <= difCreditMark)
                 .findAny();
-        return res.isEmpty() && res1.isEmpty();
+        return !res.isEmpty() && !res1.isEmpty();
     }
 
     public long getMarksNumber(int mark, ControlType controlType) {
@@ -63,5 +63,9 @@ public class Semestr {
                 .getGrades()
                 .findFirst()
                 .orElse(0);
+    }
+
+    public void addGradeSemestr(String subject, int grade, ControlType controlType) {
+        semestrRecord.get(controlType).addGrade(grade, subject);
     }
 }
