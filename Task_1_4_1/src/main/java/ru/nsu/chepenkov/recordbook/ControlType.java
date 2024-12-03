@@ -1,7 +1,6 @@
 package ru.nsu.chepenkov.recordbook;
 
-
-
+/**Просто енум для хранения типов аттестации.*/
 public enum ControlType {
     TASK,
     TEST,

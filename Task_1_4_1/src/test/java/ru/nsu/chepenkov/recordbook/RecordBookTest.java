@@ -1,7 +1,7 @@
 package ru.nsu.chepenkov.recordbook;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -78,7 +78,7 @@ public class RecordBookTest {
     @DisplayName("RecordBookAverageScoreTest")
     void averageScoreTest() {
         recordBook.addGrade(2, "Models of computing", 3, ControlType.DIF_CREDIT);
-        assertEquals((double)58/12, recordBook.getAverageScore());
+        assertEquals((double)58 / 12, recordBook.getAverageScore());
     }
 
     @Test
