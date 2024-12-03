@@ -1,12 +1,12 @@
 package ru.nsu.chepenkov.recordbook;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Можно скзазать, что это конечный класс в иерархии зачётной книжки.
+ */
 public class Grades {
     private final Map<String, Integer> grades;
     private final int maxGrades;

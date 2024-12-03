@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * Класс семестра, каждый тип аттестации содержит в себе оценки.
+ */
 public class Semestr {
     private final Map<ControlType, Grades> semestrRecord;
 

@@ -1,5 +1,7 @@
 package ru.nsu.chepenkov.recordbook;
 
+
+
 public enum ControlType {
     TASK,
     TEST,
