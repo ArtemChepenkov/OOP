@@ -30,13 +30,10 @@ public class Grades {
     }
 
     public void addGrade(int grade, String subject) {
-        if (grades.size() > maxGrades) {
-            return;
+        if (!grades.containsKey(subject) && grades.size() < maxGrades) {
+            grades.put(subject, grade);
         }
-        if (grades.containsKey(subject)) {
-            return;
-        }
-        grades.put(subject, grade);
+
     }
 
 }

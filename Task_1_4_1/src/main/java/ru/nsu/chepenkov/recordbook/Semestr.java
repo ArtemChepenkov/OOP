@@ -43,9 +43,9 @@ public class Semestr {
                 .getGrades()
                 .filter(x -> x <= difCreditMark)
                 .findAny();
-        return !res.isEmpty() && !res1.isEmpty();
+        return !res.isEmpty() || !res1.isEmpty();
     }
-    
+
     public Map<ControlType, Grades> getSemestrRecord() {
         return semestrRecord;
     }

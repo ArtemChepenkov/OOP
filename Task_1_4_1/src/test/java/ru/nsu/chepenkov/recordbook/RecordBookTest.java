@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RecordBookTest {
 
@@ -39,17 +38,54 @@ public class RecordBookTest {
         recordBook.addGrade(2, "History", 5, ControlType.EXAM);
         recordBook.addGrade(2, "OOP", 5, ControlType.EXAM);
         recordBook.addGrade(2, "OSI", 5, ControlType.EXAM);
-        recordBook.addGrade(1, "History", 5, ControlType.DIF_CREDIT);
-        recordBook.addGrade(1, "OOP", 5, ControlType.DIF_CREDIT);
-        recordBook.addGrade(1, "OSI", 5, ControlType.DIF_CREDIT);
+        recordBook.addGrade(2, "History", 5, ControlType.DIF_CREDIT);
+        recordBook.addGrade(2, "OOP", 5, ControlType.DIF_CREDIT);
+
     }
 
     @Test
     @DisplayName("RecordBookCanBudgetTransferTest")
     void canBudgetTransferTest() {
         assertTrue(recordBook.canBudgetTransfer(2));
+    }
+
+    @Test
+    @DisplayName("RecordBookCantBudgetTransferTest")
+    void cantBudgetTransferTest() {
+        recordBook.addGrade(2, "English", 3, ControlType.DIF_CREDIT);
+        assertFalse(recordBook.canBudgetTransfer(2));
+    }
+
+    @Test
+    @DisplayName("RecordBookCanGetRedDiplomaTest")
+    void canGetRedDiplomaTest() {
         assertTrue(recordBook.canGetRedDiploma(2));
-        assertEquals(5, recordBook.getAverageScore());
+    }
+
+    @Test
+    @DisplayName("RecordBookCantGetRedDiplomaTest")
+    void cantGetRedDiplomaTest() {
+        recordBook.addGrade(3, "OSI", 3, ControlType.EXAM);
+        assertFalse(recordBook.canGetRedDiploma(3));
+    }
+
+    @Test
+    @DisplayName("RecordBookAverageScoreTest")
+    void averageScoreTest() {
+        recordBook.addGrade(2, "Models of computing", 3, ControlType.DIF_CREDIT);
+        assertEquals((double)58/12, recordBook.getAverageScore());
+    }
+
+    @Test
+    @DisplayName("RecordBookIncreasedScholarshipTest")
+    void increasedScholarshipTest() {
         assertTrue(recordBook.canGetIncreasedScholarship(2));
+    }
+
+    @Test
+    @DisplayName("RecordBookCantGetIncreasedScholarshipTest")
+    void cantGetincreasedScholarshipTest() {
+        recordBook.addGrade(2, "Models of computing", 4, ControlType.DIF_CREDIT);
+        assertFalse(recordBook.canGetIncreasedScholarship(2));
     }
 }
