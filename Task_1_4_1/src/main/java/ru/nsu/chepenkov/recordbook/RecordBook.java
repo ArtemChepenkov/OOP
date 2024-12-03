@@ -31,7 +31,7 @@ public class RecordBook {
                         .filter(entry -> entry.getKey() != ControlType.CREDIT)
                         .flatMap(entry -> entry.getValue().getGrades()))
                 .count();
-            // We don't have to look at credit's marks
+
         long markFive = semestrList.stream()
                 .flatMap(semestr -> semestr.getSemestrRecord()
                         .entrySet()
@@ -40,7 +40,7 @@ public class RecordBook {
                         .flatMap(entry -> entry.getValue().getGrades()))
                 .filter(mark -> mark == 5)
                 .count();
-        if ((double)markFive / totalMarks < 0.75) {
+        if ((double) markFive / totalMarks < 0.75) {
             return false;
         }
 

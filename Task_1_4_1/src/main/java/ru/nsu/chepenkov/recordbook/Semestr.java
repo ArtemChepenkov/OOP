@@ -10,7 +10,7 @@ import java.util.Optional;
 public class Semestr {
     private final Map<ControlType, Grades> semestrRecord;
 
-    public Semestr(int taskGrades, int testGrades, int colloquimGrades,
+    Semestr(int taskGrades, int testGrades, int colloquimGrades,
                     int examGrades, int difCreditGrades,
                     int creditGrades, int practiceDefenseGrades,
                     int vkrDefenseGrades) {
@@ -40,7 +40,7 @@ public class Semestr {
     public boolean hasMarks(int examMark, int difCreditMark) {
         Optional<Integer> res = semestrRecord.values()
                 .stream()
-                .flatMap(Grades :: getGrades)
+                .flatMap(Grades::getGrades)
                 .filter(x -> x <= examMark)
                 .findAny();
 
