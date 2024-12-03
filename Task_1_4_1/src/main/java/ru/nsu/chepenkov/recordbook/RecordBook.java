@@ -71,7 +71,7 @@ public class RecordBook {
     /**Подсчёт среднего балла.*/
     public double getAverageScore() {
         return semestrList.stream()
-                .mapToDouble(Semestr :: getSemestrAverageScore)
+                .mapToDouble(Semestr::getSemestrAverageScore)
                 .filter(x -> x > 0)
                 .average()
                 .orElse(0);

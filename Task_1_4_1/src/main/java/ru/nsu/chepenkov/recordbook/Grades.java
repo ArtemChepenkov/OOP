@@ -19,7 +19,7 @@ public class Grades {
     public double getAverage() {
         return grades.values()
                 .stream()
-                .mapToDouble(Integer :: doubleValue)
+                .mapToDouble(Integer::doubleValue)
                 .average()
                 .orElse(0);
     }
