@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.chepenkov.recordbook","l":"ControlType"},{"p":"ru.nsu.chepenkov.recordbook","l":"Grades"},{"p":"ru.nsu.chepenkov.recordbook","l":"Main"},{"p":"ru.nsu.chepenkov.recordbook","l":"RecordBook"},{"p":"ru.nsu.chepenkov.recordbook","l":"Semestr"}]
