@@ -97,6 +97,7 @@ public class RecordBook {
                         .count();
     }
 
+    /**Сохраняет в файл.*/
     public void saveToFile(String filePath) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (Semestr semestr : semestrList) {
@@ -107,6 +108,7 @@ public class RecordBook {
         }
     }
 
+    /**Загрузка в файл.*/
     public static RecordBook loadFromFile(String filePath) throws IOException {
         List<Semestr> semestrList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {

@@ -96,8 +96,8 @@ public class RecordBookTest {
     }
 
     @Test
-    @DisplayName("RecordBookCantCheckFile")
-    void RecordBookCantCheckFile() throws IOException {
+    @DisplayName("RecordBookCantCheckSerializationDeserializationTest")
+    void recordBookCantCheckSerializationDeserialization() throws IOException {
         String filePath = "recordBook.txt";
         recordBook.addGrade(2, "Models of computing", 3, ControlType.DIF_CREDIT);
         recordBook.saveToFile(filePath);
