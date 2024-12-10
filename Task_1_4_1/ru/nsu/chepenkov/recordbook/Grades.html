@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -132,7 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Grades</span>
 extends java.lang.Object</pre>
-<div class="block">Можно скзазать, что это конечный класс в иерархии зачётной книжки.</div>
+<div class="block">Класс, описывающий оценки,.</div>
 </li>
 </ul>
 </div>
@@ -168,7 +168,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -183,17 +183,31 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>static <a href="Grades.html" title="class in ru.nsu.chepenkov.recordbook">Grades</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromText(java.lang.String)">fromText</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<td class="colLast">
+<div class="block">Восстановление объекта из строки.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAverage()">getAverage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Получение среднего.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.stream.Stream&lt;java.lang.Integer&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGrades()">getGrades</a></span>()</code></th>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.util.Collection&lt;java.lang.Integer&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValues()">getValues</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Вспомогательная функция для стримов.</div>
+<div class="block">Геттер для значений(сделан, чтобы избавиться от метода, который возвращал стрим).</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toText()">toText</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Преобразование объекта в строку.</div>
 </td>
 </tr>
 </table>
@@ -249,25 +263,45 @@ extends java.lang.Object</pre>
 <div class="block">Получение среднего.</div>
 </li>
 </ul>
-<a id="getGrades()">
+<a id="getValues()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getGrades</h4>
-<pre class="methodSignature">public&nbsp;java.util.stream.Stream&lt;java.lang.Integer&gt;&nbsp;getGrades()</pre>
-<div class="block">Вспомогательная функция для стримов.</div>
+<h4>getValues</h4>
+<pre class="methodSignature">public&nbsp;java.util.Collection&lt;java.lang.Integer&gt;&nbsp;getValues()</pre>
+<div class="block">Геттер для значений(сделан, чтобы избавиться от метода, который возвращал стрим).</div>
 </li>
 </ul>
 <a id="addGrade(int,java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>addGrade</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addGrade&#8203;(int&nbsp;grade,
                      java.lang.String&nbsp;subject)</pre>
 <div class="block">Один из этапов добавления оценки.</div>
+</li>
+</ul>
+<a id="toText()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toText</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toText()</pre>
+<div class="block">Преобразование объекта в строку.</div>
+</li>
+</ul>
+<a id="fromText(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>fromText</h4>
+<pre class="methodSignature">public static&nbsp;<a href="Grades.html" title="class in ru.nsu.chepenkov.recordbook">Grades</a>&nbsp;fromText&#8203;(java.lang.String&nbsp;text)</pre>
+<div class="block">Восстановление объекта из строки.</div>
 </li>
 </ul>
 </li>
