@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -92,5 +93,16 @@ public class RecordBookTest {
     void cantGetincreasedScholarshipTest() {
         recordBook.addGrade(2, "Models of computing", 4, ControlType.DIF_CREDIT);
         assertFalse(recordBook.canGetIncreasedScholarship(2));
+    }
+
+    @Test
+    @DisplayName("RecordBookCantCheckFile")
+    void RecordBookCantCheckFile() throws IOException {
+        String filePath = "recordBook.txt";
+        recordBook.addGrade(2, "Models of computing", 3, ControlType.DIF_CREDIT);
+        recordBook.saveToFile(filePath);
+
+        RecordBook loadedBook = RecordBook.loadFromFile(filePath);
+        assertEquals((double) 58 / 12, loadedBook.getAverageScore());
     }
 }

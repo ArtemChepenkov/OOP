@@ -1,5 +1,7 @@
 package ru.nsu.chepenkov.recordbook;
 
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,7 +31,7 @@ public class RecordBook {
                         .entrySet()
                         .stream()
                         .filter(entry -> entry.getKey() != ControlType.CREDIT)
-                        .flatMap(entry -> entry.getValue().getGrades()))
+                        .flatMap(entry -> entry.getValue().getValues().stream()))
                 .count();
 
         long markFive = semestrList.stream()
@@ -37,7 +39,7 @@ public class RecordBook {
                         .entrySet()
                         .stream()
                         .filter(entry -> entry.getKey() != ControlType.CREDIT)
-                        .flatMap(entry -> entry.getValue().getGrades()))
+                        .flatMap(entry -> entry.getValue().getValues().stream()))
                 .filter(mark -> mark == 5)
                 .count();
         if ((double) markFive / totalMarks < 0.75) {
@@ -49,7 +51,7 @@ public class RecordBook {
                         .entrySet()
                         .stream()
                         .filter(entry -> entry.getKey() != ControlType.CREDIT)
-                        .flatMap(entry -> entry.getValue().getGrades()))
+                        .flatMap(entry -> entry.getValue().getValues().stream()))
                 .filter(mark -> mark == 3)
                 .count();
         if (markThree > 0) {
@@ -83,15 +85,36 @@ public class RecordBook {
                 .getSemestrRecord()
                 .entrySet()
                 .stream()
-                .flatMap(entry -> entry.getValue().getGrades())
+                .flatMap(entry -> entry.getValue().getValues().stream())
                 .count()
                 ==
                 semestrList.get(currentSemestr - 1)
                         .getSemestrRecord()
                         .entrySet()
                         .stream()
-                        .flatMap(entry -> entry.getValue().getGrades())
+                        .flatMap(entry -> entry.getValue().getValues().stream())
                         .filter(x -> x == 5)
                         .count();
+    }
+
+    public void saveToFile(String filePath) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (Semestr semestr : semestrList) {
+                //System.out.println(semestr.toText());
+                writer.write(semestr.toText());
+                writer.newLine();
+            }
+        }
+    }
+
+    public static RecordBook loadFromFile(String filePath) throws IOException {
+        List<Semestr> semestrList = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                semestrList.add(Semestr.fromText(line));
+            }
+        }
+        return new RecordBook(semestrList);
     }
 }
