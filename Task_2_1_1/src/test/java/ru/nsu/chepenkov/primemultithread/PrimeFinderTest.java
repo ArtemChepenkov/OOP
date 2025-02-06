@@ -68,7 +68,7 @@ public class PrimeFinderTest {
 
 
         long startTime = System.nanoTime();
-        PrimeFinder.hasNonPrimeParallel(arr, 4);
+        PrimeFinder.hasNonPrimeParallel(arr, 8);
         long endTime = System.nanoTime();
         assertTrue(endTimeReference-startTimeReference > endTime - startTime);
 
