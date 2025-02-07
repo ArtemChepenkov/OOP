@@ -1,64 +1,67 @@
 package ru.nsu.chepenkov.primemultithread;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Arrays;
+import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.concurrent.ExecutionException;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+/**
+ * Здесь представлены простые тесты, замеры времени были сделаны не тут.
+ */
 
 public class PrimeFinderTest {
 
     @DisplayName("MainTestSequentialHasNotPrime")
     @Test
     void mainTestSequentialHasNotPrime() {
-        int[] test_arr = {4,4,4,4,4};
-        Assertions.assertTrue(PrimeFinder.hasNonPrimeSequential(test_arr));
+        int[] testArr = {4, 4, 4, 4, 4};
+        Assertions.assertTrue(PrimeFinder.hasNonPrimeSequential(testArr));
     }
 
     @DisplayName("MainTestSequentialHasPrime")
     @Test
     void mainTestSequentialHasPrime() {
-        int[] test_arr = {2,2,2,2,2};
-        Assertions.assertFalse(PrimeFinder.hasNonPrimeSequential(test_arr));
+        int[] testArr = {2, 2, 2, 2, 2};
+        Assertions.assertFalse(PrimeFinder.hasNonPrimeSequential(testArr));
     }
 
 
     @DisplayName("MainTestParallelHasNotPrime")
     @Test
     void mainTestParallelHasNotPrime() throws ExecutionException, InterruptedException {
-        int[] test_arr = {4,4,4,4,4};
-        Assertions.assertTrue(PrimeFinder.hasNonPrimeParallel(test_arr, 2));
+        int[] testArr = {4, 4, 4, 4, 4};
+        Assertions.assertTrue(PrimeFinder.hasNonPrimeParallel(testArr, 2));
     }
 
     @DisplayName("MainTestParallelHasPrime")
     @Test
     void mainTestParallelHasPrime() throws ExecutionException, InterruptedException {
-        int[] test_arr = {2,2,2,2,2};
-        Assertions.assertFalse(PrimeFinder.hasNonPrimeParallel(test_arr, 2));
+        int[] testArr = {2, 2, 2, 2, 2};
+        Assertions.assertFalse(PrimeFinder.hasNonPrimeParallel(testArr, 2));
     }
 
     @DisplayName("MainTestParallelStreamHasNotPrime")
     @Test
     void mainTestParallelStreamHasNotPrime() {
-        int[] test_arr = {4,4,4,4,4};
-        Assertions.assertTrue(PrimeFinder.hasNonPrimeParallelStream(test_arr));
+        int[] testArr = {4, 4, 4, 4, 4};
+        Assertions.assertTrue(PrimeFinder.hasNonPrimeParallelStream(testArr));
     }
 
     @DisplayName("MainTestParallelStreamHasPrime")
     @Test
     void mainTestParallelStreamHasPrime() {
-        int[] test_arr = {2,2,2,2,2};
-        Assertions.assertFalse(PrimeFinder.hasNonPrimeParallelStream(test_arr));
+        int[] testArr = {2, 2, 2, 2, 2};
+        Assertions.assertFalse(PrimeFinder.hasNonPrimeParallelStream(testArr));
     }
 
     @DisplayName("MainTestTimeCompare")
     @Test
     void mainTestTimeCompare() throws ExecutionException, InterruptedException {
-        int size = (int)1e4;
+        int size = (int) 1e4;
         int[] arr = new int[size];
         Arrays.fill(arr, 20319251); //check worst case
 
@@ -70,13 +73,13 @@ public class PrimeFinderTest {
         long startTime = System.nanoTime();
         PrimeFinder.hasNonPrimeParallel(arr, 8);
         long endTime = System.nanoTime();
-        assertTrue(endTimeReference-startTimeReference > endTime - startTime);
+        assertTrue(endTimeReference - startTimeReference > endTime - startTime);
 
         startTime = System.nanoTime();
         PrimeFinder.hasNonPrimeParallelStream(arr);
         endTime = System.nanoTime();
 
-        assertTrue(endTimeReference-startTimeReference > endTime - startTime);
+        assertTrue(endTimeReference - startTimeReference > endTime - startTime);
 
     }
 }
