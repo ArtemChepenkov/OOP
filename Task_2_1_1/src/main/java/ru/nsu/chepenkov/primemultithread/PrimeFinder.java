@@ -1,5 +1,6 @@
 package ru.nsu.chepenkov.primemultithread;
 
+import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -9,7 +10,7 @@ import java.util.stream.IntStream;
  * Класс, реализует решение задачи(может название не самое удачное).
  */
 
-public class PrimeFinder {
+public class PrimeFinder{
 
     /**
      * Обычный поиск "за корень".
@@ -45,19 +46,25 @@ public class PrimeFinder {
             throws InterruptedException, ExecutionException {
 
         AtomicBoolean foundNonPrime = new AtomicBoolean(false);
-        ForkJoinPool pool = new ForkJoinPool(numThreads);
-
-        pool.submit(() -> IntStream.range(0, numbers.length)
-                .parallel()
-                .filter(i -> !foundNonPrime.get())
-                .forEach(i -> {
-                    if (!isPrime(numbers[i])) {
+        Thread[] threadArray = new Thread[numThreads];
+        int len = numbers.length;
+        for (int i = 0; i < numThreads; i++) {
+            int finalI = i;
+            Thread thread = new Thread(()->{
+                for (int j = finalI; j < len && !foundNonPrime.get(); j+=numThreads) {
+                    if (!isPrime(numbers[j])) {
                         foundNonPrime.set(true);
                     }
-                })
-        ).get();
+                }
+            });
+            thread.start();
+            threadArray[i] = thread;
+        }
 
-        pool.shutdown();
+        for (int i = 0; i < numThreads; i++) {
+            threadArray[i].join();
+        }
+
         return foundNonPrime.get();
     }
 
@@ -67,4 +74,20 @@ public class PrimeFinder {
     public static boolean hasNonPrimeParallelStream(int[] numbers) {
         return IntStream.of(numbers).parallel().anyMatch(num -> !isPrime(num));
     }
+
+    /*public static void main(String[] args) throws ExecutionException, InterruptedException {
+        int[] arr = new int[(int)1e3 * 5];
+        Arrays.fill(arr,  524287);
+        long summa = 0;
+            for (int j = 1; j <= 1000; j++) {
+                long time = System.nanoTime();
+                hasNonPrimeParallel(arr,8);
+                //hasNonPrimeSequential(arr);
+                //hasNonPrimeParallelStream(arr);
+                long time1 = System.nanoTime();
+                summa += time1 - time;
+            }
+            System.out.print(summa / 1000);
+    }*/
 }
+
