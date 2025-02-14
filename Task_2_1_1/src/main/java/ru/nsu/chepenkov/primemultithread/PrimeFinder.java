@@ -1,8 +1,6 @@
 package ru.nsu.chepenkov.primemultithread;
 
-import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.IntStream;
 
