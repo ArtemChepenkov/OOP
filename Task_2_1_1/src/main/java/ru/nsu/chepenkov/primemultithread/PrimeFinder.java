@@ -50,8 +50,8 @@ public class PrimeFinder{
         int len = numbers.length;
         for (int i = 0; i < numThreads; i++) {
             int finalI = i;
-            Thread thread = new Thread(()->{
-                for (int j = finalI; j < len && !foundNonPrime.get(); j+=numThreads) {
+            Thread thread = new Thread(()-> {
+                for (int j = finalI; j < len && !foundNonPrime.get(); j += numThreads) {
                     if (!isPrime(numbers[j])) {
                         foundNonPrime.set(true);
                     }
