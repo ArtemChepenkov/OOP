@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
  * Класс, реализует решение задачи(может название не самое удачное).
  */
 
-public class PrimeFinder{
+public class PrimeFinder {
 
     /**
      * Обычный поиск "за корень".
@@ -50,7 +50,7 @@ public class PrimeFinder{
         int len = numbers.length;
         for (int i = 0; i < numThreads; i++) {
             int finalI = i;
-            Thread thread = new Thread(()-> {
+            Thread thread = new Thread(() -> {
                 for (int j = finalI; j < len && !foundNonPrime.get(); j += numThreads) {
                     if (!isPrime(numbers[j])) {
                         foundNonPrime.set(true);
