@@ -3,6 +3,11 @@ plugins {
     id 'jacoco'
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 group = 'ru.nsu.chepenkov.pizzeria'
 version = '1.0-SNAPSHOT'
