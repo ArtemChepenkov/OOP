@@ -37,7 +37,7 @@ public class Storage {
                 return null;
             }
         }
-        // передавать функцию и проверять закрыта пиццерия или нет
+
         Order order = queue.removeLast();
         currentNumber -= order.getPizzaNumber();
         return order;
