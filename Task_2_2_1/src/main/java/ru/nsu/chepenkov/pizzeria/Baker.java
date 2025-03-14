@@ -13,6 +13,7 @@ public class Baker implements Runnable {
     private static int bakerCounter;
     private final int bakerId;
 
+    /**Конструктор.*/
     public Baker(int bakeTime, Storage storage, OrderQueue orderQueue) {
         this.bakeTime = bakeTime;
         this.storage = storage;
@@ -21,6 +22,7 @@ public class Baker implements Runnable {
         this.bakerId = bakerCounter;
     }
 
+    /**Собственно, наш поток.*/
     @Override
     public void run() {
         try {

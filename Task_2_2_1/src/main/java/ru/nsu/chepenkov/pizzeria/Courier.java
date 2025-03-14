@@ -1,5 +1,4 @@
 package ru.nsu.chepenkov.pizzeria;
-import ru.nsu.chepenkov.pizzeria.Storage;
 
 /**
  * Курьер.
@@ -14,6 +13,7 @@ public class Courier implements Runnable {
     private static int courierCounter;
     private final int courierId;
 
+    /**Конструктор.*/
     public Courier(int deliveryTime, Storage storage, int trunkCapacity) {
         this.deliveryTime = deliveryTime;
         this.storage = storage;
@@ -22,6 +22,7 @@ public class Courier implements Runnable {
         this.courierId = courierCounter;
     }
 
+    /**Собственно, наш поток.*/
     @Override
     public void run() {
         try {
