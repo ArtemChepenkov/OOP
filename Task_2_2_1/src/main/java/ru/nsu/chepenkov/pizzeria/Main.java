@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import ru.nsu.chepenkov.pizzeria.Storage;
 import static java.lang.Thread.sleep;
 
 public class Main {
@@ -34,12 +33,13 @@ public class Main {
             JsonNode storageNode = rootNode.get("storage");
             storageCapacity = storageNode.get("storageCapacity").asInt();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         Storage storage = new Storage(storageCapacity);
         OrderQueue orderQueue = new OrderQueue();
         List<Thread> bakers = new ArrayList<>();
         List<Thread> couriers = new ArrayList<>();
+        storage.setBakerNumber(bakerNumber);
 
         for (int i = 0; i < bakerNumber; i++) {
             bakers.add(new Thread(new Baker(bakeTime, storage, orderQueue)));

@@ -18,7 +18,12 @@ public class Baker implements Runnable {
     @Override
     public void run() {
         try {
-            while(storage.isOpened()) {
+            while(true) {
+                if (storage.needBakerFinish()) {
+                    storage.bakerGoHome();
+                    storage.tryClosePizzeria();
+                    break;
+                }
                 Order curOrder = orderQueue.takeOrder();
                 for (int i = 0; i < curOrder.getPizzaNumber(); i++) {
                     Thread.sleep(bakeTime);

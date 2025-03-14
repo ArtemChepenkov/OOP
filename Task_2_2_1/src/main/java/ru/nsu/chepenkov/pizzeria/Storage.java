@@ -9,6 +9,10 @@ public class Storage {
     private int currentNumber;
     private final List<Order> queue;
     private boolean openCondition;
+    private boolean bakerFinished = false;
+    private int bakerNumber;
+    private static int bakersGoneHome = 0;
+
     public Storage(int capacity) {
         this.capacity = capacity;
         this.currentNumber = 0;
@@ -29,8 +33,11 @@ public class Storage {
     public synchronized Order takeOrder() throws InterruptedException {
         while(queue.isEmpty()) {
             wait(waitTime);
+            if(!isOpened()) {
+                return null;
+            }
         }
-
+        // передавать функцию и проверять закрыта пиццерия или нет
         Order order = queue.removeLast();
         currentNumber -= order.getPizzaNumber();
         return order;
@@ -41,6 +48,25 @@ public class Storage {
     }
 
     public synchronized void closePizzeria() {
-        openCondition = false;
+        //openCondition = false;
+        bakerFinished = true;
+    }
+
+    public synchronized void bakerGoHome() {
+        bakersGoneHome++;
+    }
+
+    public synchronized void tryClosePizzeria() {
+        if (bakersGoneHome == bakerNumber) {
+            openCondition = false;
+        }
+    }
+
+    public synchronized boolean needBakerFinish() {
+        return bakerFinished;
+    }
+
+    public void setBakerNumber(int bakerNumber) {
+        this.bakerNumber = bakerNumber;
     }
 }
