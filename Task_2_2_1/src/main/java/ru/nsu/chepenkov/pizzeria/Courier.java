@@ -27,8 +27,6 @@ public class Courier implements Runnable {
     public void run() {
         try {
             while (true) {
-                //курьеры уходят, когда пекари заканчивают работу и закрывают склад
-                //ещё передавать функ интерфейс, чтобы проверять закрытость скалда
                 int curTrunkCapacity = trunkCapacity;
                 int flag = 0;
                 while (curTrunkCapacity > 0) {
@@ -42,7 +40,8 @@ public class Courier implements Runnable {
                 }
                 Thread.sleep(deliveryTime);
                 System.out.println("delivered " + (trunkCapacity - curTrunkCapacity) + " pizzas");
-                if(flag == 1) {
+
+                if (flag == 1) {
                     break;
                 }
             }

@@ -1,13 +1,13 @@
 package ru.nsu.chepenkov.pizzeria;
 
+import static java.lang.Thread.sleep;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import static java.lang.Thread.sleep;
 
 /**
  * Главный класс для запуска.

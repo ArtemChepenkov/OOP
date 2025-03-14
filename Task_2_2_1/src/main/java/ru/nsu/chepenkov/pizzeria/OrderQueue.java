@@ -28,9 +28,11 @@ public class OrderQueue {
 
     /**Взятие заказа.*/
     public synchronized Order takeOrder() throws InterruptedException {
+
         while(queue.isEmpty()) {
             wait(waitTime);
         }
+        
         Order order = queue.getLast();
         queue.removeLast();
         return order;
