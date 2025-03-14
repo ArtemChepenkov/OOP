@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class OrderQueue {
-    private final List<Order> queue;
+    private final LinkedList<Order> queue;
     private final int waitTime = 100;
     private static int subOrderId = 1;
 
