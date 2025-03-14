@@ -56,7 +56,7 @@ public class Main {
         }
 
         for (int i = 0; i < 20; i++) {
-            orderQueue.addOrder(new Order(2, i+1));
+            orderQueue.addOrder(new Order(2, i + 1));
         }
 
         for (int i = 0; i < bakerNumber; i++) {

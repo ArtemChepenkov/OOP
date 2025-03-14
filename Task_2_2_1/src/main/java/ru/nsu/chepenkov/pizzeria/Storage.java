@@ -39,9 +39,9 @@ public class Storage {
 
     /**Взять заказ.*/
     public synchronized Order takeOrder() throws InterruptedException {
-        while(queue.isEmpty()) {
+        while (queue.isEmpty()) {
             wait(waitTime);
-            if(!isOpened()) {
+            if (!isOpened()) {
                 return null;
             }
         }

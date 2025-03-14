@@ -26,7 +26,7 @@ public class Baker implements Runnable {
     @Override
     public void run() {
         try {
-            while(true) {
+            while (true) {
                 if (storage.needBakerFinish()) {
                     storage.bakerGoHome();
                     storage.tryClosePizzeria();
