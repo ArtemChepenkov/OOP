@@ -28,7 +28,7 @@ public class OrderQueue {
 
     /**Взятие заказа.*/
     public synchronized Order takeOrder() throws InterruptedException {
-        while(queue.isEmpty()) {
+        while (queue.isEmpty()) {
             wait(waitTime);
         }
 

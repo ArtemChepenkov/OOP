@@ -16,6 +16,8 @@ import java.util.List;
  */
 
 public class Main {
+
+    /**Пример работы пиццерии.*/
     public static void main(String[] args) throws InterruptedException {
         ObjectMapper objectMapper = new ObjectMapper();
         int bakerNumber = 0;
