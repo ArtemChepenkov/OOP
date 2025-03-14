@@ -5,6 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Тест курьера.
+ *
+ * @author ArtemChepenkov
+ */
+
 class CourierTest {
 
     private Storage storage;
@@ -13,7 +19,7 @@ class CourierTest {
     @BeforeEach
     void setUp() {
         storage = new Storage(10);
-        courier = new Courier(1000, storage, 3); // Время доставки 1000 мс, вместимость багажника 3
+        courier = new Courier(1000, storage, 3);
     }
 
 

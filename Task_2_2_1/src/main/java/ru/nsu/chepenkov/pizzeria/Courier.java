@@ -1,6 +1,12 @@
 package ru.nsu.chepenkov.pizzeria;
 import ru.nsu.chepenkov.pizzeria.Storage;
 
+/**
+ * Курьер.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Courier implements Runnable {
     private final int deliveryTime;
     private final int trunkCapacity;
@@ -16,7 +22,6 @@ public class Courier implements Runnable {
         this.courierId = courierCounter;
     }
 
-    //TODO: сделать так, чтобы курьер ещё полагался на вместимость багажника
     @Override
     public void run() {
         try {

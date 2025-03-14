@@ -3,6 +3,12 @@ package ru.nsu.chepenkov.pizzeria;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Хранилище.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Storage {
     private final int capacity;
     private final int waitTime = 100;

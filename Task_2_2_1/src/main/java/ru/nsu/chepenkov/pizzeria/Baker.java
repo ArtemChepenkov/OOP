@@ -1,5 +1,11 @@
 package ru.nsu.chepenkov.pizzeria;
 
+/**
+ * Пекарь.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Baker implements Runnable {
     private final int bakeTime;
     private final Storage storage;

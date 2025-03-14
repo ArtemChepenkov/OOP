@@ -1,7 +1,12 @@
 package ru.nsu.chepenkov.pizzeria;
 
 import java.util.LinkedList;
-import java.util.List;
+
+/**
+ * Заказы, которые заполняем из main.
+ *
+ * @author ArtemChepenkov
+ */
 
 public class OrderQueue {
     private final LinkedList<Order> queue;

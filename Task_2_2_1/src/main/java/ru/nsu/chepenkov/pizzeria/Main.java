@@ -9,6 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 import static java.lang.Thread.sleep;
 
+/**
+ * Главный класс для запуска.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         ObjectMapper objectMapper = new ObjectMapper();

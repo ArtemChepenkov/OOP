@@ -5,6 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Тест очереди заказов, которую заполняем из main.
+ *
+ * @author ArtemChepenkov
+ */
+
 class OrderQueueTest {
 
     private OrderQueue orderQueue;

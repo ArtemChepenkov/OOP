@@ -6,6 +6,12 @@ import org.junit.jupiter.api.Test;
 import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Тест пекаря.
+ *
+ * @author ArtemChepenkov
+ */
+
 class BakerTest {
 
     private Storage storage;

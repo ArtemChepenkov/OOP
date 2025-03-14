@@ -1,5 +1,11 @@
 package ru.nsu.chepenkov.pizzeria;
 
+/**
+ * Класс для заказов.
+ *
+ * @author ArtemChepenkov
+ */
+
 public class Order {
     private final int pizzaNumber;
     private final int orderId;

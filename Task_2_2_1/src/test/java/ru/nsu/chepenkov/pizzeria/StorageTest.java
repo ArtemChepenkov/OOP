@@ -6,6 +6,12 @@ import org.junit.jupiter.api.Test;
 import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Тест хранилища.
+ *
+ * @author ArtemChepenkov
+ */
+
 class StorageTest {
 
     private Storage storage;
@@ -29,26 +35,11 @@ class StorageTest {
         assertEquals(1, storage.takeOrder().getPizzaNumber());
     }
 
-//    @Test
-//    void testIsOpened() throws InterruptedException {
-//        assertTrue(storage.isOpened());
-//        storage.closePizzeria();
-//        sleep(3000);
-//        assertFalse(storage.isOpened());
-//    }
-
     @Test
     void testClosePizzeria() {
         storage.closePizzeria();
         assertTrue(storage.needBakerFinish());
     }
-
-//    @Test
-//    void testTryClosePizzeria() {
-//        storage.setBakerNumber(1);
-//        storage.bakerGoHome();
-//        assertFalse(storage.isOpened());
-//    }
 
     @Test
     void testNeedBakerFinish() {
