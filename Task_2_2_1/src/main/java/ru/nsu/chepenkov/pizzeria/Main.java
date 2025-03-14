@@ -1,17 +1,84 @@
 package ru.nsu.chepenkov.pizzeria;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import ru.nsu.chepenkov.pizzeria.Storage;
+import static java.lang.Thread.sleep;
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        int bakerNumber = 0;
+        int bakeTime = 0;
+        int courierNumber = 0;
+        int deliveryTime = 0;
+        int trunkCapacity = 0;
+        int storageCapacity = 0;
+        try {
+            JsonNode rootNode = objectMapper.readTree(new File("data.json"));
+
+            JsonNode bakerNode = rootNode.get("baker");
+            bakeTime = bakerNode.get("bakeTime").asInt();
+            bakerNumber = bakerNode.get("bakerNumber").asInt();
+
+            JsonNode courierNode = rootNode.get("courier");
+            deliveryTime = courierNode.get("deliveryTime").asInt();
+            courierNumber = courierNode.get("courierNumber").asInt();
+            trunkCapacity = courierNode.get("trunkCapacity").asInt();
+
+            JsonNode storageNode = rootNode.get("storage");
+            storageCapacity = storageNode.get("storageCapacity").asInt();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        Storage storage = new Storage(storageCapacity);
+        OrderQueue orderQueue = new OrderQueue();
+        List<Thread> bakers = new ArrayList<>();
+        List<Thread> couriers = new ArrayList<>();
+
+        for (int i = 0; i < bakerNumber; i++) {
+            bakers.add(new Thread(new Baker(bakeTime, storage, orderQueue)));
+        }
+
+        for (int i = 0; i < courierNumber; i++) {
+            couriers.add(new Thread(new Courier(deliveryTime, storage, trunkCapacity)));
+        }
+
+        for (int i = 0; i < 20; i++) {
+            orderQueue.addOrder(new Order(2, i+1));
+        }
+
+        for (int i = 0; i < bakerNumber; i++) {
+            bakers.get(i).start();
+        }
+
+        for (int i = 0; i < courierNumber; i++) {
+            couriers.get(i).start();
+        }
+        sleep(10000);
+        storage.closePizzeria();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

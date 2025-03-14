@@ -1,0 +1,14 @@
+{
+  "baker": {
+    "bakeTime": 1000,
+    "bakerNumber": 3
+  },
+  "courier": {
+    "deliveryTime": 2000,
+    "courierNumber": 3,
+    "trunkCapacity": 3
+  },
+  "storage": {
+    "storageCapacity": 10
+  }
+}
