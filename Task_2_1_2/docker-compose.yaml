@@ -1,39 +1,29 @@
 services:
   master:
     build: .
+    hostname: master
     command: ru.nsu.chepenkov.prime.MasterNode
     ports:
-      - "8080:8080"
-    volumes:
-      - ./build:/app/build
-    depends_on:
-      - worker1
-      - worker2
-      - worker3
+      - "8080:8080" # Для клиентов
+      - "8081:8081" # Для регистрации воркеров
+    networks:
+      - prime-net
 
   worker1:
     build: .
     command: ru.nsu.chepenkov.prime.WorkerNode
-    ports:
-      - "8081:8081"
-    volumes:
-      - ./build:/app/build
+    depends_on:
+      - master
+    networks:
+      - prime-net
 
   worker2:
     build: .
     command: ru.nsu.chepenkov.prime.WorkerNode
-    ports:
-      - "8082:8081"
-    volumes:
-      - ./build:/app/build
-
-  worker3:
-    build: .
-    command: ru.nsu.chepenkov.prime.WorkerNode
-    ports:
-      - "8083:8081"
-    volumes:
-      - ./build:/app/build
+    depends_on:
+      - master
+    networks:
+      - prime-net
 
   client:
     build: .
@@ -42,5 +32,9 @@ services:
       - master
     stdin_open: true
     tty: true
-    volumes:
-      - ./build:/app/build
+    networks:
+      - prime-net
+
+networks:
+  prime-net:
+    driver: bridge

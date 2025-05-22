@@ -23,10 +23,8 @@ public class MasterNode {
     }
 
     public void start() {
-        // Поток для регистрации рабочих узлов
         new Thread(this::registerWorkers).start();
 
-        // Основной цикл обработки клиентских запросов
         while (!serverSocket.isClosed()) {
             try {
                 Socket clientSocket = serverSocket.accept();
@@ -44,21 +42,20 @@ public class MasterNode {
             while (!serverSocket.isClosed()) {
                 try {
                     Socket socket = workerSocket.accept();
-                    String workerAddress = socket.getInetAddress().getHostAddress();
+                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 
+                    String workerAddress = socket.getInetAddress().getHostAddress();
                     synchronized (workerAddresses) {
                         if (workerAddresses.size() < MAX_WORKERS) {
                             workerAddresses.add(workerAddress);
                             System.out.println("Registered worker: " + workerAddress);
                         } else {
                             System.out.println("Worker limit reached, rejecting: " + workerAddress);
-                            socket.close();
                         }
                     }
-                } catch (IOException e) {
-                    if (!workerSocket.isClosed()) {
-                        System.err.println("Error registering worker: " + e.getMessage());
-                    }
+                    socket.close();
+                } catch (Exception e) {
+                    System.err.println("Error registering worker: " + e.getMessage());
                 }
             }
         } catch (IOException e) {
@@ -66,14 +63,35 @@ public class MasterNode {
         }
     }
 
+
+    private void waitForMinWorkers(int minCount, int timeoutMillis) {
+        long start = System.currentTimeMillis();
+        while (true) {
+            synchronized (workerAddresses) {
+                if (workerAddresses.size() >= minCount) {
+                    break;
+                }
+            }
+            if (System.currentTimeMillis() - start > timeoutMillis) break;
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ignored) {}
+        }
+    }
+
     private void handleClient(Socket clientSocket) {
         try (ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
              ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream())) {
 
-            int[] numbers = (int[]) in.readObject();
-            System.out.println("Processing task with " + numbers.length + " numbers from " +
-                    clientSocket.getInetAddress());
+            Object received = in.readObject();
+            if (!(received instanceof int[])) {
+                System.err.println("Invalid data type received: " + received);
+                return;
+            }
 
+            int[] numbers = (int[]) received;
+            System.out.println("Processing task with " + numbers.length + " numbers");
+            waitForMinWorkers(2, 5000);
             boolean result = processTaskDistributed(numbers);
             out.writeBoolean(result);
             out.flush();
@@ -99,13 +117,11 @@ public class MasterNode {
                 return hasNonPrimeSequential(numbers);
             }
 
-            // Разделяем задачу между рабочими узлами
             int chunkSize = (numbers.length + workerAddresses.size() - 1) / workerAddresses.size();
 
             for (int i = 0; i < workerAddresses.size() && !foundNonPrime.get(); i++) {
                 int start = i * chunkSize;
                 int end = Math.min(start + chunkSize, numbers.length);
-
                 if (start >= end) continue;
 
                 int[] chunk = Arrays.copyOfRange(numbers, start, end);
@@ -116,10 +132,10 @@ public class MasterNode {
             }
         }
 
-        // Ожидаем результаты от рабочих узлов
         for (Future<Boolean> future : futures) {
             try {
-                if (future.get() != null && future.get()) {
+                Boolean result = future.get();
+                if (result != null && result) {
                     foundNonPrime.set(true);
                     break;
                 }
@@ -163,24 +179,12 @@ public class MasterNode {
         }
     }
 
-    public void stop() {
-        try {
-            serverSocket.close();
-        } catch (IOException e) {
-            System.err.println("Error closing server socket: " + e.getMessage());
-        }
-        executor.shutdown();
-    }
-
     public static boolean isPrime(int num) {
         if (num < 2) return false;
         if (num % 2 == 0) return num == 2;
         if (num % 3 == 0) return num == 3;
-
         for (int i = 5; i * i <= num; i += 6) {
-            if (num % i == 0 || num % (i + 2) == 0) {
-                return false;
-            }
+            if (num % i == 0 || num % (i + 2) == 0) return false;
         }
         return true;
     }

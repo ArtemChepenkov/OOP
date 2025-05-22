@@ -1,6 +1,5 @@
 package ru.nsu.chepenkov.prime;
 
-import org.w3c.dom.ls.LSOutput;
 
 import java.io.*;
 import java.net.*;
@@ -26,7 +25,7 @@ public class PrimeClient {
 //        while (true) {
             //System.out.print("> ");
         //String input = scanner.nextLine().trim();
-        String input = "1 2 3";
+        String input = "2 2 3 3 17 19 91 71";
         System.out.println("got input");
 //            if (input.isEmpty()) {
 //                break;
@@ -60,7 +59,6 @@ public class PrimeClient {
 
     private static boolean sendRequest(int[] numbers) throws IOException {
         try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
-
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 
