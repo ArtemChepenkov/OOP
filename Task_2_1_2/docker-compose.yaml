@@ -1,0 +1,46 @@
+services:
+  master:
+    build: .
+    command: ru.nsu.chepenkov.prime.MasterNode
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./build:/app/build
+    depends_on:
+      - worker1
+      - worker2
+      - worker3
+
+  worker1:
+    build: .
+    command: ru.nsu.chepenkov.prime.WorkerNode
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./build:/app/build
+
+  worker2:
+    build: .
+    command: ru.nsu.chepenkov.prime.WorkerNode
+    ports:
+      - "8082:8081"
+    volumes:
+      - ./build:/app/build
+
+  worker3:
+    build: .
+    command: ru.nsu.chepenkov.prime.WorkerNode
+    ports:
+      - "8083:8081"
+    volumes:
+      - ./build:/app/build
+
+  client:
+    build: .
+    command: ru.nsu.chepenkov.prime.PrimeClient
+    depends_on:
+      - master
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./build:/app/build
